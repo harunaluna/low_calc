@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DotAmf;
+
 namespace low
 {
     public partial class Form1 : Form
