@@ -10,8 +10,9 @@ namespace low
     #region 装备配置
     class Wuqipeizhi
     {
-        // 名前  物攻  魔攻  防御  魔防  C  B  属  性  物魔属性/物理0，魔法1 
-
+        //   物攻  魔攻  防御  魔防  C  B  属  属值  物魔属性/物理0，魔法1 
+        //    0     1    2    3    4  5  6   7          8
+        public int[] なし;
         public int[] おたま;
         public int[] ショートソード;
         public int[] アックス;
@@ -333,6 +334,7 @@ namespace low
 
     class Dunpeizhi
     {
+        public int[] なし;
         public int[] バックラー;
         public int[] ラウンドシールド;
         public int[] なべの蓋;
@@ -626,6 +628,7 @@ namespace low
 
     class Yifupeizhi
     {
+        public int[] なし;
         public int[] す巻き;
         public int[] 冒険者の服;
         public int[] ライトメイル;
@@ -915,6 +918,7 @@ namespace low
 
     class Zhipeizhi
     {
+        public int[] なし;
         public int[] カーボンリング;
         public int[] 怒りの指輪;
         public int[] ナイトリング;
@@ -1030,6 +1034,7 @@ namespace low
 
     class Shoupeizhi
     {
+        public int[] なし;
         public int[] 金のネックレス;
         public int[] 電気石の首飾り;
         public int[] 古びた首飾り;
@@ -1148,7 +1153,7 @@ namespace low
 
     class Cardpeizhi
     {
-        public Carddata 未選択;
+        public Carddata なし;
         public Carddata 夢幻のメア;
         public Carddata 真夏の悪魔カミュ;
         public Carddata プチXティターン;

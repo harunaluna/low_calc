@@ -80,12 +80,23 @@
             this.label16 = new System.Windows.Forms.Label();
             this.jieguo = new System.Windows.Forms.Label();
             this.jisuan = new System.Windows.Forms.Button();
+            this.zj_chaxun = new System.Windows.Forms.Button();
+            this.dr_chaxun = new System.Windows.Forms.Button();
+            this.zj_card_1 = new System.Windows.Forms.Label();
+            this.zj_card_2 = new System.Windows.Forms.Label();
+            this.zj_card_3 = new System.Windows.Forms.Label();
+            this.dr_card_3 = new System.Windows.Forms.Label();
+            this.dr_card_2 = new System.Windows.Forms.Label();
+            this.dr_card_1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.zj_card_3);
+            this.groupBox1.Controls.Add(this.zj_card_2);
+            this.groupBox1.Controls.Add(this.zj_card_1);
             this.groupBox1.Controls.Add(this.wulimofa_1);
             this.groupBox1.Controls.Add(this.shuxing_1);
             this.groupBox1.Controls.Add(this.critical_1);
@@ -318,6 +329,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dr_card_3);
+            this.groupBox2.Controls.Add(this.dr_card_2);
+            this.groupBox2.Controls.Add(this.dr_card_1);
             this.groupBox2.Controls.Add(this.wulimofa_2);
             this.groupBox2.Controls.Add(this.shuxing_2);
             this.groupBox2.Controls.Add(this.ka3_2);
@@ -570,17 +584,93 @@
             this.jisuan.UseVisualStyleBackColor = true;
             this.jisuan.Click += new System.EventHandler(this.button1_Click);
             // 
+            // zj_chaxun
+            // 
+            this.zj_chaxun.Location = new System.Drawing.Point(75, 495);
+            this.zj_chaxun.Name = "zj_chaxun";
+            this.zj_chaxun.Size = new System.Drawing.Size(75, 23);
+            this.zj_chaxun.TabIndex = 19;
+            this.zj_chaxun.Text = "查询数据";
+            this.zj_chaxun.UseVisualStyleBackColor = true;
+            this.zj_chaxun.Click += new System.EventHandler(this.zj_chaxun_Click);
+            // 
+            // dr_chaxun
+            // 
+            this.dr_chaxun.Location = new System.Drawing.Point(475, 495);
+            this.dr_chaxun.Name = "dr_chaxun";
+            this.dr_chaxun.Size = new System.Drawing.Size(75, 23);
+            this.dr_chaxun.TabIndex = 20;
+            this.dr_chaxun.Text = "查询数据";
+            this.dr_chaxun.UseVisualStyleBackColor = true;
+            // 
+            // zj_card_1
+            // 
+            this.zj_card_1.AutoSize = true;
+            this.zj_card_1.Location = new System.Drawing.Point(15, 281);
+            this.zj_card_1.Name = "zj_card_1";
+            this.zj_card_1.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_1.TabIndex = 24;
+            this.zj_card_1.Text = "卡1：";
+            // 
+            // zj_card_2
+            // 
+            this.zj_card_2.AutoSize = true;
+            this.zj_card_2.Location = new System.Drawing.Point(134, 281);
+            this.zj_card_2.Name = "zj_card_2";
+            this.zj_card_2.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_2.TabIndex = 25;
+            this.zj_card_2.Text = "卡2：";
+            // 
+            // zj_card_3
+            // 
+            this.zj_card_3.AutoSize = true;
+            this.zj_card_3.Location = new System.Drawing.Point(236, 281);
+            this.zj_card_3.Name = "zj_card_3";
+            this.zj_card_3.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_3.TabIndex = 26;
+            this.zj_card_3.Text = "卡3：";
+            // 
+            // dr_card_3
+            // 
+            this.dr_card_3.AutoSize = true;
+            this.dr_card_3.Location = new System.Drawing.Point(255, 281);
+            this.dr_card_3.Name = "dr_card_3";
+            this.dr_card_3.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_3.TabIndex = 32;
+            this.dr_card_3.Text = "卡3：";
+            // 
+            // dr_card_2
+            // 
+            this.dr_card_2.AutoSize = true;
+            this.dr_card_2.Location = new System.Drawing.Point(153, 281);
+            this.dr_card_2.Name = "dr_card_2";
+            this.dr_card_2.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_2.TabIndex = 31;
+            this.dr_card_2.Text = "卡2：";
+            // 
+            // dr_card_1
+            // 
+            this.dr_card_1.AutoSize = true;
+            this.dr_card_1.Location = new System.Drawing.Point(34, 281);
+            this.dr_card_1.Name = "dr_card_1";
+            this.dr_card_1.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_1.TabIndex = 30;
+            this.dr_card_1.Text = "卡1：";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 627);
+            this.Controls.Add(this.dr_chaxun);
+            this.Controls.Add(this.zj_chaxun);
             this.Controls.Add(this.jisuan);
             this.Controls.Add(this.jieguo);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -644,6 +734,14 @@
         private System.Windows.Forms.Label wuligongji_2;
         private System.Windows.Forms.Label wulimofa_1;
         private System.Windows.Forms.Label wulimofa_2;
+        private System.Windows.Forms.Button zj_chaxun;
+        private System.Windows.Forms.Button dr_chaxun;
+        private System.Windows.Forms.Label zj_card_3;
+        private System.Windows.Forms.Label zj_card_2;
+        private System.Windows.Forms.Label zj_card_1;
+        private System.Windows.Forms.Label dr_card_3;
+        private System.Windows.Forms.Label dr_card_2;
+        private System.Windows.Forms.Label dr_card_1;
     }
 }
 

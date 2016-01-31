@@ -13,6 +13,7 @@ namespace low
 
         public static void card_zhuangzai(Cardpeizhi card_obj)
         {
+            card_dict.Add("なし", card_obj.なし);
             card_dict.Add("夢幻のメア", card_obj.夢幻のメア);
             card_dict.Add("真夏の悪魔カミュ", card_obj.真夏の悪魔カミュ);
             card_dict.Add("プチ☆ティターン", card_obj.プチXティターン);
@@ -742,6 +743,7 @@ namespace low
 
         public static void wuqi_zhuangzai(Wuqipeizhi wuqi_obj)
         {
+            wuqi_dict.Add("なし", wuqi_obj.なし);
             wuqi_dict.Add("おたま", wuqi_obj.おたま);
             wuqi_dict.Add("ショートソード", wuqi_obj.ショートソード);
             wuqi_dict.Add("アックス", wuqi_obj.アックス);
@@ -1064,6 +1066,7 @@ namespace low
 
         public static void dun_zhuangzai(Dunpeizhi dun_obj)
         {
+            dun_dict.Add("なし", dun_obj.なし);
             dun_dict.Add("バックラー", dun_obj.バックラー);
             dun_dict.Add("ラウンドシールド", dun_obj.ラウンドシールド);
             dun_dict.Add("なべの蓋", dun_obj.なべの蓋);
@@ -1361,6 +1364,7 @@ namespace low
 
         public static void yifu_zhuangzai(Yifupeizhi yifu_obj)
         {
+            yifu_dict.Add("なし", yifu_obj.なし);
             yifu_dict.Add("す巻き", yifu_obj.す巻き);
             yifu_dict.Add("冒険者の服", yifu_obj.冒険者の服);
             yifu_dict.Add("ライトメイル", yifu_obj.ライトメイル);
@@ -1655,6 +1659,7 @@ namespace low
 
         public static void zhi_zhuangzai(Zhipeizhi zhi_obj)
         {
+            zhi_dict.Add("なし", zhi_obj.なし);
             zhi_dict.Add("カーボンリング", zhi_obj.カーボンリング);
             zhi_dict.Add("怒りの指輪", zhi_obj.怒りの指輪);
             zhi_dict.Add("ナイトリング", zhi_obj.ナイトリング);
@@ -1775,6 +1780,7 @@ namespace low
 
         public static void shou_zhuangzai(Shoupeizhi shou_obj)
         {
+            shou_dict.Add("なし", shou_obj.なし);
             shou_dict.Add("金のネックレス", shou_obj.金のネックレス);
             shou_dict.Add("電気石の首飾り", shou_obj.電気石の首飾り);
             shou_dict.Add("古びた首飾り", shou_obj.古びた首飾り);
