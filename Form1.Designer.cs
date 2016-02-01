@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.zj_card_3 = new System.Windows.Forms.Label();
+            this.zj_card_2 = new System.Windows.Forms.Label();
+            this.zj_card_1 = new System.Windows.Forms.Label();
             this.wulimofa_1 = new System.Windows.Forms.Label();
             this.shuxing_1 = new System.Windows.Forms.Label();
             this.critical_1 = new System.Windows.Forms.Label();
@@ -54,6 +57,9 @@
             this.youshou_1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dr_card_3 = new System.Windows.Forms.Label();
+            this.dr_card_2 = new System.Windows.Forms.Label();
+            this.dr_card_1 = new System.Windows.Forms.Label();
             this.wulimofa_2 = new System.Windows.Forms.Label();
             this.shuxing_2 = new System.Windows.Forms.Label();
             this.ka3_2 = new System.Windows.Forms.TextBox();
@@ -82,12 +88,6 @@
             this.jisuan = new System.Windows.Forms.Button();
             this.zj_chaxun = new System.Windows.Forms.Button();
             this.dr_chaxun = new System.Windows.Forms.Button();
-            this.zj_card_1 = new System.Windows.Forms.Label();
-            this.zj_card_2 = new System.Windows.Forms.Label();
-            this.zj_card_3 = new System.Windows.Forms.Label();
-            this.dr_card_3 = new System.Windows.Forms.Label();
-            this.dr_card_2 = new System.Windows.Forms.Label();
-            this.dr_card_1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +127,33 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "自己";
+            // 
+            // zj_card_3
+            // 
+            this.zj_card_3.AutoSize = true;
+            this.zj_card_3.Location = new System.Drawing.Point(236, 305);
+            this.zj_card_3.Name = "zj_card_3";
+            this.zj_card_3.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_3.TabIndex = 26;
+            this.zj_card_3.Text = "卡3：";
+            // 
+            // zj_card_2
+            // 
+            this.zj_card_2.AutoSize = true;
+            this.zj_card_2.Location = new System.Drawing.Point(134, 305);
+            this.zj_card_2.Name = "zj_card_2";
+            this.zj_card_2.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_2.TabIndex = 25;
+            this.zj_card_2.Text = "卡2：";
+            // 
+            // zj_card_1
+            // 
+            this.zj_card_1.AutoSize = true;
+            this.zj_card_1.Location = new System.Drawing.Point(15, 305);
+            this.zj_card_1.Name = "zj_card_1";
+            this.zj_card_1.Size = new System.Drawing.Size(35, 12);
+            this.zj_card_1.TabIndex = 24;
+            this.zj_card_1.Text = "卡1：";
             // 
             // wulimofa_1
             // 
@@ -201,7 +228,7 @@
             // 
             // ka3_1
             // 
-            this.ka3_1.Location = new System.Drawing.Point(54, 239);
+            this.ka3_1.Location = new System.Drawing.Point(54, 263);
             this.ka3_1.Name = "ka3_1";
             this.ka3_1.Size = new System.Drawing.Size(100, 21);
             this.ka3_1.TabIndex = 15;
@@ -209,7 +236,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 242);
+            this.label8.Location = new System.Drawing.Point(7, 266);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 14;
@@ -217,7 +244,7 @@
             // 
             // ka2_1
             // 
-            this.ka2_1.Location = new System.Drawing.Point(54, 212);
+            this.ka2_1.Location = new System.Drawing.Point(54, 236);
             this.ka2_1.Name = "ka2_1";
             this.ka2_1.Size = new System.Drawing.Size(100, 21);
             this.ka2_1.TabIndex = 13;
@@ -225,7 +252,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 215);
+            this.label7.Location = new System.Drawing.Point(7, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 12);
             this.label7.TabIndex = 12;
@@ -233,7 +260,7 @@
             // 
             // ka1_1
             // 
-            this.ka1_1.Location = new System.Drawing.Point(54, 185);
+            this.ka1_1.Location = new System.Drawing.Point(54, 209);
             this.ka1_1.Name = "ka1_1";
             this.ka1_1.Size = new System.Drawing.Size(100, 21);
             this.ka1_1.TabIndex = 11;
@@ -241,7 +268,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 188);
+            this.label6.Location = new System.Drawing.Point(7, 212);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(23, 12);
             this.label6.TabIndex = 10;
@@ -363,6 +390,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "对方";
             // 
+            // dr_card_3
+            // 
+            this.dr_card_3.AutoSize = true;
+            this.dr_card_3.Location = new System.Drawing.Point(255, 305);
+            this.dr_card_3.Name = "dr_card_3";
+            this.dr_card_3.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_3.TabIndex = 32;
+            this.dr_card_3.Text = "卡3：";
+            // 
+            // dr_card_2
+            // 
+            this.dr_card_2.AutoSize = true;
+            this.dr_card_2.Location = new System.Drawing.Point(153, 305);
+            this.dr_card_2.Name = "dr_card_2";
+            this.dr_card_2.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_2.TabIndex = 31;
+            this.dr_card_2.Text = "卡2：";
+            // 
+            // dr_card_1
+            // 
+            this.dr_card_1.AutoSize = true;
+            this.dr_card_1.Location = new System.Drawing.Point(34, 305);
+            this.dr_card_1.Name = "dr_card_1";
+            this.dr_card_1.Size = new System.Drawing.Size(35, 12);
+            this.dr_card_1.TabIndex = 30;
+            this.dr_card_1.Text = "卡1：";
+            // 
             // wulimofa_2
             // 
             this.wulimofa_2.AutoSize = true;
@@ -382,7 +436,7 @@
             // 
             // ka3_2
             // 
-            this.ka3_2.Location = new System.Drawing.Point(54, 239);
+            this.ka3_2.Location = new System.Drawing.Point(54, 263);
             this.ka3_2.Name = "ka3_2";
             this.ka3_2.Size = new System.Drawing.Size(100, 21);
             this.ka3_2.TabIndex = 15;
@@ -399,7 +453,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 242);
+            this.label9.Location = new System.Drawing.Point(7, 266);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(23, 12);
             this.label9.TabIndex = 14;
@@ -416,7 +470,7 @@
             // 
             // ka2_2
             // 
-            this.ka2_2.Location = new System.Drawing.Point(54, 212);
+            this.ka2_2.Location = new System.Drawing.Point(54, 236);
             this.ka2_2.Name = "ka2_2";
             this.ka2_2.Size = new System.Drawing.Size(100, 21);
             this.ka2_2.TabIndex = 13;
@@ -433,7 +487,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 215);
+            this.label10.Location = new System.Drawing.Point(7, 239);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(23, 12);
             this.label10.TabIndex = 12;
@@ -450,7 +504,7 @@
             // 
             // ka1_2
             // 
-            this.ka1_2.Location = new System.Drawing.Point(54, 185);
+            this.ka1_2.Location = new System.Drawing.Point(54, 209);
             this.ka1_2.Name = "ka1_2";
             this.ka1_2.Size = new System.Drawing.Size(100, 21);
             this.ka1_2.TabIndex = 11;
@@ -467,7 +521,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 188);
+            this.label11.Location = new System.Drawing.Point(7, 212);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(23, 12);
             this.label11.TabIndex = 10;
@@ -602,60 +656,7 @@
             this.dr_chaxun.TabIndex = 20;
             this.dr_chaxun.Text = "查询数据";
             this.dr_chaxun.UseVisualStyleBackColor = true;
-            // 
-            // zj_card_1
-            // 
-            this.zj_card_1.AutoSize = true;
-            this.zj_card_1.Location = new System.Drawing.Point(15, 281);
-            this.zj_card_1.Name = "zj_card_1";
-            this.zj_card_1.Size = new System.Drawing.Size(35, 12);
-            this.zj_card_1.TabIndex = 24;
-            this.zj_card_1.Text = "卡1：";
-            // 
-            // zj_card_2
-            // 
-            this.zj_card_2.AutoSize = true;
-            this.zj_card_2.Location = new System.Drawing.Point(134, 281);
-            this.zj_card_2.Name = "zj_card_2";
-            this.zj_card_2.Size = new System.Drawing.Size(35, 12);
-            this.zj_card_2.TabIndex = 25;
-            this.zj_card_2.Text = "卡2：";
-            // 
-            // zj_card_3
-            // 
-            this.zj_card_3.AutoSize = true;
-            this.zj_card_3.Location = new System.Drawing.Point(236, 281);
-            this.zj_card_3.Name = "zj_card_3";
-            this.zj_card_3.Size = new System.Drawing.Size(35, 12);
-            this.zj_card_3.TabIndex = 26;
-            this.zj_card_3.Text = "卡3：";
-            // 
-            // dr_card_3
-            // 
-            this.dr_card_3.AutoSize = true;
-            this.dr_card_3.Location = new System.Drawing.Point(255, 281);
-            this.dr_card_3.Name = "dr_card_3";
-            this.dr_card_3.Size = new System.Drawing.Size(35, 12);
-            this.dr_card_3.TabIndex = 32;
-            this.dr_card_3.Text = "卡3：";
-            // 
-            // dr_card_2
-            // 
-            this.dr_card_2.AutoSize = true;
-            this.dr_card_2.Location = new System.Drawing.Point(153, 281);
-            this.dr_card_2.Name = "dr_card_2";
-            this.dr_card_2.Size = new System.Drawing.Size(35, 12);
-            this.dr_card_2.TabIndex = 31;
-            this.dr_card_2.Text = "卡2：";
-            // 
-            // dr_card_1
-            // 
-            this.dr_card_1.AutoSize = true;
-            this.dr_card_1.Location = new System.Drawing.Point(34, 281);
-            this.dr_card_1.Name = "dr_card_1";
-            this.dr_card_1.Size = new System.Drawing.Size(35, 12);
-            this.dr_card_1.TabIndex = 30;
-            this.dr_card_1.Text = "卡1：";
+            this.dr_chaxun.Click += new System.EventHandler(this.dr_chaxun_Click);
             // 
             // Form1
             // 
