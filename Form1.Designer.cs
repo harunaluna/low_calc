@@ -88,12 +88,22 @@
             this.jisuan = new System.Windows.Forms.Button();
             this.zj_chaxun = new System.Windows.Forms.Button();
             this.dr_chaxun = new System.Windows.Forms.Button();
+            this.ka1_cb_1 = new System.Windows.Forms.ComboBox();
+            this.ka2_cb_1 = new System.Windows.Forms.ComboBox();
+            this.ka3_cb_1 = new System.Windows.Forms.ComboBox();
+            this.ka3_cb_2 = new System.Windows.Forms.ComboBox();
+            this.ka2_cb_2 = new System.Windows.Forms.ComboBox();
+            this.ka1_cb_2 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ka3_cb_1);
+            this.groupBox1.Controls.Add(this.ka2_cb_1);
+            this.groupBox1.Controls.Add(this.ka1_cb_1);
             this.groupBox1.Controls.Add(this.zj_card_3);
             this.groupBox1.Controls.Add(this.zj_card_2);
             this.groupBox1.Controls.Add(this.zj_card_1);
@@ -356,6 +366,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ka3_cb_2);
+            this.groupBox2.Controls.Add(this.ka2_cb_2);
+            this.groupBox2.Controls.Add(this.ka1_cb_2);
+            this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.dr_card_3);
             this.groupBox2.Controls.Add(this.dr_card_2);
             this.groupBox2.Controls.Add(this.dr_card_1);
@@ -658,6 +672,98 @@
             this.dr_chaxun.UseVisualStyleBackColor = true;
             this.dr_chaxun.Click += new System.EventHandler(this.dr_chaxun_Click);
             // 
+            // ka1_cb_1
+            // 
+            this.ka1_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka1_cb_1.FormattingEnabled = true;
+            this.ka1_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka1_cb_1.Location = new System.Drawing.Point(160, 209);
+            this.ka1_cb_1.Name = "ka1_cb_1";
+            this.ka1_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka1_cb_1.TabIndex = 27;
+            // 
+            // ka2_cb_1
+            // 
+            this.ka2_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka2_cb_1.FormattingEnabled = true;
+            this.ka2_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka2_cb_1.Location = new System.Drawing.Point(160, 237);
+            this.ka2_cb_1.Name = "ka2_cb_1";
+            this.ka2_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka2_cb_1.TabIndex = 28;
+            // 
+            // ka3_cb_1
+            // 
+            this.ka3_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka3_cb_1.FormattingEnabled = true;
+            this.ka3_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka3_cb_1.Location = new System.Drawing.Point(160, 264);
+            this.ka3_cb_1.Name = "ka3_cb_1";
+            this.ka3_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka3_cb_1.TabIndex = 29;
+            // 
+            // ka3_cb_2
+            // 
+            this.ka3_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka3_cb_2.FormattingEnabled = true;
+            this.ka3_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka3_cb_2.Location = new System.Drawing.Point(160, 264);
+            this.ka3_cb_2.Name = "ka3_cb_2";
+            this.ka3_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka3_cb_2.TabIndex = 36;
+            // 
+            // ka2_cb_2
+            // 
+            this.ka2_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka2_cb_2.FormattingEnabled = true;
+            this.ka2_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka2_cb_2.Location = new System.Drawing.Point(160, 237);
+            this.ka2_cb_2.Name = "ka2_cb_2";
+            this.ka2_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka2_cb_2.TabIndex = 35;
+            // 
+            // ka1_cb_2
+            // 
+            this.ka1_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka1_cb_2.FormattingEnabled = true;
+            this.ka1_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka1_cb_2.Location = new System.Drawing.Point(160, 209);
+            this.ka1_cb_2.Name = "ka1_cb_2";
+            this.ka1_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka1_cb_2.TabIndex = 34;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(213, 215);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 12);
+            this.label17.TabIndex = 33;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -743,6 +849,13 @@
         private System.Windows.Forms.Label dr_card_3;
         private System.Windows.Forms.Label dr_card_2;
         private System.Windows.Forms.Label dr_card_1;
+        private System.Windows.Forms.ComboBox ka1_cb_1;
+        private System.Windows.Forms.ComboBox ka3_cb_1;
+        private System.Windows.Forms.ComboBox ka2_cb_1;
+        private System.Windows.Forms.ComboBox ka3_cb_2;
+        private System.Windows.Forms.ComboBox ka2_cb_2;
+        private System.Windows.Forms.ComboBox ka1_cb_2;
+        private System.Windows.Forms.Label label17;
     }
 }
 

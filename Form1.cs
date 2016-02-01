@@ -14,10 +14,14 @@ namespace low
     public partial class Form1 : Form
     {
 
-        kssm ziji;
-
-        kssm diren;
-
+        static kssm ziji;
+        static card ziji_1;
+        static card ziji_2;
+        static card ziji_3;
+        static kssm diren;
+        static card diren_1;
+        static card diren_2;
+        static card diren_3;
 
 
         public Form1()
@@ -27,101 +31,13 @@ namespace low
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ziji == null && diren == null)
+            //if (ziji == null && ziji_1 == null && ziji_2 == null && ziji_3 == null && diren == null && diren_1 == null && diren_2 == null && diren_3 == null)
+            if (ziji == null || diren == null)
             {
                 MessageBox.Show("boom");
             }
             else
             {
-
-
-                //card1(商人)
-                bool card1_cunzai = true;
-                wulimofaleixing card1_wmtype = wulimofaleixing.魔法;
-                int card1_atk = 22487;
-                int card1_sdk = 81922;
-                int card1_fadong = 33;//不带%
-                int card1_balance = 14;
-                int card1_critical = 30;
-                int card1_shuxingzhi = 50;
-                shuxingleixing card1_shuxingtype = shuxingleixing.fire;
-
-                //card2
-                bool card2_cunzai = true;
-                wulimofaleixing card2_wmtype = wulimofaleixing.物理;
-                int card2_atk = 33515;
-                int card2_sdk = 65816;
-                int card2_fadong = 55;//不带%
-                int card2_balance = 3;
-                int card2_critical = 47;
-                int card2_shuxingzhi = 50;
-                shuxingleixing card2_shuxingtype = shuxingleixing.water;
-
-                //card3
-                bool card3_cunzai = true;
-                wulimofaleixing card3_wmtype = wulimofaleixing.物理;
-                int card3_atk = 39312;
-                int card3_sdk = 64714;
-                int card3_fadong = 54;//不带%
-                int card3_balance = 12;
-                int card3_critical = 28;
-                int card3_shuxingzhi = 50;
-                shuxingleixing card3_shuxingtype = shuxingleixing.earth;
-
-
-                card ziji_1 = new card(card1_cunzai, card1_wmtype, card1_atk, card1_sdk, card1_fadong, card1_balance, card1_critical, card1_shuxingzhi, card1_shuxingtype);
-
-                card ziji_2 = new card(card2_cunzai, card2_wmtype, card2_atk, card2_sdk, card2_fadong, card2_balance, card2_critical, card2_shuxingzhi, card2_shuxingtype);
-
-                card ziji_3 = new card(card3_cunzai, card3_wmtype, card3_atk, card3_sdk, card3_fadong, card3_balance, card3_critical, card3_shuxingzhi, card3_shuxingtype);
-
-
-
-
-                //d
-                //card1
-                card1_cunzai = true;
-                card1_wmtype = wulimofaleixing.物理;
-                card1_atk = 42242;
-                card1_sdk = 65346;
-                card1_fadong = 52;//不带%%
-                card1_balance = 1;
-                card1_critical = 41;
-                card1_shuxingzhi = 60;
-                card1_shuxingtype = shuxingleixing.water;
-
-                //card2
-                card2_cunzai = true;
-                card2_wmtype = wulimofaleixing.物理;
-                card2_atk = 33515;
-                card2_sdk = 65816;
-                card2_fadong = 55;//不带%
-                card2_balance = 3;
-                card2_critical = 47;
-                card2_shuxingzhi = 50;
-                card2_shuxingtype = shuxingleixing.water;
-
-                //card3
-                card3_cunzai = true;
-                card3_wmtype = wulimofaleixing.物理;
-                card3_atk = 11152;
-                card3_sdk = 73408;
-                card3_fadong = 61;//不带%
-                card3_balance = 5;
-                card3_critical = 46;
-                card3_shuxingzhi = 65;
-                card3_shuxingtype = shuxingleixing.wind;
-
-
-                card diren_1 = new card(card1_cunzai, card1_wmtype, card1_atk, card1_sdk, card1_fadong, card1_balance, card1_critical, card1_shuxingzhi, card1_shuxingtype);
-
-                card diren_2 = new card(card2_cunzai, card2_wmtype, card2_atk, card2_sdk, card2_fadong, card2_balance, card2_critical, card2_shuxingzhi, card2_shuxingtype);
-
-                card diren_3 = new card(card3_cunzai, card3_wmtype, card3_atk, card3_sdk, card3_fadong, card3_balance, card3_critical, card3_shuxingzhi, card3_shuxingtype);
-
-
-
-
 
                 zhandou asd = new zhandou();
 
@@ -134,6 +50,13 @@ namespace low
         private void Form1_Load(object sender, EventArgs e)
         {
             Chushihua.chushihua();
+            ka1_cb_1.SelectedIndex = 0;
+            ka2_cb_1.SelectedIndex = 0;
+            ka3_cb_1.SelectedIndex = 0;
+            ka1_cb_2.SelectedIndex = 0;
+            ka2_cb_2.SelectedIndex = 0;
+            ka3_cb_2.SelectedIndex = 0;
+
         }
 
         private void zj_chaxun_Click(object sender, EventArgs e)
@@ -306,6 +229,7 @@ namespace low
 
             #region 卡1查询
             Chushihua.card1_name = ka1_1.Text.ToString();
+            Chushihua.card1_jieduan = ka1_cb_1.SelectedIndex;
             if (Chushihua.card1_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card1_name))
@@ -316,17 +240,19 @@ namespace low
                 {
                     MessageBox.Show("卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-
+                    Chushihua.card1_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
+                Chushihua.card1_jieduan = 0;
             }
             #endregion
 
             #region 卡2查询
             Chushihua.card2_name = ka2_1.Text.ToString();
+            Chushihua.card2_jieduan = ka2_cb_1.SelectedIndex;
             if (Chushihua.card2_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card2_name))
@@ -337,17 +263,19 @@ namespace low
                 {
                     MessageBox.Show("卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-
+                    Chushihua.card2_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
+                Chushihua.card2_jieduan = 0;
             }
             #endregion
 
             #region 卡3查询
             Chushihua.card3_name = ka3_1.Text.ToString();
+            Chushihua.card3_jieduan = ka3_cb_1.SelectedIndex;
             if (Chushihua.card3_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card3_name))
@@ -358,17 +286,18 @@ namespace low
                 {
                     MessageBox.Show("卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-
+                    Chushihua.card3_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
+                Chushihua.card3_jieduan = 0;
             }
             #endregion
 
 
-            ziji = kssmpeizhi.peizhi();
+            ziji = kssmzhuangzai.peizhi();
 
             wuligongji_1.Text = "物理攻击:" + ziji.wuligongji;
             mofagongji_1.Text = "魔法攻击:" + ziji.mofagongji;
@@ -379,6 +308,30 @@ namespace low
             shuxing_1.Text = "属性:" + ziji.shuxingzhi + " " + ziji.shuxingtype;
             wulimofa_1.Text = "" + ziji.kssm_wmtype;
 
+
+            ziji_1 = cardzhuangzai.peizhi(Chushihua.card1_duiying, Chushihua.card1_jieduan);
+            ziji_2 = cardzhuangzai.peizhi(Chushihua.card2_duiying, Chushihua.card2_jieduan);
+            ziji_3 = cardzhuangzai.peizhi(Chushihua.card3_duiying, Chushihua.card3_jieduan);
+
+
+            zj_card_1.Text = "卡1：\nad" + ziji_1.atk
+                + "\nsd" + ziji_1.sdk
+                + "\n发动" + ziji_1.fadong
+                + "\nB值" + ziji_1.balance
+                + "\nC值" + ziji_1.critical
+                + "\n属性" + ziji_1.shuxingtype + ziji_1.shuxingzhi;
+            zj_card_2.Text = "卡1：\nad" + ziji_2.atk
+                + "\nsd" + ziji_2.sdk
+                + "\n发动" + ziji_2.fadong
+                + "\nB值" + ziji_2.balance
+                + "\nC值" + ziji_2.critical
+                + "\n属性" + ziji_2.shuxingtype + ziji_2.shuxingzhi;
+            zj_card_3.Text = "卡1：\nad" + ziji_3.atk
+                + "\nsd" + ziji_3.sdk
+                + "\n发动" + ziji_3.fadong
+                + "\nB值" + ziji_3.balance
+                + "\nC值" + ziji_3.critical
+                + "\n属性" + ziji_3.shuxingtype + ziji_3.shuxingzhi;
 
         }
 
@@ -553,6 +506,7 @@ namespace low
 
             #region 卡1查询
             Chushihua.card1_name = ka1_2.Text.ToString();
+            Chushihua.card1_jieduan = ka1_cb_2.SelectedIndex;
             if (Chushihua.card1_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card1_name))
@@ -563,17 +517,19 @@ namespace low
                 {
                     MessageBox.Show("卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-
+                    Chushihua.card1_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
+                Chushihua.card1_jieduan = 0;
             }
             #endregion
 
             #region 卡2查询
             Chushihua.card2_name = ka2_2.Text.ToString();
+            Chushihua.card2_jieduan = ka2_cb_2.SelectedIndex;
             if (Chushihua.card2_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card2_name))
@@ -584,17 +540,19 @@ namespace low
                 {
                     MessageBox.Show("卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-
+                    Chushihua.card2_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
+                Chushihua.card2_jieduan = 0;
             }
             #endregion
 
             #region 卡3查询
             Chushihua.card3_name = ka3_2.Text.ToString();
+            Chushihua.card3_jieduan = ka3_cb_2.SelectedIndex;
             if (Chushihua.card3_name != "")
             {
                 if (Dict.card_dict.ContainsKey(Chushihua.card3_name))
@@ -605,17 +563,18 @@ namespace low
                 {
                     MessageBox.Show("卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-
+                    Chushihua.card3_jieduan = 0;
                 }
             }
             else
             {
                 Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
+                Chushihua.card3_jieduan = 0;
             }
             #endregion
 
 
-            diren = kssmpeizhi.peizhi();
+            diren = kssmzhuangzai.peizhi();
 
             wuligongji_2.Text = "物理攻击:" + diren.wuligongji;
             mofagongji_2.Text = "魔法攻击:" + diren.mofagongji;
@@ -625,6 +584,31 @@ namespace low
             critical_2.Text = "C值:" + diren.critical;
             shuxing_2.Text = "属性:" + diren.shuxingzhi + " " + diren.shuxingtype;
             wulimofa_2.Text = "" + diren.kssm_wmtype;
+
+
+
+            diren_1 = cardzhuangzai.peizhi(Chushihua.card1_duiying, Chushihua.card1_jieduan);
+            diren_2 = cardzhuangzai.peizhi(Chushihua.card2_duiying, Chushihua.card2_jieduan);
+            diren_3 = cardzhuangzai.peizhi(Chushihua.card3_duiying, Chushihua.card3_jieduan);
+
+            dr_card_1.Text = "卡1：\nad" + diren_1.atk
+                + "\nsd" + diren_1.sdk
+                + "\n发动" + diren_1.fadong
+                + "\nB值" + diren_1.balance
+                + "\nC值" + diren_1.critical
+                + "\n属性" + diren_1.shuxingtype + diren_1.shuxingzhi;
+            dr_card_2.Text = "卡1：\nad" + diren_2.atk
+                + "\nsd" + diren_2.sdk
+                + "\n发动" + diren_2.fadong
+                + "\nB值" + diren_2.balance
+                + "\nC值" + diren_2.critical
+                + "\n属性" + diren_2.shuxingtype + diren_2.shuxingzhi;
+            dr_card_3.Text = "卡1：\nad" + diren_3.atk
+                + "\nsd" + diren_3.sdk
+                + "\n发动" + diren_3.fadong
+                + "\nB值" + diren_3.balance
+                + "\nC值" + diren_3.critical
+                + "\n属性" + diren_3.shuxingtype + diren_3.shuxingzhi;
 
         }
     }

@@ -90,24 +90,24 @@ namespace low
     /// <summary>
     /// 骑士配置
     /// </summary>
-    class kssmpeizhi
+    class kssmzhuangzai
     {
-        //kssm
-       static int wuligongji ;
-       static int mofagongji;
-       static int wulifangyu ;
-       static int mofafangyu ;
-       static int critical ;
-       static int balance ;
-       static int shuxingzhi;
-       static shuxingleixing shuxingtype;
 
-       static int[][] shuxing;
+        static int wuligongji;
+        static int mofagongji;
+        static int wulifangyu;
+        static int mofafangyu;
+        static int critical;
+        static int balance;
+        static int shuxingzhi;
+        static shuxingleixing shuxingtype;
 
-       static int  wulichengzhang;
-       static int  mofachengzhang;
+        static int[][] shuxing;
 
-        
+        static int wulichengzhang;
+        static int mofachengzhang;
+
+
         public static kssm peizhi()
         {
             wuligongji = 10;
@@ -117,8 +117,8 @@ namespace low
             critical = 10;
             balance = 5;
             shuxingzhi = 0;
-             shuxingtype = 0;
-            
+            shuxingtype = 0;
+
             shuxing = new int[4][] { new int[] { 0, 0 }, new int[] { 0, 1 }, new int[] { 0, 2 }, new int[] { 0, 3 } };
 
 
@@ -256,7 +256,7 @@ namespace low
                             maxweizhi = j;
                         }
                     }
-                    if (shuxing[i][0]>max)
+                    if (shuxing[i][0] > max)
                     {
                         temp1 = shuxing[i][0];
                         temp2 = shuxing[i][1];
@@ -266,9 +266,9 @@ namespace low
                         shuxing[maxweizhi][1] = temp2;
                     }
                     max = 0; maxweizhi = 0;
-                    
-                    
-                    
+
+
+
                 }
 
                 if (shuxing[0][0] == shuxing[1][0])
@@ -320,7 +320,103 @@ namespace low
     }
 
 
+    /// <summary>
+    /// 卡配置
+    /// </summary>
+    class cardzhuangzai
+    {
+
+        static bool card_cunzai = true;
+        static wulimofaleixing card_wmtype = wulimofaleixing.物理;
+        static int card_atk = 0;
+        static int card_sdk = 0;
+        static int card_fadong = 0;//不带%
+        static int card_balance = 0;
+        static int card_critical = 0;
+        static int card_shuxingzhi = 0;
+        static shuxingleixing card_shuxingtype = 0;
 
 
+        public static card peizhi(Carddata duiying, int jieduan)
+        {
+            card_wmtype = (wulimofaleixing)(int.Parse(duiying.type));
+            card_fadong = (int)duiying.sk[jieduan];//不带%
+            card_balance = duiying.ba[jieduan];
+            card_critical = duiying.ct[jieduan];
+
+
+            card_shuxingzhi = Convert.ToInt32((duiying.elevalue[jieduan] * 100) - 100);
+            card_shuxingtype = (shuxingleixing)(int.Parse(duiying.eletype) - 1);
+
+            int adbenjimax = 0;
+            int sdbenjimax = 0;
+            for (int i = 0; i <= jieduan; i++)
+            {
+                adbenjimax = adjisuan(i, adbenjimax, duiying);
+
+                sdbenjimax = sdjisuan(i, sdbenjimax, duiying);
+            }
+
+
+            card_atk = adbenjimax;
+            card_sdk = sdbenjimax;
+
+            card card_obj = new card(card_cunzai, card_wmtype, card_atk, card_sdk, card_fadong, card_balance, card_critical, card_shuxingzhi, card_shuxingtype);
+
+            return card_obj;
+
+        }
+        public static int adjisuan(int jieduan, int shangjimax, Carddata duiying)
+        {
+            int benjimax;
+            if (jieduan == 0)
+            {
+                benjimax = (int)(duiying.atk.Base[jieduan] * (1 + duiying.atk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+
+            }
+            else if (jieduan != 3)
+            {
+                benjimax = (int)(shangjimax * 0.1);
+                benjimax = (int)(benjimax * 2 + duiying.atk.Base[jieduan]);
+                benjimax = (int)(benjimax * (1 + duiying.atk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+            }
+            else
+            {
+
+                benjimax = (int)(shangjimax * 0.1 * 2 + duiying.atk.Base[jieduan]);
+                benjimax = (int)(benjimax * (1 + duiying.atk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+
+            }
+
+            return benjimax;
+        }
+
+        public static int sdjisuan(int jieduan, int shangjimax, Carddata duiying)
+        {
+            int benjimax;
+            if (jieduan == 0)
+            {
+                benjimax = (int)(duiying.satk.Base[jieduan] * (1 + duiying.satk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+
+            }
+            else if (jieduan != 3)
+            {
+                benjimax = (int)(shangjimax * 0.1);
+                benjimax = (int)(benjimax * 2 + duiying.satk.Base[jieduan]);
+                benjimax = (int)(benjimax * (1 + duiying.satk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+            }
+            else
+            {
+
+                benjimax = (int)(shangjimax * 0.1 * 2 + duiying.satk.Base[jieduan]);
+                benjimax = (int)(benjimax * (1 + duiying.satk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+
+            }
+
+            return benjimax;
+        }
+
+
+    }
 
 }

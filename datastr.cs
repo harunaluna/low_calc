@@ -15,7 +15,7 @@ namespace low
 		'name':'未選択',
 		'subname':'未選択',
 		'type':0,
-		'eletype':0,
+		'eletype':1,
 		'elevalue':[1],
 		'rev':0,
 		'level':[1],
