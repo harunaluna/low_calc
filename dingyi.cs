@@ -60,6 +60,10 @@ namespace low
             this.mofafangyu = mofafangyu;
             this.balance = balance;
             this.critical = critical;
+            if (this.critical > 50)
+            {
+                this.critical = 50;
+            }
             this.shuxingzhi = shuxingzhi;
             this.shuxingtype = shuxingtype;
             if (this.wuligongji >= this.mofagongji)
