@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Fiddler;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +29,7 @@ namespace low
         public Form1()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,6 +59,101 @@ namespace low
             ka1_cb_2.SelectedIndex = 0;
             ka2_cb_2.SelectedIndex = 0;
             ka3_cb_2.SelectedIndex = 0;
+
+            #region fidder建立
+
+            List<Fiddler.Session> oAllSessions = new List<Fiddler.Session>();
+            Fiddler.Session amfshuju;
+
+            //Fiddler.FiddlerApplication.SetAppDisplayName("FiddlerCoreDemoApp");   //命名，没啥卵用
+
+
+            Fiddler.FiddlerApplication.AfterSessionComplete += delegate(Fiddler.Session oS)
+            {
+                //确定返回值正确
+                if (oS.fullUrl == "http://otome-a.smq.jp/flash/gateway.php")
+                {
+                    if (oS.responseCode == 200)
+                    {
+                        amfshuju = oS;
+                        fiddler.decodeamf(amfshuju);
+                        #region 数据输入
+                        if (fiddler.zt_flag==0)
+                        {
+                            youshou_1.Text = fiddler.r_hand_x_name;
+                            zuoshou_1.Text = fiddler.l_hand_x_name;
+                            ti_1.Text = fiddler.yifu_x_name;
+                            zhi_1.Text = fiddler.ring_x_name;
+                            shou_1.Text = fiddler.necklace_x_name;
+                            ka1_1.Text = fiddler.card1_name;
+                            ka2_1.Text = fiddler.card2_name;
+                            ka3_1.Text = fiddler.card3_name;
+                        }
+                        else if (fiddler.zt_flag==1)
+                        {
+                            youshou_2.Text = fiddler.r_hand_x_name;
+                            zuoshou_2.Text = fiddler.l_hand_x_name;
+                            ti_2.Text = fiddler.yifu_x_name;
+                            zhi_2.Text = fiddler.ring_x_name;
+                            shou_2.Text = fiddler.necklace_x_name;
+                            ka1_2.Text = fiddler.card1_name;
+                            ka2_2.Text = fiddler.card2_name;
+                            ka3_2.Text = fiddler.card3_name;
+                        }
+                        
+                        
+                        #endregion
+                    }
+                    else
+                    {
+                        Console.WriteLine("似乎炸了。错误代码{0}", oS.responseCode);
+                    }
+                }
+            };
+            Fiddler.FiddlerApplication.OnNotification += delegate(object sender1, NotificationEventArgs oNEA) { Console.WriteLine("** NotifyUser: " + oNEA.NotifyString); };
+            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { Console.WriteLine("** LogString: " + oLEA.LogString); };
+            Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
+            {
+                if (fiddler.pxorysetting == "")
+                {
+                    oS["X-OverrideGateway"] = null;
+                }
+                else
+                {
+                    oS["X-OverrideGateway"] = fiddler.pxorysetting;
+                }
+
+                oS.bBufferResponse = false;
+
+                Monitor.Enter(oAllSessions);
+                //保证截包截取在gateway.php
+                if (oS.fullUrl == "http://otome-a.smq.jp/flash/gateway.php")
+                {
+                    if (oAllSessions.Count > 1000)
+                    {
+                        oAllSessions.Clear();
+                    }
+                    oAllSessions.Add(oS);
+                }
+                Monitor.Exit(oAllSessions);
+            };
+
+
+            Fiddler.CONFIG.IgnoreServerCertErrors = false;
+            FiddlerApplication.Prefs.SetBoolPref("fiddler.network.streaming.abortifclientaborts", true);
+            FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.None;
+            int iPort = 8877;
+
+
+            Fiddler.FiddlerApplication.Startup(iPort, oFCSF);
+
+            FiddlerApplication.Log.LogFormat("Created endpoint listening on port {0}", iPort);
+            FiddlerApplication.Log.LogFormat("Starting with settings: [{0}]", oFCSF);
+            FiddlerApplication.Log.LogFormat("Gateway: {0}", CONFIG.UpstreamGateway.ToString());
+
+            #endregion
+
+
 
         }
 
@@ -611,5 +709,8 @@ namespace low
                 + "\n属性" + diren_3.shuxingtype + diren_3.shuxingzhi;
 
         }
+
+
+        
     }
 }
