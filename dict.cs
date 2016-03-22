@@ -138,6 +138,7 @@ namespace low
             card_dict.Add("仮面魔道士パメラ", card_obj.仮面魔道士パメラ);
             card_dict.Add("炎の踊り子ジル", card_obj.炎の踊り子ジル);
             card_dict.Add("龍族アナンタ", card_obj.龍族アナンタ);
+            card_dict.Add("小天魔タルテ", card_obj.小天魔タルテ);
             card_dict.Add("剣戟のリーザ", card_obj.剣戟のリーザ);
             card_dict.Add("玲瓏の巫女焔", card_obj.玲瓏の巫女焔);
             card_dict.Add("祈祷少女火倶羅", card_obj.祈祷少女火倶羅);
@@ -174,6 +175,7 @@ namespace low
             card_dict.Add("森の妖精リア", card_obj.森の妖精リア);
             card_dict.Add("狂科学者テスラ", card_obj.狂科学者テスラ);
             card_dict.Add("祈祷師タスク", card_obj.祈祷師タスク);
+            card_dict.Add("大魔術師ルーニア", card_obj.大魔術師ルーニア);
             card_dict.Add("暴風乙姫エリカ", card_obj.暴風乙姫エリカ);
             card_dict.Add("異界の叡智HD7", card_obj.異界の叡智HD7);
             card_dict.Add("浄化の風アイリス", card_obj.浄化の風アイリス);
@@ -218,10 +220,8 @@ namespace low
             card_dict.Add("煽劣鏡悪魔神官", card_obj.煽劣鏡悪魔神官);
             card_dict.Add("澄泉の瑠璃ツカサ", card_obj.澄泉の瑠璃ツカサ);
             card_dict.Add("破魔の剛剣ヴェラ", card_obj.破魔の剛剣ヴェラ);
-            card_dict.Add("優等生☆げんぶ", card_obj.優等生Xげんぶ);
             card_dict.Add("スケバン☆げんぶ", card_obj.優等生Xげんぶ);
-
-
+            card_dict.Add("優等生☆げんぶ", card_obj.優等生Xげんぶ);
             card_dict.Add("書架の守人アテナ", card_obj.書架の守人アテナ);
             card_dict.Add("豪腕征服ガイア", card_obj.豪腕征服ガイア);
             card_dict.Add("清冽の少女マリン", card_obj.清冽の少女マリン);
@@ -252,10 +252,7 @@ namespace low
             card_dict.Add("薄燈の紅狼リュカ", card_obj.薄燈の紅狼リュカ);
             card_dict.Add("妖淫魔ヘル＝ロキ", card_obj.妖淫魔ヘルXロキ);
             card_dict.Add("疑心暗獣すざく", card_obj.一笑明獣すざく);
-
             card_dict.Add("一笑明獣すざく", card_obj.一笑明獣すざく);
-
-
             card_dict.Add("轟音！スヴァティ", card_obj.轟音Xスヴァティ);
             card_dict.Add("従順わんこエル", card_obj.従順わんこエル);
             card_dict.Add("世紀末魔人ラミア", card_obj.世紀末魔人ラミア);
@@ -297,11 +294,8 @@ namespace low
             card_dict.Add("硬式の王女ハナ", card_obj.硬式の王女ハナ);
             card_dict.Add("世界神アイオーン", card_obj.世界神アイオーン);
             card_dict.Add("大魔王女ピコ", card_obj.大魔王女ピコ);
-            card_dict.Add("スーパーびゃっこ", card_obj.スーパーびゃっこ);
-
             card_dict.Add("道端のびゃっこ", card_obj.スーパーびゃっこ);
-
-
+            card_dict.Add("スーパーびゃっこ", card_obj.スーパーびゃっこ);
             card_dict.Add("指揮官リフリータ", card_obj.指揮官リフリータ);
             card_dict.Add("清乙女フラウ", card_obj.清乙女フラウ);
             card_dict.Add("喜爛漫ティターン", card_obj.喜爛漫ティターン);
@@ -316,10 +310,8 @@ namespace low
             card_dict.Add("焔狼嬢リュカ", card_obj.焔狼嬢リュカ);
             card_dict.Add("紅鏡の神託ビビ", card_obj.紅鏡の神託ビビ);
             card_dict.Add("清雅の微笑フィル", card_obj.清雅の微笑フィル);
-            card_dict.Add("支配者ショコラ", card_obj.支配者ショコラ);
-
             card_dict.Add("フレンドショコラ", card_obj.支配者ショコラ);
-
+            card_dict.Add("支配者ショコラ", card_obj.支配者ショコラ);
             card_dict.Add("発明家レンチ", card_obj.発明家レンチ);
             card_dict.Add("探求解明シャロ", card_obj.探求解明シャロ);
             card_dict.Add("野掛姫静珠華", card_obj.野掛姫静珠華);
@@ -348,13 +340,8 @@ namespace low
             card_dict.Add("航海士オメリア", card_obj.航海士オメリア);
             card_dict.Add("守護海賊キッド", card_obj.守護海賊キッド);
             card_dict.Add("煌賊ジャスティン", card_obj.煌賊ジャスティン);
-            card_dict.Add("皆一緒せいりゅう", card_obj.皆一緒せいりゅう);
-
-            card_dict.Add("快復せいりゅう", card_obj.皆一緒せいりゅう);
-
             card_dict.Add("脆弱せいりゅう", card_obj.皆一緒せいりゅう);
-
-
+            card_dict.Add("皆一緒せいりゅう", card_obj.皆一緒せいりゅう);
             card_dict.Add("真夏の太陽レイラ", card_obj.真夏の太陽レイラ);
             card_dict.Add("服面っ娘ナイン", card_obj.服面っ娘ナイン);
             card_dict.Add("CEOオモヒカネ", card_obj.CEOオモヒカネ);
@@ -390,21 +377,12 @@ namespace low
             card_dict.Add("魅惑の女豹ミカサ", card_obj.魅惑の女豹ミカサ);
             card_dict.Add("慎みの秋風ソフィ", card_obj.慎みの秋風ソフィ);
             card_dict.Add("魔法死神メイベル", card_obj.魔法死神メイベル);
-
-
-
             card_dict.Add("誘惑天使カイ", card_obj.誘惑天使カイ);
             card_dict.Add("ハロゥ三天使カイ", card_obj.誘惑天使カイ);
             card_dict.Add("月明天使リク", card_obj.月明天使リク);
             card_dict.Add("ハロゥ三天使リク", card_obj.月明天使リク);
             card_dict.Add("愛願天使クゥ", card_obj.愛願天使クゥ);
             card_dict.Add("ハロゥ三天使クゥ", card_obj.愛願天使クゥ);
-
-
-
-
-
-
             card_dict.Add("盤上の策士ロニア", card_obj.盤上の策士ロニア);
             card_dict.Add("画伯セイレーン", card_obj.画伯セイレーン);
             card_dict.Add("奇術師パメラ", card_obj.奇術師パメラ);
@@ -468,11 +446,8 @@ namespace low
             card_dict.Add("誓いの乙女フラウ", card_obj.誓いの乙女フラウ);
             card_dict.Add("人形菓子ロニア", card_obj.人形菓子ロニア);
             card_dict.Add("機械生産のレンチ", card_obj.機械生産のレンチ);
-            card_dict.Add("マイルドショコラ", card_obj.マイルドショコラ);
-
             card_dict.Add("不足魔女ショコラ", card_obj.マイルドショコラ);
-
-
+            card_dict.Add("マイルドショコラ", card_obj.マイルドショコラ);
             card_dict.Add("チョコ駆けるウサコ", card_obj.チョコ駆けるウサコ);
             card_dict.Add("失考のレイラ", card_obj.失考のレイラ);
             card_dict.Add("白糖★影乃騎士", card_obj.白糖X影乃騎士);
@@ -541,11 +516,8 @@ namespace low
             card_dict.Add("圧倒無双ヴェラ", card_obj.圧倒無双ヴェラ);
             card_dict.Add("黄泉の女王ケーラ", card_obj.黄泉の女王ケーラ);
             card_dict.Add("韋駄天ウサコ", card_obj.韋駄天ウサコ);
-            card_dict.Add("自滅臣オモヒカネ", card_obj.自滅臣オモヒカネ);
-
             card_dict.Add("奸臣オモヒカネ", card_obj.自滅臣オモヒカネ);
-
-
+            card_dict.Add("自滅臣オモヒカネ", card_obj.自滅臣オモヒカネ);
             card_dict.Add("燃ゆる心フレア", card_obj.燃ゆる心フレア);
             card_dict.Add("慢心術師メリッサ", card_obj.慢心術師メリッサ);
             card_dict.Add("雷轟電撃マーシャ", card_obj.雷轟電撃マーシャ);
@@ -649,10 +621,7 @@ namespace low
             card_dict.Add("傀儡妖精ミュウ", card_obj.傀儡妖精ミュウ);
             card_dict.Add("喜々怪進メイラ", card_obj.喜々怪進メイラ);
             card_dict.Add("黒炎ダークファム", card_obj.黒炎ダークファム);
-
             card_dict.Add("幻影火蝶ファム", card_obj.黒炎ダークファム);
-
-
             card_dict.Add("仮面海賊キッド", card_obj.仮面海賊キッド);
             card_dict.Add("獣耳の棺女ミナ", card_obj.獣耳の棺女ミナ);
             card_dict.Add("幽玄騎士ウィナス", card_obj.幽玄騎士ウィナス);
@@ -663,10 +632,7 @@ namespace low
             card_dict.Add("化け猫娘ロミルダ", card_obj.化け猫娘ロミルダ);
             card_dict.Add("囚われ眼縛サラ", card_obj.囚われ眼縛サラ);
             card_dict.Add("禁忌ダークティオ", card_obj.禁忌ダークティオ);
-
             card_dict.Add("純白回帰ティオ", card_obj.禁忌ダークティオ);
-
-
             card_dict.Add("聖なる鐘アルカナ", card_obj.聖なる鐘アルカナ);
             card_dict.Add("初翼のアークイラ", card_obj.初翼のアークイラ);
             card_dict.Add("美人女将湯子", card_obj.美人女将湯子);
@@ -702,6 +668,7 @@ namespace low
             card_dict.Add("聖馴鹿ウルリカ", card_obj.聖馴鹿ウルリカ);
             card_dict.Add("温かな贈物つらら", card_obj.温かな贈物つらら);
             card_dict.Add("電飾乙姫エリカ", card_obj.電飾乙姫エリカ);
+            card_dict.Add("クリスマゾガスト", card_obj.クリスマゾガスト);
             card_dict.Add("ジングルエル", card_obj.ジングルエル);
             card_dict.Add("魔界サンタベルフ", card_obj.魔界サンタベルフ);
             card_dict.Add("死神聖女メイベル", card_obj.死神聖女メイベル);
@@ -721,15 +688,85 @@ namespace low
             card_dict.Add("新春祝酒せいりゅう", card_obj.新春祝酒せいりゅう);
             card_dict.Add("真剣福笑いアテナ", card_obj.真剣福笑いアテナ);
             card_dict.Add("月下正月酒ガイア", card_obj.月下正月酒ガイア);
+            card_dict.Add("凧揚げ少女マリン", card_obj.凧揚げ少女マリン);
+            card_dict.Add("新春ボケ☆アミノ", card_obj.新春ボケXアミノ);
             card_dict.Add("餅もちアナンタ", card_obj.餅もちアナンタ);
             card_dict.Add("新春制裁シェイネ", card_obj.新春制裁シェイネ);
             card_dict.Add("いろはかるた千鶴", card_obj.いろはかるた千鶴);
+            card_dict.Add("御籤神官ネルファ", card_obj.御籤神官ネルファ);
             card_dict.Add("初日出フェルミー", card_obj.初日出フェルミー);
             card_dict.Add("破魔使者ロミルダ", card_obj.破魔使者ロミルダ);
             card_dict.Add("艶独楽使いパメラ", card_obj.艶独楽使いパメラ);
+            card_dict.Add("秘めた愛欲アリン", card_obj.秘めた愛欲アリン);
+            card_dict.Add("天空甘美ユーノス", card_obj.天空甘美ユーノス);
+            card_dict.Add("恋賊ジャスティン", card_obj.恋賊ジャスティン);
+            card_dict.Add("愛情騎士ウィナス", card_obj.愛情騎士ウィナス);
+            card_dict.Add("恋の駆引きニーナ", card_obj.恋の駆引きニーナ);
+            card_dict.Add("つまみぐいエスケ", card_obj.つまみぐいエスケ);
+            card_dict.Add("告白死神メイベル", card_obj.告白死神メイベル);
+            card_dict.Add("甘い音色アルカナ", card_obj.甘い音色アルカナ);
+            card_dict.Add("にゃん恋メア", card_obj.にゃん恋メア);
+            card_dict.Add("菓子職人ミズリィ", card_obj.菓子職人ミズリィ);
+            card_dict.Add("こころ縛々ミナ", card_obj.こころ縛々ミナ);
+            card_dict.Add("恥じらい剣姫紫苑", card_obj.恥じらい剣姫紫苑);
+            card_dict.Add("カカオ探偵シャロ", card_obj.カカオ探偵シャロ);
+            card_dict.Add("チョコ天使セラフ", card_obj.チョコ天使セラフ);
+            card_dict.Add("ちょこっとヒエル", card_obj.ちょこっとヒエル);
+            card_dict.Add("ほろ苦バンシー", card_obj.ほろ苦バンシー);
+            card_dict.Add("桃色恋想いセシル", card_obj.桃色恋想いセシル);
+            card_dict.Add("芸術★影乃騎士", card_obj.芸術X影乃騎士);
+            card_dict.Add("甘香霊獣ティファ", card_obj.甘香霊獣ティファ);
+            card_dict.Add("くちどけ九尾狐", card_obj.くちどけ九尾狐);
+            card_dict.Add("立チアがーるリア", card_obj.立チアがーるリア);
+            card_dict.Add("和国茶会ロニア", card_obj.和国茶会ロニア);
+            card_dict.Add("購買乙女アリス", card_obj.購買乙女アリス);
+            card_dict.Add("国技熱中ハナ", card_obj.国技熱中ハナ);
+            card_dict.Add("祭典出動テレサ", card_obj.祭典出動テレサ);
+            card_dict.Add("塔下乙女フラウ", card_obj.塔下乙女フラウ);
+            card_dict.Add("輪遊機動デルタ", card_obj.輪遊機動デルタ);
+            card_dict.Add("車窓の魔王女ピコ", card_obj.車窓の魔王女ピコ);
+            card_dict.Add("ゴーゴー☆リーザ", card_obj.ゴーゴーXリーザ);
+            card_dict.Add("横丁獣精ウルリカ", card_obj.横丁獣精ウルリカ);
+            card_dict.Add("仲見世巡り楓", card_obj.仲見世巡り楓);
+            card_dict.Add("合羽撮影イルマ", card_obj.合羽撮影イルマ);
+            card_dict.Add("音楽追求ホルン", card_obj.音楽追求ホルン);
+            card_dict.Add("電気街魔女ファム", card_obj.電気街魔女ファム);
+            card_dict.Add("摩天楼壊盗セーヌ", card_obj.摩天楼壊盗セーヌ);
+            card_dict.Add("禁断の地火倶羅", card_obj.禁断の地火倶羅);
+            card_dict.Add("すがた絵満足雀", card_obj.すがた絵満足雀);
+            card_dict.Add("誠切の狂愛ポリン", card_obj.誠切の狂愛ポリン);
+            card_dict.Add("出前娘メイヨウ", card_obj.出前娘メイヨウ);
+            card_dict.Add("釣堀剣士アリエス", card_obj.釣堀剣士アリエス);
+            card_dict.Add("銀ぶらエリシア", card_obj.銀ぶらエリシア);
+            card_dict.Add("夜の女王カミーラ", card_obj.夜の女王カミーラ);
+            card_dict.Add("お神酒奉納メイラ", card_obj.お神酒奉納メイラ);
+            card_dict.Add("湾岸走槍ツカサ", card_obj.湾岸走槍ツカサ);
+            card_dict.Add("激写アイオーン", card_obj.激写アイオーン);
+            card_dict.Add("踊り子DJジル", card_obj.踊り子DJジル);
+            card_dict.Add("占術夜巡メリッサ", card_obj.占術夜巡メリッサ);
+            card_dict.Add("緑庭妖精モニカ", card_obj.緑庭妖精モニカ);
+            card_dict.Add("卓遊動智HD7", card_obj.卓遊動智HD7);
 
 
 
+            //合体卡数据
+
+            card_dict.Add("掌天☆影乃騎士", card_obj.掌天X影乃騎士);
+            card_dict.Add("掌天☆ラナ", card_obj.掌天Xラナ);
+            card_dict.Add("抱擁アリエス", card_obj.抱擁アリエス);
+            card_dict.Add("抱擁ジャスティン", card_obj.抱擁ジャスティン);
+            card_dict.Add("仲違姉妹シェリー", card_obj.仲違姉妹シェリー);
+            card_dict.Add("仲違姉妹カミーラ", card_obj.仲違姉妹カミーラ);
+            card_dict.Add("狂怖姉妹ポリン", card_obj.狂怖姉妹ポリン);
+            card_dict.Add("狂怖姉妹アリン", card_obj.狂怖姉妹アリン);
+            card_dict.Add("合せ姿セイレーン", card_obj.合せ姿セイレーン);
+            card_dict.Add("合せ姿リーザ", card_obj.合せ姿リーザ);
+            card_dict.Add("繋ぎ手エンジェル", card_obj.繋ぎ手エンジェル);
+            card_dict.Add("繋ぎ手フラウ", card_obj.繋ぎ手フラウ);
+            card_dict.Add("怒愛交合カミュ", card_obj.怒愛交合カミュ);
+            card_dict.Add("怒愛交合ショコラ", card_obj.怒愛交合ショコラ);
+            card_dict.Add("腕組姫王ピコ", card_obj.腕組姫王ピコ);
+            card_dict.Add("腕組姫王メア", card_obj.腕組姫王メア);
 
 
 
@@ -1650,7 +1687,7 @@ namespace low
             yifu_dict.Add("ホーリンの正装", yifu_obj.ホーリンの正装);
             yifu_dict.Add("ディモリッシュノート", yifu_obj.ディモリッシュノート);
             yifu_dict.Add("神衣イグレイン", yifu_obj.神衣イグレイン);
- 
+
         }
         #endregion
 
@@ -2419,6 +2456,19 @@ namespace low
             card_tupo_dict.Add("92281457", "防毒面アネッサ");
             card_tupo_dict.Add("70231458", "聖鎧の担い手ラナ");
             card_tupo_dict.Add("20291459", "白衣の天使クロエ");
+
+
+        }
+        #endregion
+
+
+
+        #region 合体字典
+        public static Dictionary<string, string> card_heti_dict = new Dictionary<string, string>();
+
+        public static void card_heti_zhuangzai()
+        {
+            card_tupo_dict.Add("94233572", "剣戟のリーザ");
 
 
         }

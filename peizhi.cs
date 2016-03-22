@@ -1278,6 +1278,7 @@ namespace low
         public Carddata 仮面魔道士パメラ;
         public Carddata 炎の踊り子ジル;
         public Carddata 龍族アナンタ;
+        public Carddata 小天魔タルテ;
         public Carddata 剣戟のリーザ;
         public Carddata 玲瓏の巫女焔;
         public Carddata 祈祷少女火倶羅;
@@ -1314,6 +1315,7 @@ namespace low
         public Carddata 森の妖精リア;
         public Carddata 狂科学者テスラ;
         public Carddata 祈祷師タスク;
+        public Carddata 大魔術師ルーニア;
         public Carddata 暴風乙姫エリカ;
         public Carddata 異界の叡智HD7;
         public Carddata 浄化の風アイリス;
@@ -1358,11 +1360,8 @@ namespace low
         public Carddata 煽劣鏡悪魔神官;
         public Carddata 澄泉の瑠璃ツカサ;
         public Carddata 破魔の剛剣ヴェラ;
-
-        //public data スケバンXげんぶ/スケバンXげんぶ/優等生Xげんぶ;
-
+        public Carddata スケバンXげんぶ;
         public Carddata 優等生Xげんぶ;
-
         public Carddata 書架の守人アテナ;
         public Carddata 豪腕征服ガイア;
         public Carddata 清冽の少女マリン;
@@ -1392,10 +1391,8 @@ namespace low
         public Carddata 乱舞流ナーガ;
         public Carddata 薄燈の紅狼リュカ;
         public Carddata 妖淫魔ヘルXロキ;
-        //public data 疑心暗獣すざく/疑心暗獣すざく/一笑明獣すざく;
-
+        public Carddata 疑心暗獣すざく;
         public Carddata 一笑明獣すざく;
-
         public Carddata 轟音Xスヴァティ;
         public Carddata 従順わんこエル;
         public Carddata 世紀末魔人ラミア;
@@ -1437,10 +1434,8 @@ namespace low
         public Carddata 硬式の王女ハナ;
         public Carddata 世界神アイオーン;
         public Carddata 大魔王女ピコ;
-        //public data 道端のびゃっこ/道端のびゃっこ/スーパーびゃっこ;
-
+        public Carddata 道端のびゃっこ;
         public Carddata スーパーびゃっこ;
-
         public Carddata 指揮官リフリータ;
         public Carddata 清乙女フラウ;
         public Carddata 喜爛漫ティターン;
@@ -1455,10 +1450,8 @@ namespace low
         public Carddata 焔狼嬢リュカ;
         public Carddata 紅鏡の神託ビビ;
         public Carddata 清雅の微笑フィル;
-        //public data フレンドショコラ/フレンドショコラ/支配者ショコラ;
-
+        public Carddata フレンドショコラ;
         public Carddata 支配者ショコラ;
-
         public Carddata 発明家レンチ;
         public Carddata 探求解明シャロ;
         public Carddata 野掛姫静珠華;
@@ -1487,10 +1480,8 @@ namespace low
         public Carddata 航海士オメリア;
         public Carddata 守護海賊キッド;
         public Carddata 煌賊ジャスティン;
-        //public data 脆弱せいりゅう/快復せいりゅう/皆一緒せいりゅう;
-
+        public Carddata 脆弱せいりゅう;
         public Carddata 皆一緒せいりゅう;
-
         public Carddata 真夏の太陽レイラ;
         public Carddata 服面っ娘ナイン;
         public Carddata CEOオモヒカネ;
@@ -1526,21 +1517,12 @@ namespace low
         public Carddata 魅惑の女豹ミカサ;
         public Carddata 慎みの秋風ソフィ;
         public Carddata 魔法死神メイベル;
-        //public data 誘惑天使カイ/誘惑天使カイ/ハロゥ三天使カイ/ハロゥ三天使カイ;
-        //public data 誘惑天使カイ/誘惑天使カイ/ハロゥ三天使カイ/誘惑天使カイ;
-        //public data 月明天使リク/月明天使リク/ハロゥ三天使リク/ハロゥ三天使リク;
-        //public data 月明天使リク/月明天使リク/ハロゥ三天使リク/月明天使リク;
-        //public data 愛願天使クゥ/愛願天使クゥ/ハロゥ三天使クゥ/ハロゥ三天使クゥ;
-        //public data 愛願天使クゥ/愛願天使クゥ/ハロゥ三天使クゥ/愛願天使クゥ;
-
-
         public Carddata 誘惑天使カイ;
-
+        public Carddata ハロゥ三天使カイ;
         public Carddata 月明天使リク;
-
+        public Carddata ハロゥ三天使リク;
         public Carddata 愛願天使クゥ;
-
-
+        public Carddata ハロゥ三天使クゥ;
         public Carddata 盤上の策士ロニア;
         public Carddata 画伯セイレーン;
         public Carddata 奇術師パメラ;
@@ -1604,10 +1586,8 @@ namespace low
         public Carddata 誓いの乙女フラウ;
         public Carddata 人形菓子ロニア;
         public Carddata 機械生産のレンチ;
-        //public data 不足魔女ショコラ/不足魔女ショコラ/マイルドショコラ/マイルドショコラ;
-
+        public Carddata 不足魔女ショコラ;
         public Carddata マイルドショコラ;
-
         public Carddata チョコ駆けるウサコ;
         public Carddata 失考のレイラ;
         public Carddata 白糖X影乃騎士;
@@ -1676,11 +1656,8 @@ namespace low
         public Carddata 圧倒無双ヴェラ;
         public Carddata 黄泉の女王ケーラ;
         public Carddata 韋駄天ウサコ;
-        //public data 奸臣オモヒカネ/奸臣オモヒカネ/自滅臣オモヒカネ/自滅臣オモヒカネ;
-
+        public Carddata 奸臣オモヒカネ;
         public Carddata 自滅臣オモヒカネ;
-
-
         public Carddata 燃ゆる心フレア;
         public Carddata 慢心術師メリッサ;
         public Carddata 雷轟電撃マーシャ;
@@ -1784,7 +1761,7 @@ namespace low
         public Carddata 傀儡妖精ミュウ;
         public Carddata 喜々怪進メイラ;
         public Carddata 黒炎ダークファム;
-        //public data 黒炎ダークファム/黒炎ダークファム/黒炎ダークファム/幻影火蝶ファム;
+        public Carddata 幻影火蝶ファム;
         public Carddata 仮面海賊キッド;
         public Carddata 獣耳の棺女ミナ;
         public Carddata 幽玄騎士ウィナス;
@@ -1795,7 +1772,7 @@ namespace low
         public Carddata 化け猫娘ロミルダ;
         public Carddata 囚われ眼縛サラ;
         public Carddata 禁忌ダークティオ;
-        //public data 禁忌ダークティオ/禁忌ダークティオ/禁忌ダークティオ/純白回帰ティオ;
+        public Carddata 純白回帰ティオ;
         public Carddata 聖なる鐘アルカナ;
         public Carddata 初翼のアークイラ;
         public Carddata 美人女将湯子;
@@ -1831,6 +1808,7 @@ namespace low
         public Carddata 聖馴鹿ウルリカ;
         public Carddata 温かな贈物つらら;
         public Carddata 電飾乙姫エリカ;
+        public Carddata クリスマゾガスト;
         public Carddata ジングルエル;
         public Carddata 魔界サンタベルフ;
         public Carddata 死神聖女メイベル;
@@ -1850,29 +1828,83 @@ namespace low
         public Carddata 新春祝酒せいりゅう;
         public Carddata 真剣福笑いアテナ;
         public Carddata 月下正月酒ガイア;
+        public Carddata 凧揚げ少女マリン;
+        public Carddata 新春ボケXアミノ;
         public Carddata 餅もちアナンタ;
         public Carddata 新春制裁シェイネ;
         public Carddata いろはかるた千鶴;
+        public Carddata 御籤神官ネルファ;
         public Carddata 初日出フェルミー;
         public Carddata 破魔使者ロミルダ;
         public Carddata 艶独楽使いパメラ;
+        public Carddata 秘めた愛欲アリン;
+        public Carddata 天空甘美ユーノス;
+        public Carddata 恋賊ジャスティン;
+        public Carddata 愛情騎士ウィナス;
+        public Carddata 恋の駆引きニーナ;
+        public Carddata つまみぐいエスケ;
+        public Carddata 告白死神メイベル;
+        public Carddata 甘い音色アルカナ;
+        public Carddata にゃん恋メア;
+        public Carddata 菓子職人ミズリィ;
+        public Carddata こころ縛々ミナ;
+        public Carddata 恥じらい剣姫紫苑;
+        public Carddata カカオ探偵シャロ;
+        public Carddata チョコ天使セラフ;
+        public Carddata ちょこっとヒエル;
+        public Carddata ほろ苦バンシー;
+        public Carddata 桃色恋想いセシル;
+        public Carddata 芸術X影乃騎士;
+        public Carddata 甘香霊獣ティファ;
+        public Carddata くちどけ九尾狐;
+        public Carddata 立チアがーるリア;
+        public Carddata 和国茶会ロニア;
+        public Carddata 購買乙女アリス;
+        public Carddata 国技熱中ハナ;
+        public Carddata 祭典出動テレサ;
+        public Carddata 塔下乙女フラウ;
+        public Carddata 輪遊機動デルタ;
+        public Carddata 車窓の魔王女ピコ;
+        public Carddata ゴーゴーXリーザ;
+        public Carddata 横丁獣精ウルリカ;
+        public Carddata 仲見世巡り楓;
+        public Carddata 合羽撮影イルマ;
+        public Carddata 音楽追求ホルン;
+        public Carddata 電気街魔女ファム;
+        public Carddata 摩天楼壊盗セーヌ;
+        public Carddata 禁断の地火倶羅;
+        public Carddata すがた絵満足雀;
+        public Carddata 誠切の狂愛ポリン;
+        public Carddata 出前娘メイヨウ;
+        public Carddata 釣堀剣士アリエス;
+        public Carddata 銀ぶらエリシア;
+        public Carddata 夜の女王カミーラ;
+        public Carddata お神酒奉納メイラ;
+        public Carddata 湾岸走槍ツカサ;
+        public Carddata 激写アイオーン;
+        public Carddata 踊り子DJジル;
+        public Carddata 占術夜巡メリッサ;
+        public Carddata 緑庭妖精モニカ;
+        public Carddata 卓遊動智HD7;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //合体卡配置
+        public Carddata 掌天X影乃騎士;
+        public Carddata 掌天Xラナ;
+        public Carddata 抱擁アリエス;
+        public Carddata 抱擁ジャスティン;
+        public Carddata 仲違姉妹シェリー;
+        public Carddata 仲違姉妹カミーラ;
+        public Carddata 狂怖姉妹ポリン;
+        public Carddata 狂怖姉妹アリン;
+        public Carddata 合せ姿セイレーン;
+        public Carddata 合せ姿リーザ;
+        public Carddata 繋ぎ手エンジェル;
+        public Carddata 繋ぎ手フラウ;
+        public Carddata 怒愛交合カミュ;
+        public Carddata 怒愛交合ショコラ;
+        public Carddata 腕組姫王ピコ;
+        public Carddata 腕組姫王メア;
 
 
     }
@@ -1891,9 +1923,9 @@ namespace low
 
         public float[] elevalue;
 
-        public float[] mp;
+        //public float[] mp;
 
-        public float rev;
+        //public float rev;
 
         public float[] level;
 
@@ -1909,12 +1941,12 @@ namespace low
 
         public int[] cost;
 
-        public string[] rare;
+        //public string[] rare;
 
         //暂时处理有问题，放弃
         //public Corps corps;   
 
-        public string[] Get;
+        //public string[] Get;
 
 
     }

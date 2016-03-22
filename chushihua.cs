@@ -340,13 +340,41 @@ namespace low
 
         public static card peizhi(Carddata duiying, int jieduan)
         {
+            int queshengflag = 1;
             card_wmtype = (wulimofaleixing)(int.Parse(duiying.type));
+            
             card_fadong = (int)duiying.sk[jieduan];//不带%
+            while (card_fadong==-1)
+            {
+                card_fadong = (int)duiying.sk[jieduan - queshengflag];//不带%
+                queshengflag++;
+            }
+            queshengflag = 1;
+
             card_balance = duiying.ba[jieduan];
+            while (card_balance == -1)
+            {
+                card_balance = (int)duiying.ba[jieduan - queshengflag];//不带%
+                queshengflag++;
+            }
+            queshengflag = 1;
+
             card_critical = duiying.ct[jieduan];
+            while (card_critical == -1)
+            {
+                card_critical = (int)duiying.ct[jieduan - queshengflag];//不带%
+                queshengflag++;
+            }
+            queshengflag = 1;
 
+            queshengflag = 0;
+            while (duiying.elevalue[jieduan - queshengflag] == -1)
+            {
+                queshengflag++;
+            }
+            card_shuxingzhi = Convert.ToInt32((duiying.elevalue[jieduan - queshengflag] * 100) - 100);
+            queshengflag = 1;
 
-            card_shuxingzhi = Convert.ToInt32((duiying.elevalue[jieduan] * 100) - 100);
             card_shuxingtype = (shuxingleixing)(int.Parse(duiying.eletype) - 1);
 
             int adbenjimax = 0;
