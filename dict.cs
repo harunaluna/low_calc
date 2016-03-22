@@ -2462,17 +2462,5 @@ namespace low
         #endregion
 
 
-
-        #region 合体字典
-        public static Dictionary<string, string> card_heti_dict = new Dictionary<string, string>();
-
-        public static void card_heti_zhuangzai()
-        {
-            card_tupo_dict.Add("94233572", "剣戟のリーザ");
-
-
-        }
-        #endregion
-
     }
 }
