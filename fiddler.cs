@@ -27,7 +27,7 @@ namespace low
         public static string card3_id;
         public static string card3_class;
 
-        public static int zt_flag=-1;
+        public static int zt_flag = -1;
         public static int card_no;
 
         public static string pxorysetting = "";
@@ -121,7 +121,19 @@ namespace low
                     {
                         //我方数据解析
                         chara_data = (Hashtable)content["chara_data"];
-                        equip = (Hashtable)chara_data["equip"];
+                        if (chara_data["equip"].GetType().ToString() != "System.Collections.ArrayList")
+                        {
+                            equip = (Hashtable)chara_data["equip"];
+                        }
+                        else
+                        {
+                            l_hand_x_name = "";
+                            r_hand_x_name = "";
+                            yifu_x_name = "";
+                            ring_x_name = "";
+                            necklace_x_name = "";
+                        }
+
                         setcard = (ArrayList)chara_data["setcard"];
                         break;
                     }
@@ -129,7 +141,19 @@ namespace low
                     {
                         //敌方数据解析
                         diren_data = (Hashtable)content["target"];
-                        equip = (Hashtable)diren_data["equip"];
+                        if (diren_data["equip"].GetType().ToString() != "System.Collections.ArrayList")
+                        {
+                            equip = (Hashtable)diren_data["equip"];
+                        }
+                        else
+                        {
+                            l_hand_x_name = "";
+                            r_hand_x_name = "";
+                            yifu_x_name = "";
+                            ring_x_name = "";
+                            necklace_x_name = "";
+                        }
+                        
                         setcard = (ArrayList)diren_data["setcard"];
                         break;
                     }
@@ -137,65 +161,65 @@ namespace low
                     break;
             }
 
+            if (equip != null)
+            {
+                if (equip.ContainsKey("l_hand"))
+                {
+                    ArrayList l_hand = (ArrayList)equip["l_hand"];
+                    Hashtable l_hand_x = (Hashtable)l_hand[0];
+                    l_hand_x_name = (string)l_hand_x["item_name"];
+                }
+                else
+                {
+                    l_hand_x_name = "";
+                }
 
+                if (equip.ContainsKey("r_hand"))
+                {
+                    ArrayList r_hand = (ArrayList)equip["r_hand"];
+                    Hashtable r_hand_x = (Hashtable)r_hand[0];
+                    r_hand_x_name = (string)r_hand_x["item_name"];
+                }
+                else
+                {
+                    r_hand_x_name = "";
+                }
+                if (equip.ContainsKey("body"))
+                {
+                    ArrayList yifu = (ArrayList)equip["body"];
+                    Hashtable yifu_x = (Hashtable)yifu[0];
+                    yifu_x_name = (string)yifu_x["item_name"];
+                }
+                else
+                {
+                    yifu_x_name = "";
+                }
+                if (equip.ContainsKey("ring"))
+                {
+                    ArrayList ring = (ArrayList)equip["ring"];
+                    Hashtable ring_x = (Hashtable)ring[0];
+                    ring_x_name = (string)ring_x["item_name"];
+                }
+                else
+                {
+                    ring_x_name = "";
+                }
+                if (equip.ContainsKey("necklace"))
+                {
+                    ArrayList necklace = (ArrayList)equip["necklace"];
+                    Hashtable necklace_x = (Hashtable)necklace[0];
+                    necklace_x_name = (string)necklace_x["item_name"];
+                }
+                else
+                {
+                    necklace_x_name = "";
+                }
 
-            if (equip.ContainsKey("l_hand"))
-            {
-                ArrayList l_hand = (ArrayList)equip["l_hand"];
-                Hashtable l_hand_x = (Hashtable)l_hand[0];
-                l_hand_x_name = (string)l_hand_x["item_name"];
             }
-            else
-            {
-                l_hand_x_name = "";
-            }
-
-            if (equip.ContainsKey("r_hand"))
-            {
-                ArrayList r_hand = (ArrayList)equip["r_hand"];
-                Hashtable r_hand_x = (Hashtable)r_hand[0];
-                r_hand_x_name = (string)r_hand_x["item_name"];
-            }
-            else
-            {
-                r_hand_x_name = "";
-            }
-            if (equip.ContainsKey("body"))
-            {
-                ArrayList yifu = (ArrayList)equip["body"];
-                Hashtable yifu_x = (Hashtable)yifu[0];
-                yifu_x_name = (string)yifu_x["item_name"];
-            }
-            else
-            {
-                yifu_x_name = "";
-            }
-            if (equip.ContainsKey("ring"))
-            {
-                ArrayList ring = (ArrayList)equip["ring"];
-                Hashtable ring_x = (Hashtable)ring[0];
-                ring_x_name = (string)ring_x["item_name"];
-            }
-            else
-            {
-                ring_x_name = "";
-            }
-            if (equip.ContainsKey("necklace"))
-            {
-                ArrayList necklace = (ArrayList)equip["necklace"];
-                Hashtable necklace_x = (Hashtable)necklace[0];
-                necklace_x_name = (string)necklace_x["item_name"];
-            }
-            else
-            {
-                necklace_x_name = "";
-            }
-
-
             card_no = setcard.Count;
             for (int i = 1; i <= setcard.Count; i++)
             {
-                Hashtable card = (Hashtable)setcard[i-1];
+                Hashtable card = (Hashtable)setcard[i - 1];
                 string card_name = (string)card["card_name"];
                 string card_id = (string)card["card_id"];
                 string card_class = (string)card["class"];
@@ -248,7 +272,7 @@ namespace low
 
             #endregion
 
-            
+
 
 
 

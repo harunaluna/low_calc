@@ -15,6 +15,7 @@ namespace low
 {
     public partial class Form1 : Form
     {
+       
 
         static kssm ziji;
         static card ziji_1;
@@ -34,20 +35,7 @@ namespace low
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (ziji == null && ziji_1 == null && ziji_2 == null && ziji_3 == null && diren == null && diren_1 == null && diren_2 == null && diren_3 == null)
-            if (ziji == null || diren == null)
-            {
-                MessageBox.Show("boom");
-            }
-            else
-            {
-
-                zhandou asd = new zhandou();
-
-
-
-                jieguo.Text = asd.jisuan(ziji, ziji_1, ziji_2, ziji_3, diren, diren_1, diren_2, diren_3) + "/10000";
-            }
+            jisuan_click();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,9 +73,62 @@ namespace low
                             ti_1.Text = fiddler.yifu_x_name;
                             zhi_1.Text = fiddler.ring_x_name;
                             shou_1.Text = fiddler.necklace_x_name;
+
                             ka1_1.Text = fiddler.card1_name;
+
+                            if (fiddler.card1_name!="")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card1_id))
+                                {
+                                    ka1_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card1_class);
+                                }
+                                else
+                                {
+                                    ka1_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card1_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka1_cb_1.SelectedIndex = 0;
+                            }
+                            
+
                             ka2_1.Text = fiddler.card2_name;
+                            if (fiddler.card2_name != "")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card2_id))
+                                {
+                                    ka2_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card2_class);
+                                }
+                                else
+                                {
+                                    ka2_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card2_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka2_cb_1.SelectedIndex = 0;
+                            }
+
                             ka3_1.Text = fiddler.card3_name;
+                            if (fiddler.card3_name != "")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card3_id))
+                                {
+                                    ka3_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card3_class);
+                                }
+                                else
+                                {
+                                    ka3_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card3_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka3_cb_1.SelectedIndex = 0;
+                            }
+
+
+                            zj_chaxun_click();
                         }
                         else if (fiddler.zt_flag==1)
                         {
@@ -96,17 +137,72 @@ namespace low
                             ti_2.Text = fiddler.yifu_x_name;
                             zhi_2.Text = fiddler.ring_x_name;
                             shou_2.Text = fiddler.necklace_x_name;
+
                             ka1_2.Text = fiddler.card1_name;
+                            if (fiddler.card1_name != "")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card1_id))
+                                {
+                                    ka1_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card1_class);
+                                }
+                                else
+                                {
+                                    ka1_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card1_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka1_cb_2.SelectedIndex = 0;
+                            }
+
                             ka2_2.Text = fiddler.card2_name;
+                            if (fiddler.card2_name != "")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card2_id))
+                                {
+                                    ka2_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card2_class);
+                                }
+                                else
+                                {
+                                    ka2_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card2_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka2_cb_2.SelectedIndex = 0;
+                            }
+
                             ka3_2.Text = fiddler.card3_name;
+                            if (fiddler.card3_name != "")
+                            {
+                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card3_id))
+                                {
+                                    ka3_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card3_class);
+                                }
+                                else
+                                {
+                                    ka3_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card3_class) - 1;
+                                }
+                            }
+                            else
+                            {
+                                ka3_cb_2.SelectedIndex = 0;
+                            }
+
+
+                            dr_chaxun_click();
+                            jisuan_click();
                         }
                         
                         
                         #endregion
+                        
+
                     }
                     else
                     {
-                        Console.WriteLine("似乎炸了。错误代码{0}", oS.responseCode);
+                        log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "似乎炸了。错误代码");
+                        //Console.WriteLine("似乎炸了。错误代码{0}", oS.responseCode);
                     }
                 }
             };
@@ -159,6 +255,21 @@ namespace low
 
         private void zj_chaxun_Click(object sender, EventArgs e)
         {
+            zj_chaxun_click();
+        }
+
+        private void dr_chaxun_Click(object sender, EventArgs e)
+        {
+            dr_chaxun_click();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fiddler.DoQuit();
+        }
+
+        public void zj_chaxun_click()
+        {
             #region 武器查询
             if (youshou_1.Text.ToString().IndexOf('+') == -1)
             {
@@ -181,8 +292,8 @@ namespace low
                 else
                 {
                     //炸了
-                    MessageBox.Show("武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString()+"\t"+"武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    
                     Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
                 }
             }
@@ -215,7 +326,8 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    
                     Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
 
                 }
@@ -248,7 +360,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
 
                 }
@@ -281,7 +393,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
 
                 }
@@ -314,7 +426,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
 
                 }
@@ -336,7 +448,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
                     Chushihua.card1_jieduan = 0;
                 }
@@ -359,7 +471,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
                     Chushihua.card2_jieduan = 0;
                 }
@@ -382,7 +494,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
                     Chushihua.card3_jieduan = 0;
                 }
@@ -433,9 +545,8 @@ namespace low
 
         }
 
-        private void dr_chaxun_Click(object sender, EventArgs e)
+        public void dr_chaxun_click()
         {
-
             #region 武器查询
             if (youshou_2.Text.ToString().IndexOf('+') == -1)
             {
@@ -458,7 +569,7 @@ namespace low
                 else
                 {
                     //炸了
-                    MessageBox.Show("武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
 
                     Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
                 }
@@ -492,7 +603,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
 
                 }
@@ -525,7 +636,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
 
                 }
@@ -558,7 +669,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
 
                 }
@@ -591,7 +702,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
 
                 }
@@ -613,7 +724,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
                     Chushihua.card1_jieduan = 0;
                 }
@@ -636,7 +747,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
                     Chushihua.card2_jieduan = 0;
                 }
@@ -659,7 +770,7 @@ namespace low
                 }
                 else
                 {
-                    MessageBox.Show("卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
                     Chushihua.card3_jieduan = 0;
                 }
@@ -710,7 +821,19 @@ namespace low
 
         }
 
-
-        
+        public void jisuan_click()
+        {
+            if (ziji == null || diren == null)
+            {
+                log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "boom");
+            }
+            else
+            {
+                zhandou asd = new zhandou();
+                jieguo.Text = asd.jisuan(ziji, ziji_1, ziji_2, ziji_3, diren, diren_1, diren_2, diren_3) + "/10000";
+            }
+        }
     }
+
+
 }

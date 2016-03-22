@@ -81,7 +81,8 @@ namespace low
             shou_json = null;
             Dict.shou_zhuangzai(shou_obj);
 
-
+            //卡突破初始化
+            Dict.card_tupo_zhuangzai();
 
         }
 

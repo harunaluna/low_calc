@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ka3_cb_1 = new System.Windows.Forms.ComboBox();
+            this.ka2_cb_1 = new System.Windows.Forms.ComboBox();
+            this.ka1_cb_1 = new System.Windows.Forms.ComboBox();
             this.zj_card_3 = new System.Windows.Forms.Label();
             this.zj_card_2 = new System.Windows.Forms.Label();
             this.zj_card_1 = new System.Windows.Forms.Label();
@@ -57,6 +60,10 @@
             this.youshou_1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ka3_cb_2 = new System.Windows.Forms.ComboBox();
+            this.ka2_cb_2 = new System.Windows.Forms.ComboBox();
+            this.ka1_cb_2 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.dr_card_3 = new System.Windows.Forms.Label();
             this.dr_card_2 = new System.Windows.Forms.Label();
             this.dr_card_1 = new System.Windows.Forms.Label();
@@ -88,13 +95,9 @@
             this.jisuan = new System.Windows.Forms.Button();
             this.zj_chaxun = new System.Windows.Forms.Button();
             this.dr_chaxun = new System.Windows.Forms.Button();
-            this.ka1_cb_1 = new System.Windows.Forms.ComboBox();
-            this.ka2_cb_1 = new System.Windows.Forms.ComboBox();
-            this.ka3_cb_1 = new System.Windows.Forms.ComboBox();
-            this.ka3_cb_2 = new System.Windows.Forms.ComboBox();
-            this.ka2_cb_2 = new System.Windows.Forms.ComboBox();
-            this.ka1_cb_2 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.log_list = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +140,48 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "自己";
+            // 
+            // ka3_cb_1
+            // 
+            this.ka3_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka3_cb_1.FormattingEnabled = true;
+            this.ka3_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka3_cb_1.Location = new System.Drawing.Point(160, 264);
+            this.ka3_cb_1.Name = "ka3_cb_1";
+            this.ka3_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka3_cb_1.TabIndex = 29;
+            // 
+            // ka2_cb_1
+            // 
+            this.ka2_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka2_cb_1.FormattingEnabled = true;
+            this.ka2_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka2_cb_1.Location = new System.Drawing.Point(160, 237);
+            this.ka2_cb_1.Name = "ka2_cb_1";
+            this.ka2_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka2_cb_1.TabIndex = 28;
+            // 
+            // ka1_cb_1
+            // 
+            this.ka1_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka1_cb_1.FormattingEnabled = true;
+            this.ka1_cb_1.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka1_cb_1.Location = new System.Drawing.Point(160, 209);
+            this.ka1_cb_1.Name = "ka1_cb_1";
+            this.ka1_cb_1.Size = new System.Drawing.Size(53, 20);
+            this.ka1_cb_1.TabIndex = 27;
             // 
             // zj_card_3
             // 
@@ -404,6 +449,56 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "对方";
             // 
+            // ka3_cb_2
+            // 
+            this.ka3_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka3_cb_2.FormattingEnabled = true;
+            this.ka3_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka3_cb_2.Location = new System.Drawing.Point(160, 264);
+            this.ka3_cb_2.Name = "ka3_cb_2";
+            this.ka3_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka3_cb_2.TabIndex = 36;
+            // 
+            // ka2_cb_2
+            // 
+            this.ka2_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka2_cb_2.FormattingEnabled = true;
+            this.ka2_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka2_cb_2.Location = new System.Drawing.Point(160, 237);
+            this.ka2_cb_2.Name = "ka2_cb_2";
+            this.ka2_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka2_cb_2.TabIndex = 35;
+            // 
+            // ka1_cb_2
+            // 
+            this.ka1_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ka1_cb_2.FormattingEnabled = true;
+            this.ka1_cb_2.Items.AddRange(new object[] {
+            "无印",
+            "+",
+            "++",
+            "凸"});
+            this.ka1_cb_2.Location = new System.Drawing.Point(160, 209);
+            this.ka1_cb_2.Name = "ka1_cb_2";
+            this.ka1_cb_2.Size = new System.Drawing.Size(53, 20);
+            this.ka1_cb_2.TabIndex = 34;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(213, 215);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 12);
+            this.label17.TabIndex = 33;
+            // 
             // dr_card_3
             // 
             this.dr_card_3.AutoSize = true;
@@ -635,7 +730,7 @@
             this.jieguo.AutoSize = true;
             this.jieguo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.jieguo.ForeColor = System.Drawing.Color.Red;
-            this.jieguo.Location = new System.Drawing.Point(354, 531);
+            this.jieguo.Location = new System.Drawing.Point(685, 499);
             this.jieguo.Name = "jieguo";
             this.jieguo.Size = new System.Drawing.Size(71, 16);
             this.jieguo.TabIndex = 17;
@@ -644,7 +739,7 @@
             // 
             // jisuan
             // 
-            this.jisuan.Location = new System.Drawing.Point(357, 577);
+            this.jisuan.Location = new System.Drawing.Point(681, 546);
             this.jisuan.Name = "jisuan";
             this.jisuan.Size = new System.Drawing.Size(75, 23);
             this.jisuan.TabIndex = 18;
@@ -654,121 +749,60 @@
             // 
             // zj_chaxun
             // 
-            this.zj_chaxun.Location = new System.Drawing.Point(75, 495);
+            this.zj_chaxun.Location = new System.Drawing.Point(787, 80);
             this.zj_chaxun.Name = "zj_chaxun";
-            this.zj_chaxun.Size = new System.Drawing.Size(75, 23);
+            this.zj_chaxun.Size = new System.Drawing.Size(89, 23);
             this.zj_chaxun.TabIndex = 19;
-            this.zj_chaxun.Text = "查询数据";
+            this.zj_chaxun.Text = "查询自己数据";
             this.zj_chaxun.UseVisualStyleBackColor = true;
             this.zj_chaxun.Click += new System.EventHandler(this.zj_chaxun_Click);
             // 
             // dr_chaxun
             // 
-            this.dr_chaxun.Location = new System.Drawing.Point(475, 495);
+            this.dr_chaxun.Location = new System.Drawing.Point(787, 428);
             this.dr_chaxun.Name = "dr_chaxun";
-            this.dr_chaxun.Size = new System.Drawing.Size(75, 23);
+            this.dr_chaxun.Size = new System.Drawing.Size(89, 23);
             this.dr_chaxun.TabIndex = 20;
-            this.dr_chaxun.Text = "查询数据";
+            this.dr_chaxun.Text = "查询对方数据";
             this.dr_chaxun.UseVisualStyleBackColor = true;
             this.dr_chaxun.Click += new System.EventHandler(this.dr_chaxun_Click);
             // 
-            // ka1_cb_1
+            // log_list
             // 
-            this.ka1_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka1_cb_1.FormattingEnabled = true;
-            this.ka1_cb_1.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka1_cb_1.Location = new System.Drawing.Point(160, 209);
-            this.ka1_cb_1.Name = "ka1_cb_1";
-            this.ka1_cb_1.Size = new System.Drawing.Size(53, 20);
-            this.ka1_cb_1.TabIndex = 27;
+            this.log_list.FormattingEnabled = true;
+            this.log_list.ItemHeight = 12;
+            this.log_list.Location = new System.Drawing.Point(21, 479);
+            this.log_list.Name = "log_list";
+            this.log_list.Size = new System.Drawing.Size(641, 100);
+            this.log_list.TabIndex = 21;
             // 
-            // ka2_cb_1
+            // label18
             // 
-            this.ka2_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka2_cb_1.FormattingEnabled = true;
-            this.ka2_cb_1.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka2_cb_1.Location = new System.Drawing.Point(160, 237);
-            this.ka2_cb_1.Name = "ka2_cb_1";
-            this.ka2_cb_1.Size = new System.Drawing.Size(53, 20);
-            this.ka2_cb_1.TabIndex = 28;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(24, 464);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(29, 12);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "Log:";
             // 
-            // ka3_cb_1
+            // checkBox1
             // 
-            this.ka3_cb_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka3_cb_1.FormattingEnabled = true;
-            this.ka3_cb_1.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka3_cb_1.Location = new System.Drawing.Point(160, 264);
-            this.ka3_cb_1.Name = "ka3_cb_1";
-            this.ka3_cb_1.Size = new System.Drawing.Size(53, 20);
-            this.ka3_cb_1.TabIndex = 29;
-            // 
-            // ka3_cb_2
-            // 
-            this.ka3_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka3_cb_2.FormattingEnabled = true;
-            this.ka3_cb_2.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka3_cb_2.Location = new System.Drawing.Point(160, 264);
-            this.ka3_cb_2.Name = "ka3_cb_2";
-            this.ka3_cb_2.Size = new System.Drawing.Size(53, 20);
-            this.ka3_cb_2.TabIndex = 36;
-            // 
-            // ka2_cb_2
-            // 
-            this.ka2_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka2_cb_2.FormattingEnabled = true;
-            this.ka2_cb_2.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka2_cb_2.Location = new System.Drawing.Point(160, 237);
-            this.ka2_cb_2.Name = "ka2_cb_2";
-            this.ka2_cb_2.Size = new System.Drawing.Size(53, 20);
-            this.ka2_cb_2.TabIndex = 35;
-            // 
-            // ka1_cb_2
-            // 
-            this.ka1_cb_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ka1_cb_2.FormattingEnabled = true;
-            this.ka1_cb_2.Items.AddRange(new object[] {
-            "无印",
-            "+",
-            "++",
-            "凸"});
-            this.ka1_cb_2.Location = new System.Drawing.Point(160, 209);
-            this.ka1_cb_2.Name = "ka1_cb_2";
-            this.ka1_cb_2.Size = new System.Drawing.Size(53, 20);
-            this.ka1_cb_2.TabIndex = 34;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(213, 215);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 12);
-            this.label17.TabIndex = 33;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(38, 12);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 16);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "启用代理";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 627);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.log_list);
             this.Controls.Add(this.dr_chaxun);
             this.Controls.Add(this.zj_chaxun);
             this.Controls.Add(this.jisuan);
@@ -777,6 +811,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -856,6 +891,9 @@
         private System.Windows.Forms.ComboBox ka2_cb_2;
         private System.Windows.Forms.ComboBox ka1_cb_2;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ListBox log_list;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
