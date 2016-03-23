@@ -98,6 +98,12 @@
             this.log_list = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pxorydizhi = new System.Windows.Forms.TextBox();
+            this.pxoryduankou = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.pxoryzhuangtai = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -794,12 +800,71 @@
             this.checkBox1.TabIndex = 23;
             this.checkBox1.Text = "启用代理";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(117, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 12);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "地址：";
+            // 
+            // pxorydizhi
+            // 
+            this.pxorydizhi.Location = new System.Drawing.Point(169, 10);
+            this.pxorydizhi.Name = "pxorydizhi";
+            this.pxorydizhi.Size = new System.Drawing.Size(100, 21);
+            this.pxorydizhi.TabIndex = 25;
+            // 
+            // pxoryduankou
+            // 
+            this.pxoryduankou.Location = new System.Drawing.Point(327, 10);
+            this.pxoryduankou.Name = "pxoryduankou";
+            this.pxoryduankou.Size = new System.Drawing.Size(70, 21);
+            this.pxoryduankou.TabIndex = 27;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(275, 13);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 12);
+            this.label20.TabIndex = 26;
+            this.label20.Text = "端口：";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(493, 12);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 28;
+            this.label21.Text = "状态：";
+            // 
+            // pxoryzhuangtai
+            // 
+            this.pxoryzhuangtai.AutoSize = true;
+            this.pxoryzhuangtai.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.pxoryzhuangtai.ForeColor = System.Drawing.Color.Red;
+            this.pxoryzhuangtai.Location = new System.Drawing.Point(540, 13);
+            this.pxoryzhuangtai.Name = "pxoryzhuangtai";
+            this.pxoryzhuangtai.Size = new System.Drawing.Size(70, 12);
+            this.pxoryzhuangtai.TabIndex = 29;
+            this.pxoryzhuangtai.Text = "未使用代理";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 627);
+            this.Controls.Add(this.pxoryzhuangtai);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.pxoryduankou);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.pxorydizhi);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.log_list);
@@ -894,6 +959,12 @@
         private System.Windows.Forms.ListBox log_list;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox pxorydizhi;
+        private System.Windows.Forms.TextBox pxoryduankou;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label pxoryzhuangtai;
     }
 }
 

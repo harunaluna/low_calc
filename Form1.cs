@@ -833,6 +833,30 @@ namespace low
                 jieguo.Text = asd.jisuan(ziji, ziji_1, ziji_2, ziji_3, diren, diren_1, diren_2, diren_3) + "/10000";
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked==true)
+            {
+                fiddler.pxorysetting = pxorydizhi.Text.ToString() + ":" + pxoryduankou.Text.ToString();
+                if (fiddler.pxorysetting!=":")
+                {
+                    
+                    pxoryzhuangtai.Text = "启动代理：" + fiddler.pxorysetting;
+                }
+                else
+                {
+                    fiddler.pxorysetting = "";
+                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
+                    pxoryzhuangtai.Text = "未使用代理";
+                }
+            }
+            else
+            {
+                fiddler.pxorysetting = "";
+                pxoryzhuangtai.Text = "未使用代理";
+            }
+        }
     }
 
 

@@ -12,6 +12,9 @@ namespace low
     {
         //   物攻  魔攻  防御  魔防  C  B  属  属值  物魔属性/物理0，魔法1 
         //    0     1    2    3    4  5  6   7          8
+
+        //常時入手可能な右手装備(物理攻撃)
+
         public int[] なし;
         public int[] おたま;
         public int[] ショートソード;
@@ -59,6 +62,9 @@ namespace low
         public int[] 風葬剣ラファグラス;
         public int[] 水葬剣ラファグラス;
         public int[] 地葬剣ラファグラス;
+
+        //常時入手可能な右手装備(物理攻撃：課金) 
+
         public int[] 聖剣エクスカリバー;
         public int[] 天叢雲剣;
         public int[] 機兵螺旋槍;
@@ -68,6 +74,9 @@ namespace low
         public int[] 湧け草の剣;
         public int[] 閻魔剣ダインレイ;
         public int[] 葬剣ラファグラス;
+
+        //期間限定の右手装備(物理攻撃) 
+
         public int[] 爆斬筆;
         public int[] コマ;
         public int[] 破魔矢;
@@ -112,6 +121,12 @@ namespace low
         public int[] おでん;
         public int[] キャラメルマスケット;
         public int[] 始祖剣カリバーン;
+        //update 16/3/23
+        public int[] 子供用の椅子;
+        public int[] シュポシュポ;
+
+        //期間限定の右手装備(物理攻撃：課金) 
+
         public int[] 群青の疾風;
         public int[] インドラの怒り;
         public int[] 万象の精霊;
@@ -180,6 +195,17 @@ namespace low
         public int[] 水喰刀グラトン;
         public int[] 火喰刀グラトン;
         public int[] 風喰刀グラトン;
+
+        //update 16/3/23
+        //public int[] ラブラブバルーン;
+        public int[] みみっくX;
+        public int[] プリズムソード;
+        public int[] デュアルウェポン;
+        public int[] 回転歯車式鉄弓;
+        public int[] 蒸気圧縮型自動小銃;
+
+        //常時入手可能な右手装備(魔法攻撃)
+
         public int[] ショートワンド;
         public int[] 棍棒;
         public int[] ロングワンド;
@@ -214,6 +240,9 @@ namespace low
         public int[] 風呪杖破砕;
         public int[] 水呪杖破砕;
         public int[] 地呪杖破砕;
+
+        //常時入手可能な右手装備(魔法攻撃：課金) 
+
         public int[] ゲイ･ボルグ;
         public int[] アスクレピオスの杖;
         public int[] 汎用型機関銃;
@@ -224,6 +253,9 @@ namespace low
         public int[] 極神槍フリーレン;
         public int[] 呪杖破砕;
         public int[] 始まりの闘槍;
+
+        //期間限定の右手装備(魔法攻撃)
+
         public int[] きね;
         public int[] おおぬさ;
         public int[] やっこ凧;
@@ -260,6 +292,14 @@ namespace low
         public int[] ラグ･ナ･ロク;
         public int[] スケアクロウ;
         public int[] トリートスタッフ;
+
+        //update 16/3/23
+        public int[] バールの様なモノ;
+        public int[] 高枝切りばさみ;
+        public int[] フィンディリブラ;  //咖喱棒魔法版
+
+        //期間限定の右手装備(魔法攻撃：課金)
+
         public int[] グレイシャプラム;
         public int[] グロリアワンド;
         public int[] 漆黒の討ち手;
@@ -319,7 +359,7 @@ namespace low
         public int[] 更夜の錫杖;
         public int[] ポリスガン;
         public int[] 月光の錫杖;
-        //public int[] 	タァンバリン（未知）	;
+        public int[] タァンバリン;
         public int[] ボールンの杖楽器;
         public int[] ディモリッシュホーン;
         public int[] 神槍ロンゴミアント;
@@ -328,12 +368,20 @@ namespace low
         public int[] 火錫杖ルーナ;
         public int[] 風錫杖ルーナ;
 
+        //update 16/3/23
+       // public int[] チョコバナナ;
+        public int[] 小型ホムンクルス;
+        public int[] スイーツィロッド;
+       public int[] 有明局地戦特化鈍器;
+        public int[] アイアンビスワンド;
+        public int[] スチームプレスロッド;
 
 
     }
 
     class Dunpeizhi
     {
+        //常時入手可能な左手装備(物理防御)
         public int[] なし;
         public int[] バックラー;
         public int[] ラウンドシールド;
@@ -366,6 +414,9 @@ namespace low
         public int[] グレートシールド;
         public int[] ボーンシールド;
         public int[] プライウェン;
+
+        //常時入手可能な左手装備(物理防御：課金)
+
         public int[] 八咫鏡;
         public int[] オーフェン;
         public int[] 連続装填機銃;
@@ -374,6 +425,9 @@ namespace low
         public int[] 魔転移反動砲;
         public int[] 湧け草の盾;
         public int[] 閻魔皇スリロス;
+
+        //期間限定の左手装備(物理防御) 
+
         public int[] うす;
         public int[] 門松;
         public int[] 書初め;
@@ -420,6 +474,12 @@ namespace low
         public int[] 母神の聖盾X涛波X;
         public int[] 母神の聖盾X獄炎X;
         public int[] 母神の聖盾X臥嵐X;
+
+        //update 16/3/23
+        public int[] チリトリ;
+
+        //期間限定の左手装備(物理防御：課金)
+
         public int[] グランドクロス;
         public int[] アネクセイション;
         public int[] フィアーゴッド;
@@ -487,6 +547,17 @@ namespace low
         public int[] 涛波聖盾X水零X;
         public int[] 獄炎聖盾X焔X;
         public int[] 臥嵐聖盾XエアX;
+
+        //update 16/3/23
+        public int[] ふんわりくまさん;
+        public int[] フレイヤ・カッツェ;
+        public int[] プリンセスハーツ;
+        public int[] iシールド;
+        public int[] 増速軸型小盾;
+        public int[] 内部動力伝達機構盾;
+
+        //常時入手可能な左手装備(魔法防御)
+
         public int[] メノウの腕輪;
         public int[] ヒスイの腕輪;
         public int[] 魔法の事典;
@@ -510,6 +581,9 @@ namespace low
         public int[] アースシールド;
         public int[] 降魔の史記;
         public int[] ラミエルシール;
+
+        //常時入手可能な左手装備(魔法防御：課金)
+
         public int[] ヒュギエイアの杯;
         public int[] 誓願の聖杯;
         public int[] 光波収束砲;
@@ -519,6 +593,9 @@ namespace low
         public int[] 極神晶アウディー;
         public int[] コノハナの腕輪;
         public int[] 始まりの闘盾;
+
+        //期間限定の左手装備(魔法防御) 
+
         public int[] 絵馬;
         public int[] しめ縄;
         public int[] 賽銭箱;
@@ -553,6 +630,13 @@ namespace low
         public int[] 黄金のトランペット;
         public int[] スイーツィカリス;
         public int[] パンプキンブルーム;
+
+        //update 16/3/23
+        public int[] 朝陽新聞;
+        public int[] ザ・ベン・ザ;
+
+        //期間限定の左手装備(魔法防御：課金)
+
         public int[] 審判の日;
         public int[] 魔神の手甲;
         public int[] 闘魔の護;
@@ -617,6 +701,17 @@ namespace low
         public int[] ダブルーンの盾楽器;
         public int[] ディモリッシュクレフ;
         public int[] 神盾ガラハッド;
+
+        //update 16/3/23
+        public int[] ラブリーモッフ;
+        public int[] ブラムクリスタル;
+        public int[] マリアネット;
+        public int[] 有明局地戦特殊装甲;
+        public int[] ギアXバングル;
+        public int[] ギアXクロック;
+
+        //左手装備(その他)                             
+
         public int[] ポチ袋1000;
         public int[] ポチ袋2000;
         public int[] ポチ袋3000;
@@ -628,6 +723,9 @@ namespace low
 
     class Yifupeizhi
     {
+
+        //常時入手可能な体装備(物理防御)
+
         public int[] なし;
         public int[] す巻き;
         public int[] 冒険者の服;
@@ -668,6 +766,9 @@ namespace low
         public int[] ミズハノメ;
         public int[] ホムスビ;
         public int[] シナツヒコ;
+
+        //常時入手可能な体装備(物理防御：課金)
+
         public int[] 八尺瓊勾玉;
         public int[] アヴァロンの鎧;
         public int[] 回転式特歩機兵;
@@ -676,6 +777,9 @@ namespace low
         public int[] 弐式機兵・飛燕;
         public int[] 閻魔鎧アルティマ;
         public int[] 湧け草の鎧;
+
+        //期間限定の体装備(物理防御) 
+
         public int[] 除夜の鐘;
         public int[] 羽織袴;
         public int[] 第六天魔王の甲冑;
@@ -722,6 +826,12 @@ namespace low
         public int[] 精霊の鎧X旋風X;
         public int[] 旋風鎧XエアX;
         public int[] ハロウクローク;
+
+        //update 16/3/23
+        public int[] オーバーオール;
+
+        //期間限定の体装備(物理防御：課金)
+
         public int[] ケルヴスーツ;
         public int[] 幻惑ノ鬼火;
         public int[] ドラゴンプレート;
@@ -786,6 +896,20 @@ namespace low
         public int[] 電子演装;
         public int[] 奏譜の鎧;
         public int[] 神鎧ペンドラゴン;
+
+        //update 16/3/23
+        //public int[] バレリーナドレス;
+        //public int[] プリンセスドレス;
+        public int[] ロキ・サターナ;
+        //public int[] 冒険者学校女子制服;
+        //public int[] 成年の着物;
+        public int[] バタフライドレス;
+        public int[] ラフストリート;
+        public int[] 回転部品付き洋装;
+        public int[] 螺子式刻時外套衣;
+
+        //常時入手可能な体装備(魔法防御) 
+
         public int[] ローブ;
         public int[] エプロン;
         public int[] 魔法学校制服;
@@ -812,6 +936,9 @@ namespace low
         public int[] 蓬莱の鎧;
         public int[] ジェノサイドローブ;
         public int[] パージドソウル;
+
+        //常時入手可能な体装備(魔法防御：課金) 
+
         public int[] ブリーシンガメン;
         public int[] パナケイアローブ;
         public int[] 弐式機兵;
@@ -820,6 +947,9 @@ namespace low
         public int[] 極神帝スプリーム;
         public int[] コノハナの軽鎧;
         public int[] 始まりの闘衣;
+
+        //期間限定の体装備(魔法防御) 
+
         public int[] 迅雷の僧衣;
         public int[] 高級袴;
         public int[] 陰陽師の服;
@@ -851,6 +981,13 @@ namespace low
         public int[] トリックローブ;
         public int[] ハロウエプロン;
         public int[] 東国の服_2;
+
+        //update 16/3/23
+        public int[] テニスウェア;
+        public int[] アヒルのおまる;
+
+        //期間限定の体装備(魔法防御：課金) 
+
         public int[] ガーブオブロード;
         public int[] 王衣不知火;
         public int[] 精霊のローブ_2;
@@ -914,10 +1051,26 @@ namespace low
         public int[] ホーリンの正装;
         public int[] ディモリッシュノート;
         public int[] 神衣イグレイン;
+
+        //update 16/3/23
+        public int[] 白衣の天使;
+        public int[] 疾風の巫女;
+        public int[] ライブラマギカ;
+        public int[] 部屋とＹシャツと;
+        public int[] ラブリーエンジェル;
+        public int[] スイーツガール;
+        public int[] 有明局地戦特攻服;
+        public int[] ラスティクローク;
+        public int[] チェインクロニカ;
+
+
     }
 
     class Zhipeizhi
     {
+
+        //常時入手可能な指装備
+
         public int[] なし;
         public int[] カーボンリング;
         public int[] 怒りの指輪;
@@ -1030,6 +1183,11 @@ namespace low
         public int[] 空滅のリング;
         public int[] 炎帝の指輪;
         public int[] 風帝の指輪;
+
+        //update 16/3/23
+        public int[] 地帝の指輪;
+        public int[] 水帝の指輪;
+
     }
 
     class Shoupeizhi
@@ -1143,6 +1301,11 @@ namespace low
         public int[] 空滅の首輪;
         public int[] 炎帝の首飾り;
         public int[] 風帝の首飾り;
+
+        //update 16/3/23
+        public int[] 地帝の首飾り;
+        public int[] 水帝の首飾り;
+
     }
 
     #endregion

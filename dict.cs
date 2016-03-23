@@ -910,10 +910,10 @@ namespace low
             wuqi_dict.Add("Ωゴーストソード", wuqi_obj.Ωゴーストソード);
             wuqi_dict.Add("カボランス", wuqi_obj.カボランス);
             wuqi_dict.Add("天叢雲剣", wuqi_obj.天叢雲剣);
-            wuqi_dict.Add("獅子王の太刀･水牙", wuqi_obj.獅子王の太刀･水牙);
-            wuqi_dict.Add("獅子王の太刀･風牙", wuqi_obj.獅子王の太刀･風牙);
-            wuqi_dict.Add("獅子王の太刀･地牙", wuqi_obj.獅子王の太刀･地牙);
-            wuqi_dict.Add("獅子王の太刀･火牙", wuqi_obj.獅子王の太刀･火牙);
+            wuqi_dict.Add("獅子王の太刀・水牙", wuqi_obj.獅子王の太刀･水牙);
+            wuqi_dict.Add("獅子王の太刀・風牙", wuqi_obj.獅子王の太刀･風牙);
+            wuqi_dict.Add("獅子王の太刀・地牙", wuqi_obj.獅子王の太刀･地牙);
+            wuqi_dict.Add("獅子王の太刀・火牙", wuqi_obj.獅子王の太刀･火牙);
             wuqi_dict.Add("クラッシュバーナー", wuqi_obj.クラッシュバーナー);
             wuqi_dict.Add("滅龍剣アパラージタ", wuqi_obj.滅龍剣アパラージタ);
             wuqi_dict.Add("聖剣エクスカリバー", wuqi_obj.聖剣エクスカリバー);
@@ -1018,7 +1018,7 @@ namespace low
             wuqi_dict.Add("黄金の鐘", wuqi_obj.黄金の鐘);
             wuqi_dict.Add("キューピットボゥ", wuqi_obj.キューピットボゥ);
             wuqi_dict.Add("牙王の錫杖", wuqi_obj.牙王の錫杖);
-            wuqi_dict.Add("ラグ･ナ･ロク", wuqi_obj.ラグ･ナ･ロク);
+            wuqi_dict.Add("ラグ・ナ・ロク", wuqi_obj.ラグ･ナ･ロク);
             wuqi_dict.Add("スケアクロウ", wuqi_obj.スケアクロウ);
             wuqi_dict.Add("トリートスタッフ", wuqi_obj.トリートスタッフ);
             wuqi_dict.Add("グレイシャプラム", wuqi_obj.グレイシャプラム);
@@ -1029,7 +1029,7 @@ namespace low
             wuqi_dict.Add("スティレットの戦棍", wuqi_obj.スティレットの戦棍);
             wuqi_dict.Add("シーヴァロッド", wuqi_obj.シーヴァロッド);
             wuqi_dict.Add("破砕", wuqi_obj.破砕);
-            wuqi_dict.Add("星天七宝･冥界", wuqi_obj.星天七宝･冥界);
+            wuqi_dict.Add("星天七宝・冥界", wuqi_obj.星天七宝･冥界);
             wuqi_dict.Add("ドミニオンゼファー", wuqi_obj.ドミニオンゼファー);
             wuqi_dict.Add("百眼の妖杖", wuqi_obj.百眼の妖杖);
             wuqi_dict.Add("ダークロッド", wuqi_obj.ダークロッド);
@@ -1054,15 +1054,15 @@ namespace low
             wuqi_dict.Add("ヴィータウィップ", wuqi_obj.ヴィータウィップ);
             wuqi_dict.Add("希望の聖杖", wuqi_obj.希望の聖杖);
             wuqi_dict.Add("ハロウィンブレラＧ", wuqi_obj.ハロウィンブレラＧ);
-            wuqi_dict.Add("悪魔の杖･怨", wuqi_obj.悪魔の杖･怨);
+            wuqi_dict.Add("悪魔の杖・怨", wuqi_obj.悪魔の杖･怨);
             wuqi_dict.Add("カボ風段ロッド", wuqi_obj.カボ風段ロッド);
-            wuqi_dict.Add("太極の錫杖･水蛇", wuqi_obj.太極の錫杖･水蛇);
-            wuqi_dict.Add("太極の錫杖･風蛇", wuqi_obj.太極の錫杖･風蛇);
-            wuqi_dict.Add("太極の錫杖･地蛇", wuqi_obj.太極の錫杖･地蛇);
-            wuqi_dict.Add("太極の錫杖･火蛇", wuqi_obj.太極の錫杖･火蛇);
+            wuqi_dict.Add("太極の錫杖・水蛇", wuqi_obj.太極の錫杖･水蛇);
+            wuqi_dict.Add("太極の錫杖・風蛇", wuqi_obj.太極の錫杖･風蛇);
+            wuqi_dict.Add("太極の錫杖・地蛇", wuqi_obj.太極の錫杖･地蛇);
+            wuqi_dict.Add("太極の錫杖・火蛇", wuqi_obj.太極の錫杖･火蛇);
             wuqi_dict.Add("パラケルロッド", wuqi_obj.パラケルロッド);
             wuqi_dict.Add("滅龍杖バルムンク", wuqi_obj.滅龍杖バルムンク);
-            wuqi_dict.Add("ゲイ･ボルグ", wuqi_obj.ゲイ･ボルグ);
+            wuqi_dict.Add("ゲイ・ボルグ", wuqi_obj.ゲイ･ボルグ);
             wuqi_dict.Add("鬼魔葬送", wuqi_obj.鬼魔葬送);
             wuqi_dict.Add("超魔賢龍杖", wuqi_obj.超魔賢龍杖);
             wuqi_dict.Add("魔心杖トリスタン", wuqi_obj.魔心杖トリスタン);
@@ -1087,7 +1087,7 @@ namespace low
             wuqi_dict.Add("月光の錫杖", wuqi_obj.月光の錫杖);
             wuqi_dict.Add("スパイラルマスター", wuqi_obj.スパイラルマスター);
             wuqi_dict.Add("コノハナの杖", wuqi_obj.コノハナの杖);
-            //wuqi_dict.Add("タァンバリン（未知）",wuqi_obj.タァンバリン（未知）);
+            wuqi_dict.Add("タァンバリン",wuqi_obj.タァンバリン);
             wuqi_dict.Add("ボールンの杖楽器", wuqi_obj.ボールンの杖楽器);
             wuqi_dict.Add("ディモリッシュホーン", wuqi_obj.ディモリッシュホーン);
             wuqi_dict.Add("神槍ロンゴミアント", wuqi_obj.神槍ロンゴミアント);
@@ -1095,6 +1095,32 @@ namespace low
             wuqi_dict.Add("水錫杖ルーナ", wuqi_obj.水錫杖ルーナ);
             wuqi_dict.Add("火錫杖ルーナ", wuqi_obj.火錫杖ルーナ);
             wuqi_dict.Add("風錫杖ルーナ", wuqi_obj.風錫杖ルーナ);
+
+            //update 16/3/23
+            wuqi_dict.Add("子供用の椅子", wuqi_obj.子供用の椅子);
+            wuqi_dict.Add("シュポシュポ", wuqi_obj.シュポシュポ);
+
+            //wuqi_dict.Add("ラブラブバルーン", wuqi_obj.ラブラブバルーン);
+            wuqi_dict.Add("みみっく!", wuqi_obj.みみっくX);
+            wuqi_dict.Add("プリズムソード", wuqi_obj.プリズムソード);
+            wuqi_dict.Add("デュアルウェポン", wuqi_obj.デュアルウェポン);
+            wuqi_dict.Add("回転歯車式鉄弓", wuqi_obj.回転歯車式鉄弓);
+            wuqi_dict.Add("蒸気圧縮型自動小銃", wuqi_obj.蒸気圧縮型自動小銃);
+
+            wuqi_dict.Add("バールの様なモノ", wuqi_obj.バールの様なモノ);
+            wuqi_dict.Add("高枝切りばさみ", wuqi_obj.高枝切りばさみ);
+
+            wuqi_dict.Add("フィンディリブラ", wuqi_obj.フィンディリブラ);   //咖喱棒魔法版
+
+
+
+            // wuqi_dict.Add("チョコバナナ", wuqi_obj.チョコバナナ);
+            wuqi_dict.Add("小型ホムンクルス", wuqi_obj.小型ホムンクルス);
+            wuqi_dict.Add("スイーツィロッド", wuqi_obj.スイーツィロッド);
+            wuqi_dict.Add("有明局地戦特化鈍器", wuqi_obj.有明局地戦特化鈍器);
+            wuqi_dict.Add("アイアンビスワンド", wuqi_obj.アイアンビスワンド);
+            wuqi_dict.Add("スチームプレスロッド", wuqi_obj.スチームプレスロッド);
+
         }
         #endregion
 
@@ -1251,7 +1277,7 @@ namespace low
             dun_dict.Add("マイマイクゥ", dun_obj.マイマイクゥ);
             dun_dict.Add("琴弓必滅楽器", dun_obj.琴弓必滅楽器);
             dun_dict.Add("線譜の弦盾", dun_obj.線譜の弦盾);
-            dun_dict.Add("神龍プリトウェン", dun_obj.神龍プリトウェン);
+            dun_dict.Add("神籠プリトウェン", dun_obj.神龍プリトウェン);
             dun_dict.Add("濁土聖盾-アス-", dun_obj.濁土聖盾XアスX);
             dun_dict.Add("涛波聖盾-水零-", dun_obj.涛波聖盾X水零X);
             dun_dict.Add("獄炎聖盾-焔-", dun_obj.獄炎聖盾X焔X);
@@ -1393,6 +1419,28 @@ namespace low
             dun_dict.Add("山のような銀塊", dun_obj.山のような銀塊);
             dun_dict.Add("山のような金塊", dun_obj.山のような金塊);
             dun_dict.Add("山のような白金塊", dun_obj.山のような白金塊);
+
+            //update 16/3/23
+            dun_dict.Add("チリトリ", dun_obj.チリトリ);
+
+            dun_dict.Add("ふんわりくまさん", dun_obj.ふんわりくまさん);
+            dun_dict.Add("フレイヤ・カッツェ", dun_obj.フレイヤ・カッツェ);
+            dun_dict.Add("プリンセスハーツ", dun_obj.プリンセスハーツ);
+            dun_dict.Add("iシールド", dun_obj.iシールド);
+            dun_dict.Add("増速軸型小盾", dun_obj.増速軸型小盾);
+            dun_dict.Add("内部動力伝達機構盾", dun_obj.内部動力伝達機構盾);
+
+            dun_dict.Add("朝陽新聞", dun_obj.朝陽新聞);
+            dun_dict.Add("ザ・ベン・ザ", dun_obj.ザ・ベン・ザ);
+
+            dun_dict.Add("ラブリーモッフ", dun_obj.ラブリーモッフ);
+            dun_dict.Add("ブラムクリスタル", dun_obj.ブラムクリスタル);
+            dun_dict.Add("マリアネット", dun_obj.マリアネット);
+            dun_dict.Add("有明局地戦特殊装甲", dun_obj.有明局地戦特殊装甲);
+            dun_dict.Add("ギア―バングル", dun_obj.ギアXバングル);
+            dun_dict.Add("ギア―クロック", dun_obj.ギアXクロック);
+
+
         }
         #endregion
 
@@ -1688,6 +1736,34 @@ namespace low
             yifu_dict.Add("ディモリッシュノート", yifu_obj.ディモリッシュノート);
             yifu_dict.Add("神衣イグレイン", yifu_obj.神衣イグレイン);
 
+            //update 16/3/23
+            yifu_dict.Add("オーバーオール", yifu_obj.オーバーオール);
+
+            //yifu_dict.Add("バレリーナドレス", yifu_obj.バレリーナドレス);
+            //yifu_dict.Add("プリンセスドレス", yifu_obj.プリンセスドレス);
+            yifu_dict.Add("ロキ・サターナ", yifu_obj.ロキ・サターナ);
+            //yifu_dict.Add("冒険者学校女子制服", yifu_obj.冒険者学校女子制服);
+            //yifu_dict.Add("成年の着物", yifu_obj.成年の着物);
+            yifu_dict.Add("バタフライドレス", yifu_obj.バタフライドレス);
+            yifu_dict.Add("ラフストリート", yifu_obj.ラフストリート);
+            yifu_dict.Add("回転部品付き洋装", yifu_obj.回転部品付き洋装);
+            yifu_dict.Add("螺子式刻時外套衣", yifu_obj.螺子式刻時外套衣);
+
+            yifu_dict.Add("テニスウェア", yifu_obj.テニスウェア);
+            yifu_dict.Add("アヒルのおまる", yifu_obj.アヒルのおまる);
+
+            yifu_dict.Add("白衣の天使", yifu_obj.白衣の天使);
+            yifu_dict.Add("疾風の巫女", yifu_obj.疾風の巫女);
+            yifu_dict.Add("ライブラマギカ", yifu_obj.ライブラマギカ);
+            yifu_dict.Add("部屋とＹシャツと", yifu_obj.部屋とＹシャツと);
+            yifu_dict.Add("ラブリーエンジェル", yifu_obj.ラブリーエンジェル);
+            yifu_dict.Add("スイーツガール", yifu_obj.スイーツガール);
+            yifu_dict.Add("有明局地戦特攻服", yifu_obj.有明局地戦特攻服);
+            yifu_dict.Add("ラスティクローク", yifu_obj.ラスティクローク);
+            yifu_dict.Add("チェインクロニカ", yifu_obj.チェインクロニカ);
+
+
+
         }
         #endregion
 
@@ -1809,6 +1885,10 @@ namespace low
             zhi_dict.Add("炎帝の指輪", zhi_obj.炎帝の指輪);
             zhi_dict.Add("風帝の指輪", zhi_obj.風帝の指輪);
 
+            //update 16/3/23
+            zhi_dict.Add("地帝の指輪", zhi_obj.地帝の指輪);
+            zhi_dict.Add("水帝の指輪", zhi_obj.水帝の指輪);
+
         }
         #endregion
 
@@ -1926,6 +2006,11 @@ namespace low
             shou_dict.Add("空滅の首輪", shou_obj.空滅の首輪);
             shou_dict.Add("炎帝の首飾り", shou_obj.炎帝の首飾り);
             shou_dict.Add("風帝の首飾り", shou_obj.風帝の首飾り);
+
+            //update 16/3/23
+            shou_dict.Add("地帝の首飾り", shou_obj.地帝の首飾り);
+            shou_dict.Add("水帝の首飾り", shou_obj.水帝の首飾り);
+
         }
         #endregion
 
