@@ -216,8 +216,17 @@ namespace low
                 }
 
             }
-            card_no = setcard.Count;
-            for (int i = 1; i <= setcard.Count; i++)
+
+            if (setcard==null)
+            {
+                card_no = 0;
+            }
+            else
+            {
+                card_no = setcard.Count;
+            }
+
+            for (int i = 1; i <= card_no; i++)
             {
                 Hashtable card = (Hashtable)setcard[i - 1];
                 string card_name = (string)card["card_name"];

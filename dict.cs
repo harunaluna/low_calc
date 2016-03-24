@@ -745,7 +745,7 @@ namespace low
             card_dict.Add("踊り子DJジル", card_obj.踊り子DJジル);
             card_dict.Add("占術夜巡メリッサ", card_obj.占術夜巡メリッサ);
             card_dict.Add("緑庭妖精モニカ", card_obj.緑庭妖精モニカ);
-            card_dict.Add("卓遊動智HD7", card_obj.卓遊動智HD7);
+            card_dict.Add("卓遊動智HD７", card_obj.卓遊動智HD7);
 
 
 
@@ -1320,7 +1320,7 @@ namespace low
             dun_dict.Add("ウラニブレス", dun_obj.ウラニブレス);
             dun_dict.Add("板チョコ", dun_obj.板チョコ);
             dun_dict.Add("モテモテの証", dun_obj.モテモテの証);
-            dun_dict.Add("ラブラブ･ハート", dun_obj.ラブラブ･ハート);
+            dun_dict.Add("ラブラブ・ハート", dun_obj.ラブラブ･ハート);
             dun_dict.Add("マカロンセット", dun_obj.マカロンセット);
             dun_dict.Add("チップクッキー", dun_obj.チップクッキー);
             dun_dict.Add("冥王の宝玉", dun_obj.冥王の宝玉);
@@ -1335,8 +1335,8 @@ namespace low
             dun_dict.Add("スノードーム", dun_obj.スノードーム);
             dun_dict.Add("飛龍の篭手", dun_obj.飛龍の篭手);
             dun_dict.Add("ラッピングチョコ", dun_obj.ラッピングチョコ);
-            dun_dict.Add("C･ファウンテン", dun_obj.C･ファウンテン);
-            dun_dict.Add("シルト･ファフナー", dun_obj.シルト･ファフナー);
+            dun_dict.Add("C・ファウンテン", dun_obj.C･ファウンテン);
+            dun_dict.Add("シルト・ファフナー", dun_obj.シルト･ファフナー);
             dun_dict.Add("スポーツバッグ", dun_obj.スポーツバッグ);
             dun_dict.Add("宝の地図", dun_obj.宝の地図);
             dun_dict.Add("キューピットアロー", dun_obj.キューピットアロー);
@@ -1579,10 +1579,10 @@ namespace low
             yifu_dict.Add("ウルフボーイ", yifu_obj.ウルフボーイ);
             yifu_dict.Add("パンプメイル", yifu_obj.パンプメイル);
             yifu_dict.Add("ハロウィンメイル", yifu_obj.ハロウィンメイル);
-            yifu_dict.Add("蛇王龍の鎧･水眼", yifu_obj.蛇王龍の鎧･水眼);
-            yifu_dict.Add("蛇王龍の鎧･風眼", yifu_obj.蛇王龍の鎧･風眼);
-            yifu_dict.Add("蛇王龍の鎧･地眼", yifu_obj.蛇王龍の鎧･地眼);
-            yifu_dict.Add("蛇王龍の鎧･火眼", yifu_obj.蛇王龍の鎧･火眼);
+            yifu_dict.Add("蛇王龍の鎧・水眼", yifu_obj.蛇王龍の鎧･水眼);
+            yifu_dict.Add("蛇王龍の鎧・風眼", yifu_obj.蛇王龍の鎧･風眼);
+            yifu_dict.Add("蛇王龍の鎧・地眼", yifu_obj.蛇王龍の鎧･地眼);
+            yifu_dict.Add("蛇王龍の鎧・火眼", yifu_obj.蛇王龍の鎧･火眼);
             yifu_dict.Add("超合金プレート", yifu_obj.超合金プレート);
             yifu_dict.Add("ジャガーノート", yifu_obj.ジャガーノート);
             yifu_dict.Add("ドラゴニックアムド", yifu_obj.ドラゴニックアムド);
@@ -2225,7 +2225,10 @@ namespace low
             card_tupo_dict.Add("50292882", "百発百中ロミルダ");
             card_tupo_dict.Add("75229883", "慎みの秋風ソフィ");
             card_tupo_dict.Add("12236885", "烏珠の黒髪楓");
+
             card_tupo_dict.Add("94237888", "女盾神アイオーン");
+            card_tupo_dict.Add("89236889", "女盾神アイオーン");
+
             card_tupo_dict.Add("54244891", "闘魂注入ハナ");
             card_tupo_dict.Add("78251894", "闇刻王姫カミーラ");
             card_tupo_dict.Add("53234895", "廃墟の主ポリン");
@@ -2458,8 +2461,13 @@ namespace low
             card_tupo_dict.Add("78221299", "破魔使者ロミルダ");
             card_tupo_dict.Add("70281301", "お年玉ティターン");
             card_tupo_dict.Add("10221313", "拷問人ロゴス");
+
             card_tupo_dict.Add("30221303", "艶独楽使いパメラ");
+            card_tupo_dict.Add("24211303", "艶独楽使いパメラ");
+
             card_tupo_dict.Add("71221305", "新春祝酒せいりゅう");
+            card_tupo_dict.Add("93281305", "新春祝酒せいりゅう");    //强化
+
             card_tupo_dict.Add("35261086", "天空守護ユーノス");
             card_tupo_dict.Add("51211315", "菓子職人ミズリィ");
             card_tupo_dict.Add("63291317", "秘めた愛欲アリン");

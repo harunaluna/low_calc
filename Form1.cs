@@ -207,7 +207,11 @@ namespace low
                 }
             };
             Fiddler.FiddlerApplication.OnNotification += delegate(object sender1, NotificationEventArgs oNEA) { Console.WriteLine("** NotifyUser: " + oNEA.NotifyString); };
-            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { Console.WriteLine("** LogString: " + oLEA.LogString); };
+            //Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { Console.WriteLine("** LogString: " + oLEA.LogString); };
+
+            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "** LogString: " + oLEA.LogString); };
+            
+            
             Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
             {
                 if (fiddler.pxorysetting == "")
@@ -238,7 +242,10 @@ namespace low
             Fiddler.CONFIG.IgnoreServerCertErrors = false;
             FiddlerApplication.Prefs.SetBoolPref("fiddler.network.streaming.abortifclientaborts", true);
             FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.None;
-            int iPort = 8877;
+
+
+
+            int iPort = 8877;   //开启端口
 
 
             Fiddler.FiddlerApplication.Startup(iPort, oFCSF);
