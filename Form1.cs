@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,7 +16,11 @@ namespace low
 {
     public partial class Form1 : Form
     {
-       
+        static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+        static string port = config.AppSettings.Settings["port"].Value;
+
+        static int iPort = Convert.ToInt32(port);   //开启端口
 
         static kssm ziji;
         static card ziji_1;
@@ -201,7 +206,7 @@ namespace low
                     }
                     else
                     {
-                        log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "似乎炸了。错误代码");
+                        log_list.Items.Insert(0,DateTime.Now.ToLongTimeString().ToString() + "\t" + "似乎炸了。错误代码");
                         //Console.WriteLine("似乎炸了。错误代码{0}", oS.responseCode);
                     }
                 }
@@ -209,7 +214,7 @@ namespace low
             Fiddler.FiddlerApplication.OnNotification += delegate(object sender1, NotificationEventArgs oNEA) { Console.WriteLine("** NotifyUser: " + oNEA.NotifyString); };
             //Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { Console.WriteLine("** LogString: " + oLEA.LogString); };
 
-            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "** LogString: " + oLEA.LogString); };
+            Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "** LogString: " + oLEA.LogString); };
             
             
             Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
@@ -244,8 +249,12 @@ namespace low
             FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.None;
 
 
+            
+            string port = config.AppSettings.Settings["port"].Value;
 
-            int iPort = 8877;   //开启端口
+            int iPort = Convert.ToInt32(port);   //开启端口
+
+            jiantingduankou.Text = "监听端口："+iPort;
 
 
             Fiddler.FiddlerApplication.Startup(iPort, oFCSF);
@@ -299,7 +308,7 @@ namespace low
                 else
                 {
                     //炸了
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString()+"\t"+"武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     
                     Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
                 }
@@ -333,7 +342,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     
                     Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
 
@@ -367,7 +376,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
 
                 }
@@ -400,7 +409,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
 
                 }
@@ -433,7 +442,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
 
                 }
@@ -455,7 +464,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
                     Chushihua.card1_jieduan = 0;
                 }
@@ -478,7 +487,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
                     Chushihua.card2_jieduan = 0;
                 }
@@ -501,7 +510,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
                     Chushihua.card3_jieduan = 0;
                 }
@@ -576,7 +585,7 @@ namespace low
                 else
                 {
                     //炸了
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
 
                     Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
                 }
@@ -610,7 +619,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
 
                 }
@@ -643,7 +652,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
 
                 }
@@ -676,7 +685,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
 
                 }
@@ -709,7 +718,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
 
                 }
@@ -731,7 +740,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
                     Chushihua.card1_jieduan = 0;
                 }
@@ -754,7 +763,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
                     Chushihua.card2_jieduan = 0;
                 }
@@ -777,7 +786,7 @@ namespace low
                 }
                 else
                 {
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
                     Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
                     Chushihua.card3_jieduan = 0;
                 }
@@ -832,7 +841,7 @@ namespace low
         {
             if (ziji == null || diren == null)
             {
-                log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "boom");
+                log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "boom");
             }
             else
             {
@@ -854,7 +863,7 @@ namespace low
                 else
                 {
                     fiddler.pxorysetting = "";
-                    log_list.Items.Add(DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
                     pxoryzhuangtai.Text = "未使用代理";
                 }
             }
@@ -862,6 +871,32 @@ namespace low
             {
                 fiddler.pxorysetting = "";
                 pxoryzhuangtai.Text = "未使用代理";
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            //this.Hide();
+            f2.ShowDialog();
+            this.Show();
+            System.Configuration.ConfigurationManager.RefreshSection("appSettings");
+
+            config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            if (config.AppSettings.Settings["port"].Value!=port)
+            {
+                if (MessageBox.Show("监听端口已修改，是否重启程序？"," 提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
+                {
+                    //重启
+                    Application.Restart();
+                }
+                else
+                {
+                    //不重启
+                    MessageBox.Show("端口设置在下次生效");
+                }
+                
             }
         }
     }

@@ -104,6 +104,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.pxoryzhuangtai = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.jiantingduankou = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -837,7 +839,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(493, 12);
+            this.label21.Location = new System.Drawing.Point(404, 13);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(41, 12);
             this.label21.TabIndex = 28;
@@ -848,17 +850,38 @@
             this.pxoryzhuangtai.AutoSize = true;
             this.pxoryzhuangtai.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.pxoryzhuangtai.ForeColor = System.Drawing.Color.Red;
-            this.pxoryzhuangtai.Location = new System.Drawing.Point(540, 13);
+            this.pxoryzhuangtai.Location = new System.Drawing.Point(437, 13);
             this.pxoryzhuangtai.Name = "pxoryzhuangtai";
             this.pxoryzhuangtai.Size = new System.Drawing.Size(70, 12);
             this.pxoryzhuangtai.TabIndex = 29;
             this.pxoryzhuangtai.Text = "未使用代理";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(777, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "更改监听端口";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // jiantingduankou
+            // 
+            this.jiantingduankou.AutoSize = true;
+            this.jiantingduankou.Location = new System.Drawing.Point(667, 13);
+            this.jiantingduankou.Name = "jiantingduankou";
+            this.jiantingduankou.Size = new System.Drawing.Size(65, 12);
+            this.jiantingduankou.TabIndex = 31;
+            this.jiantingduankou.Text = "监听端口：";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 627);
+            this.Controls.Add(this.jiantingduankou);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pxoryzhuangtai);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.pxoryduankou);
@@ -875,6 +898,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -965,6 +989,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label pxoryzhuangtai;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label jiantingduankou;
     }
 }
 
