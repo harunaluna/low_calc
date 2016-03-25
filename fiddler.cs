@@ -108,7 +108,26 @@ namespace low
             List<object> body = (List<object>)msg;
             Hashtable content = (Hashtable)body[0];
 
+            if (content["error"]!=null)
+            {
+                l_hand_x_name = "";
+                r_hand_x_name = "";
+                yifu_x_name = "";
+                ring_x_name = "";
+                necklace_x_name = "";
 
+                card1_id = "";
+                card1_name = "";
+                card1_class = "";
+                card2_id = "";
+                card2_name = "";
+                card2_class = "";
+                card3_id = "";
+                card3_name = "";
+                card3_class = "";
+
+                return;
+            }
             Hashtable chara_data = null;
             Hashtable diren_data = null;
             Hashtable equip = null;
