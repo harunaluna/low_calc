@@ -2583,6 +2583,12 @@ namespace low
             card_tupo_dict.Add("70231458", "聖鎧の担い手ラナ");
             card_tupo_dict.Add("20291459", "白衣の天使クロエ");
 
+            //update 16/3/26
+            card_tupo_dict.Add("21231425", "SMILEナヴィ");
+            card_tupo_dict.Add("42211423", "局OLオモヒカネ");
+
+
+
 
         }
         #endregion

@@ -894,7 +894,7 @@ namespace low
                 else
                 {
                     //不重启
-                    MessageBox.Show("端口设置在下次生效");
+                    MessageBox.Show("监听端口设置在下次生效");
                 }
                 
             }
