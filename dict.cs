@@ -748,6 +748,19 @@ namespace low
             card_dict.Add("卓遊動智HD７", card_obj.卓遊動智HD7);
 
 
+            //16/3/26
+            card_dict.Add("SMILEナヴィ", card_obj.SMILEナヴィ);
+            card_dict.Add("局OLオモヒカネ", card_obj.局OLオモヒカネ);
+
+
+
+
+
+
+
+
+
+
 
             //合体卡数据
 
@@ -1889,6 +1902,15 @@ namespace low
             zhi_dict.Add("地帝の指輪", zhi_obj.地帝の指輪);
             zhi_dict.Add("水帝の指輪", zhi_obj.水帝の指輪);
 
+
+            //update 16/3/26
+
+            zhi_dict.Add("バトルリング", zhi_obj.バトルリング);
+            zhi_dict.Add("桜雲の指輪", zhi_obj.桜雲の指輪);
+            zhi_dict.Add("クォーツリング", zhi_obj.桜雲の指輪);
+            zhi_dict.Add("鉄鉱石X指X", zhi_obj.桜雲の指輪);
+
+
         }
         #endregion
 
@@ -2010,6 +2032,15 @@ namespace low
             //update 16/3/23
             shou_dict.Add("地帝の首飾り", shou_obj.地帝の首飾り);
             shou_dict.Add("水帝の首飾り", shou_obj.水帝の首飾り);
+
+            //update 16/3/26
+            shou_dict.Add("バトルネックレス", shou_obj.バトルネックレス);
+            shou_dict.Add("死者の首輪", shou_obj.死者の首輪);
+            shou_dict.Add("クォーツネックレス", shou_obj.クォーツネックレス);
+            shou_dict.Add("鉄鉱石X首X", shou_obj.鉄鉱石X首X);
+
+
+
 
         }
         #endregion

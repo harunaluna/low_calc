@@ -1188,6 +1188,13 @@ namespace low
         public int[] 地帝の指輪;
         public int[] 水帝の指輪;
 
+        //update 16/3/26
+        public int[] バトルリング;
+        public int[] 桜雲の指輪;
+        public int[] クォーツリング;
+        public int[] 鉄鉱石X指X;
+
+
     }
 
     class Shoupeizhi
@@ -1305,6 +1312,14 @@ namespace low
         //update 16/3/23
         public int[] 地帝の首飾り;
         public int[] 水帝の首飾り;
+
+        //update 16/3/26
+        public int[] バトルネックレス;
+        public int[] 死者の首輪;
+        public int[] クォーツネックレス;
+        public int[] 鉄鉱石X首X;
+
+
 
     }
 
@@ -2051,6 +2066,11 @@ namespace low
         public Carddata 卓遊動智HD7;
 
 
+        //update 16/3/26
+        public Carddata SMILEナヴィ;
+        public Carddata 局OLオモヒカネ;
+
+
         //合体卡配置
         public Carddata 掌天X影乃騎士;
         public Carddata 掌天Xラナ;
@@ -2073,6 +2093,7 @@ namespace low
     }
 
 
+    #region 卡结构
     public class Carddata
     {
 
@@ -2140,6 +2161,7 @@ namespace low
 
         public string[] value;
     }
+    #endregion
 
     #endregion
 
