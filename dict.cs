@@ -419,7 +419,7 @@ namespace low
             card_dict.Add("祝祭の天女雪奈", card_obj.祝祭の天女雪奈);
             card_dict.Add("熱血神務ハナ", card_obj.熱血神務ハナ);
             card_dict.Add("祝願少女火倶羅", card_obj.祝願少女火倶羅);
-            card_dict.Add("稲荷巫女HD7", card_obj.稲荷巫女HD7);
+            card_dict.Add("稲荷巫女ＨＤ７", card_obj.稲荷巫女HD7);
             card_dict.Add("社のお座敷葛葉", card_obj.社のお座敷葛葉);
             card_dict.Add("新春商人ニーナ", card_obj.新春商人ニーナ);
             card_dict.Add("鏡開乱奏アリス", card_obj.鏡開乱奏アリス);
@@ -1077,7 +1077,7 @@ namespace low
             wuqi_dict.Add("ハデスロッド", wuqi_obj.ハデスロッド);
             wuqi_dict.Add("聖杖ヴァルナ", wuqi_obj.聖杖ヴァルナ);
             wuqi_dict.Add("狼牙の法杖", wuqi_obj.狼牙の法杖);
-            wuqi_dict.Add("ヴィルヘルムの弓", wuqi_obj.ヴィルヘルムの弓);
+            wuqi_dict.Add("ヴィルヘルムの弓 ", wuqi_obj.ヴィルヘルムの弓);
             wuqi_dict.Add("更夜の錫杖", wuqi_obj.更夜の錫杖);
             wuqi_dict.Add("ポリスガン", wuqi_obj.ポリスガン);
             wuqi_dict.Add("汎用型機関銃", wuqi_obj.汎用型機関銃);
@@ -1087,7 +1087,7 @@ namespace low
             wuqi_dict.Add("月光の錫杖", wuqi_obj.月光の錫杖);
             wuqi_dict.Add("スパイラルマスター", wuqi_obj.スパイラルマスター);
             wuqi_dict.Add("コノハナの杖", wuqi_obj.コノハナの杖);
-            wuqi_dict.Add("タァンバリン",wuqi_obj.タァンバリン);
+            wuqi_dict.Add("タァバリン", wuqi_obj.タァンバリン);
             wuqi_dict.Add("ボールンの杖楽器", wuqi_obj.ボールンの杖楽器);
             wuqi_dict.Add("ディモリッシュホーン", wuqi_obj.ディモリッシュホーン);
             wuqi_dict.Add("神槍ロンゴミアント", wuqi_obj.神槍ロンゴミアント);
@@ -2381,6 +2381,8 @@ namespace low
             card_tupo_dict.Add("34251142", "聖なる鐘アルカナ");
             card_tupo_dict.Add("89291159", "黒炎ダークファム");
             card_tupo_dict.Add("71241160", "幻影火蝶ファム");
+            card_tupo_dict.Add("83211145", "幻影火蝶ファム");  //强化
+
             card_tupo_dict.Add("52221161", "禁忌ダークティオ");
             card_tupo_dict.Add("49291162", "純白回帰ティオ");
             card_tupo_dict.Add("51221149", "菓子魔導師ファム");

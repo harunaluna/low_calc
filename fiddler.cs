@@ -160,7 +160,7 @@ namespace low
                     {
                         //敌方数据解析
                         diren_data = (Hashtable)content["target"];
-                        if (diren_data["equip"].GetType().ToString() != "System.Collections.ArrayList")
+                        if (diren_data["equip"].GetType().ToString() != "System.Collections.ArrayList" && diren_data["equip"].GetType().ToString()!=null)
                         {
                             equip = (Hashtable)diren_data["equip"];
                         }
