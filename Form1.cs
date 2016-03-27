@@ -70,7 +70,13 @@ namespace low
                     {
                         amfshuju = oS;
                         fiddler.decodeamf(amfshuju);
+
+                        if (fiddler.Exceptionflag==false)
+                        {
+                            
+                        
                         #region 数据输入
+
                         if (fiddler.zt_flag==0)
                         {
                             youshou_1.Text = fiddler.r_hand_x_name;
@@ -201,7 +207,11 @@ namespace low
                         
                         
                         #endregion
-                        
+                        }
+                        else
+                        {
+                            log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "amf数据异常，本次数据不计算胜率");
+                        }
 
                     }
                     else

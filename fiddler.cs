@@ -11,6 +11,9 @@ namespace low
 {
     class fiddler
     {
+        public static bool Exceptionflag=false;
+
+
         public static string l_hand_x_name;
         public static string r_hand_x_name;
         public static string yifu_x_name;
@@ -45,8 +48,6 @@ namespace low
         {
             try
             {
-
-
                 object msg;
                 byte[] byteRequest = amfshuju.RequestBody;
                 byte[] byteResponse = amfshuju.ResponseBody;
@@ -309,7 +310,7 @@ namespace low
             }
             catch (Exception)
             {
-
+                Exceptionflag = true;
                 throw;
             }
 

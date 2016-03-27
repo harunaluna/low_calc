@@ -953,7 +953,7 @@ namespace low
             wuqi_dict.Add("暴食の曲刀", wuqi_obj.暴食の曲刀);
             wuqi_dict.Add("黄泉送り", wuqi_obj.黄泉送り);
             wuqi_dict.Add("湧け草の剣", wuqi_obj.湧け草の剣);
-            wuqi_dict.Add("ドラマァ", wuqi_obj.ドラマァ);
+            wuqi_dict.Add("ドラマア", wuqi_obj.ドラマァ);
             wuqi_dict.Add("琴鳴必滅楽器", wuqi_obj.琴鳴必滅楽器);
             wuqi_dict.Add("線譜の弦刀", wuqi_obj.線譜の弦刀);
             wuqi_dict.Add("神剣デュランダル", wuqi_obj.神剣デュランダル);
@@ -1098,7 +1098,7 @@ namespace low
             wuqi_dict.Add("魔導機瞬速消滅砲", wuqi_obj.魔導機瞬速消滅砲);
             wuqi_dict.Add("極神槍フリーレン", wuqi_obj.極神槍フリーレン);
             wuqi_dict.Add("月光の錫杖", wuqi_obj.月光の錫杖);
-            wuqi_dict.Add("スパイラルマスター", wuqi_obj.スパイラルマスター);
+            wuqi_dict.Add("スパイラルマスター ", wuqi_obj.スパイラルマスター);
             wuqi_dict.Add("コノハナの杖", wuqi_obj.コノハナの杖);
             wuqi_dict.Add("タァバリン", wuqi_obj.タァンバリン);
             wuqi_dict.Add("ボールンの杖楽器", wuqi_obj.ボールンの杖楽器);
@@ -2255,12 +2255,15 @@ namespace low
             card_tupo_dict.Add("65236881", "祝願少女火倶羅");
             card_tupo_dict.Add("50292882", "百発百中ロミルダ");
             card_tupo_dict.Add("75229883", "慎みの秋風ソフィ");
+
             card_tupo_dict.Add("12236885", "烏珠の黒髪楓");
+            card_tupo_dict.Add("30242886", "烏珠の黒髪楓");
 
             card_tupo_dict.Add("94237888", "女盾神アイオーン");
             card_tupo_dict.Add("89236889", "女盾神アイオーン");
 
             card_tupo_dict.Add("54244891", "闘魂注入ハナ");
+
             card_tupo_dict.Add("78251894", "闇刻王姫カミーラ");
             card_tupo_dict.Add("53234895", "廃墟の主ポリン");
             card_tupo_dict.Add("42229896", "画伯セイレーン");
@@ -2472,7 +2475,11 @@ namespace low
             card_tupo_dict.Add("19241310", "雪氷の王女ピコ");
             card_tupo_dict.Add("72291311", "本気☆エンジェル");
             card_tupo_dict.Add("87271258", "聖時神アイオーン");
+
             card_tupo_dict.Add("50281260", "天然サンタクロエ");
+            card_tupo_dict.Add("69281260", "天然サンタクロエ");
+            
+
             card_tupo_dict.Add("12241262", "狂乱宴春ヴェラ");
             card_tupo_dict.Add("96261266", "おこたつ静珠華");
             card_tupo_dict.Add("55241264", "真剣福笑いアテナ");

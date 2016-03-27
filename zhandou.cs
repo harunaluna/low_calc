@@ -78,6 +78,14 @@ namespace low
                     zjcard_2_data1 + zjcard_2_data2 +
                     zjcard_3_data1 + zjcard_3_data2;
 
+
+                 //Console.WriteLine("第{0}轮",i+1);
+                
+                 //Console.WriteLine("zjkssm_data1:" + zjkssm_data1 + " zjkssm_data2:" + zjkssm_data2 + " zjkssm_data3:" + zjkssm_data3 +
+                 //    " zjcard_1_data1:" + zjcard_1_data1 + " zjcard_1_data2:" + zjcard_1_data2 +
+                 //    " zjcard_2_data1:" + zjcard_2_data1 + " zjcard_2_data2:" + zjcard_2_data2 +
+                 //    " zjcard_3_data1:" + zjcard_3_data1 + " zjcard_3_data2:" + zjcard_3_data2);
+
                 int drkssm_data1 = kssm_jisuan(drkssm, zjkssm);
                 int drkssm_data2 = kssm_jisuan(drkssm, zjkssm);
                 int drkssm_data3 = kssm_jisuan(drkssm, zjkssm);
@@ -95,6 +103,13 @@ namespace low
                     drcard_1_data1 + drcard_1_data2 +
                     drcard_2_data1 + drcard_2_data2 +
                     drcard_3_data1 + drcard_3_data2;
+
+                //Console.WriteLine("drkssm_data1:" + drkssm_data1 + " drkssm_data2:" + drkssm_data2 + " drkssm_data3:" + drkssm_data3 +
+                //  " drcard_1_data1:" + drcard_1_data1 + " drcard_1_data2:" + drcard_1_data2 +
+                //  " drcard_2_data1:" + drcard_2_data1 + " drcard_2_data2:" + drcard_2_data2 +
+                //  " drcard_3_data1:" + drcard_3_data1 + " drcard_3_data2:" + drcard_3_data2+"\n");
+
+
 
                 if (zjdata > drdata)
                 {
@@ -241,7 +256,7 @@ namespace low
                 card_kezhi = shuxingkezhi(this.drkssm_shuxingzhi, this.drkssm_shuxingtype, this.card_shuxingtype);
 
                 //技发判定
-                if (this.ran.Next(100) <= this.card_fadong)
+                if (this.ran.Next(100) < this.card_fadong)
                 {
                     card_gongji = this.card_sdk;
                 }
