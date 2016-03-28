@@ -1068,7 +1068,7 @@ namespace low
             wuqi_dict.Add("希望の聖杖", wuqi_obj.希望の聖杖);
             wuqi_dict.Add("ハロウィンブレラＧ", wuqi_obj.ハロウィンブレラＧ);
             wuqi_dict.Add("悪魔の杖・怨", wuqi_obj.悪魔の杖･怨);
-            wuqi_dict.Add("カボ風段ロッド", wuqi_obj.カボ風段ロッド);
+            wuqi_dict.Add("カボ３段ロッド", wuqi_obj.カボ風段ロッド);
             wuqi_dict.Add("太極の錫杖・水蛇", wuqi_obj.太極の錫杖･水蛇);
             wuqi_dict.Add("太極の錫杖・風蛇", wuqi_obj.太極の錫杖･風蛇);
             wuqi_dict.Add("太極の錫杖・地蛇", wuqi_obj.太極の錫杖･地蛇);

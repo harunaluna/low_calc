@@ -52,7 +52,7 @@ namespace low
                 byte[] byteRequest = amfshuju.RequestBody;
                 byte[] byteResponse = amfshuju.ResponseBody;
 
-                zt_flag = -1;     //进入准备画面=0 开始对战=1 其他-1；
+                zt_flag = -1;     //进入准备画面=0 开始对战=1 对战数据包=2    其他-1；
 
                 byte[] target = new byte[byteRequest[7]];
 
@@ -73,6 +73,10 @@ namespace low
                     //开始对战
                     zt_flag = 1;
                 }
+                else if (strtarget == "Get_Battle_Data.get_swf_battle_exec")
+                {
+                    zt_flag = 2;
+                }
                 else
                 {
                     //其他
@@ -89,7 +93,7 @@ namespace low
                     {
                         using (System.IO.Compression.GZipStream gzip = new System.IO.Compression.GZipStream(cms, System.IO.Compression.CompressionMode.Decompress))
                         {
-                            byte[] bytes1 = new byte[102400];
+                            byte[] bytes1 = new byte[512000];
                             int len = 0;
                             //读取压缩流，同时会被解压
                             while ((len = gzip.Read(cbytes, 0, cbytes.Length)) > 0)
@@ -165,7 +169,10 @@ namespace low
                         {
                             //敌方数据解析
                             diren_data = (Hashtable)content["target"];
-                            if (diren_data["equip"].GetType().ToString() != "System.Collections.ArrayList" && diren_data["equip"].GetType().ToString() != null)
+
+
+
+                            if (diren_data.ContainsKey("equip"))
                             {
                                 equip = (Hashtable)diren_data["equip"];
                             }
@@ -179,6 +186,13 @@ namespace low
                             }
 
                             setcard = (ArrayList)diren_data["setcard"];
+                            break;
+                        }
+
+                    case 2:
+                        {
+
+
                             break;
                         }
                     default:
