@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace low
 {
@@ -48,6 +49,7 @@ namespace low
         {
             try
             {
+                Exceptionflag = false;
                 object msg;
                 byte[] byteRequest = amfshuju.RequestBody;
                 byte[] byteResponse = amfshuju.ResponseBody;
@@ -73,10 +75,13 @@ namespace low
                     //开始对战
                     zt_flag = 1;
                 }
-                else if (strtarget == "Get_Battle_Data.get_swf_battle_exec")
-                {
-                    zt_flag = 2;
-                }
+
+//                 else if (strtarget == "Get_Battle_Data.get_swf_battle_exec")
+//                 {
+//                     //对战数据包（废弃）
+//                     zt_flag = 2;
+//                 }
+
                 else
                 {
                     //其他
@@ -113,6 +118,8 @@ namespace low
                 }
                 #region 数据解析
 
+                
+
 
                 List<object> body = (List<object>)msg;
                 Hashtable content = (Hashtable)body[0];
@@ -141,6 +148,15 @@ namespace low
                 Hashtable diren_data = null;
                 Hashtable equip = null;
                 ArrayList setcard = null;
+
+                Hashtable battle = null;
+                ArrayList attack = null;
+                ArrayList e_attack = null;
+
+                Hashtable b_setcards = null;
+                ArrayList b_setcard = null;
+                ArrayList b_e_setcard = null;
+
 
 
                 switch (zt_flag)
@@ -191,8 +207,208 @@ namespace low
 
                     case 2:
                         {
+                            #region 对战数据保存(废弃)
+                            //FileStream fs = new FileStream(Application.StartupPath + "\\log.txt", FileMode.Append);
 
+                            //StreamWriter sw = new StreamWriter(fs);
 
+                            //battle = (Hashtable)content["battle"];
+                            //attack = (ArrayList)battle["attack"];
+                            //e_attack = (ArrayList)battle["e_attack"];
+
+                            //b_setcards = (Hashtable)content["setcards"];
+                            //b_setcard = (ArrayList)b_setcards["setcard"];
+                            //b_e_setcard = (ArrayList)b_setcards["e_setcard"];
+
+                            //int setcard_longger = b_setcard.Capacity;
+                            //int e_setcard_longger = b_e_setcard.Capacity;
+
+                            //int attacklonger = attack.Capacity;
+                            //int e_attacklonger = e_attack.Capacity;
+
+                            //string b_card1_name=null;
+                            //string b_card2_name=null;
+                            //string b_card3_name=null;
+
+                            //string b_e_card1_name = null;
+                            //string b_e_card2_name = null;
+                            //string b_e_card3_name = null;
+
+                            
+
+                            //#region cardname
+                            //for (int i = 0; i < setcard_longger; i++)
+                            //{
+                            //    Hashtable card_data = (Hashtable)b_setcard[i];
+
+                            //    switch (i)
+                            //    {
+                            //        case 0:
+                            //            {
+                            //                b_card1_name = (string)card_data["card_name"];
+                            //                break;
+
+                            //            }
+                            //        case 1:
+                            //            {
+                            //                b_card2_name = (string)card_data["card_name"];
+                            //                break;
+                            //            }
+                            //        case 2:
+                            //            {
+                            //                b_card3_name = (string)card_data["card_name"];
+                            //                break;
+                            //            }
+                            //        default:
+                            //            break;
+                            //    }
+                            //}
+
+                            //for (int i = 0; i < e_setcard_longger; i++)
+                            //{
+                            //    Hashtable card_data = (Hashtable)b_e_setcard[i];
+
+                            //    switch (i)
+                            //    {
+                            //        case 0:
+                            //            {
+                            //                b_e_card1_name = (string)card_data["card_name"];
+                            //                break;
+
+                            //            }
+                            //        case 1:
+                            //            {
+                            //                b_e_card2_name = (string)card_data["card_name"];
+                            //                break;
+                            //            }
+                            //        case 2:
+                            //            {
+                            //                b_e_card3_name = (string)card_data["card_name"];
+                            //                break;
+                            //            }
+                            //        default:
+                            //            break;
+                            //    }
+                            //}
+                            //#endregion
+
+                            //#region 对战数据存入
+                            //sw.WriteLine(DateTime.Now.ToLongTimeString().ToString() + "\t对战log"+" ");
+                            //sw.WriteLine("我方：");
+                            //for (int i = 0; i < attacklonger; i++)
+                            //{
+                            //    Hashtable battle_data = (Hashtable)attack[i];
+                            //    int num = Convert.ToInt32(battle_data["action"]);
+                            //    switch (num)
+                            //    {
+                            //        case 0:
+                            //            {
+                            //                sw.Write("kssm:" + battle_data["atk"].ToString() + "\t");
+                            //                break;
+                            //            }
+                            //        case 1:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_card1_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_card1_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+
+                            //                break;
+                            //            }
+                            //        case 2:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_card2_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_card2_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+                            //                break;
+                            //            }
+                            //        case 3:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_card3_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_card3_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+                            //                break;
+                            //            }
+                            //        default:
+                            //            break;
+                            //    }
+                            //}
+
+                            //sw.WriteLine("\n敌方：");
+                            //for (int i = 0; i < e_attacklonger; i++)
+                            //{
+                            //    Hashtable battle_data = (Hashtable)e_attack[i];
+                            //    int num = Convert.ToInt32(battle_data["action"]);
+                            //    switch (num)
+                            //    {
+                            //        case 0:
+                            //            {
+                            //                sw.Write("kssm:" + battle_data["atk"].ToString() + "\t");
+                            //                break;
+                            //            }
+                            //        case 1:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_e_card1_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_e_card1_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+
+                            //                break;
+                            //            }
+                            //        case 2:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_e_card2_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_e_card2_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+                            //                break;
+                            //            }
+                            //        case 3:
+                            //            {
+                            //                if (battle_data.ContainsKey("skill"))
+                            //                {
+                            //                    sw.Write(b_e_card3_name + ":" + battle_data["atk"].ToString() + " 技发" + "\t");
+                            //                }
+                            //                else
+                            //                {
+                            //                    sw.Write(b_e_card3_name + ":" + battle_data["atk"].ToString() + "\t");
+                            //                }
+                            //                break;
+                            //            }
+                            //        default:
+                            //            break;
+                            //    }
+                            //}
+                            //sw.WriteLine();
+                            //#endregion
+
+                            //sw.Flush();
+                            //fs.Flush();
+                            //sw.Close();
+                            //fs.Close();
+#endregion
                             break;
                         }
                     default:
@@ -325,7 +541,9 @@ namespace low
             catch (Exception)
             {
                 Exceptionflag = true;
-                throw;
+                //throw;
+                return;
+                
             }
 
         }

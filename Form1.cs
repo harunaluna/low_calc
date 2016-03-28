@@ -16,21 +16,22 @@ namespace low
 {
     public partial class Form1 : Form
     {
-        static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+         static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-        static string port = config.AppSettings.Settings["port"].Value;
+         static string port = config.AppSettings.Settings["port"].Value;
 
-        static int iPort = Convert.ToInt32(port);   //开启端口
+         static int iPort = Convert.ToInt32(port);   //开启端口
 
-        static kssm ziji;
-        static card ziji_1;
-        static card ziji_2;
-        static card ziji_3;
-        static kssm diren;
-        static card diren_1;
-        static card diren_2;
-        static card diren_3;
+         static kssm ziji=null;
+         static card ziji_1 = null;
+         static card ziji_2 = null;
+         static card ziji_3 = null;
+         static kssm diren = null;
+         static card diren_1 = null;
+         static card diren_2 = null;
+         static card diren_3 = null;
 
+        public static int jieguo_data=0;
 
         public Form1()
         {
@@ -45,6 +46,10 @@ namespace low
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            this.Text = "lowb对战计算器" + Application.ProductVersion;
+
+
             Chushihua.chushihua();
             ka1_cb_1.SelectedIndex = 0;
             ka2_cb_1.SelectedIndex = 0;
@@ -71,10 +76,8 @@ namespace low
                         amfshuju = oS;
                         fiddler.decodeamf(amfshuju);
 
-                        //if (fiddler.Exceptionflag==false)
-                        //{
-                            
-                        
+                        if (fiddler.Exceptionflag==false)
+                        {
                         #region 数据输入
 
                         if (fiddler.zt_flag==0)
@@ -207,11 +210,11 @@ namespace low
                         
                         
                         #endregion
-                        //}
-                        //else
-                        //{
-                        //    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "amf数据异常，本次数据不计算胜率");
-                        //}
+                        }
+                        else
+                        {
+                            log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "amf数据异常，本次数据不计算胜率");
+                        }
 
                     }
                     else
@@ -294,6 +297,59 @@ namespace low
             fiddler.DoQuit();
         }
 
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked==true)
+            {
+                fiddler.pxorysetting = pxorydizhi.Text.ToString() + ":" + pxoryduankou.Text.ToString();
+                if (fiddler.pxorysetting!=":")
+                {
+                    
+                    pxoryzhuangtai.Text = "启动代理：" + fiddler.pxorysetting;
+                }
+                else
+                {
+                    fiddler.pxorysetting = "";
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
+                    pxoryzhuangtai.Text = "未使用代理";
+                }
+            }
+            else
+            {
+                fiddler.pxorysetting = "";
+                pxoryzhuangtai.Text = "未使用代理";
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            //this.Hide();
+            f2.ShowDialog();
+            this.Show();
+            System.Configuration.ConfigurationManager.RefreshSection("appSettings");
+
+            config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            if (config.AppSettings.Settings["port"].Value!=port)
+            {
+                if (MessageBox.Show("监听端口已修改，是否重启程序？"," 提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
+                {
+                    //重启
+                    Application.Restart();
+                }
+                else
+                {
+                    //不重启
+                    MessageBox.Show("监听端口设置在下次生效");
+                }
+                
+            }
+        }
+
+
+
         public void zj_chaxun_click()
         {
             #region 武器查询
@@ -319,7 +375,7 @@ namespace low
                 {
                     //炸了
                     log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    
+
                     Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
                 }
             }
@@ -353,7 +409,7 @@ namespace low
                 else
                 {
                     log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    
+
                     Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
 
                 }
@@ -856,59 +912,14 @@ namespace low
             else
             {
                 zhandou asd = new zhandou();
-                jieguo.Text = asd.jisuan(ziji, ziji_1, ziji_2, ziji_3, diren, diren_1, diren_2, diren_3) + "/10000";
+                jieguo_data = asd.jisuan(ziji, ziji_1, ziji_2, ziji_3, diren, diren_1, diren_2, diren_3);
+                jieguo.Text = jieguo_data.ToString() + "/10000";
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked==true)
-            {
-                fiddler.pxorysetting = pxorydizhi.Text.ToString() + ":" + pxoryduankou.Text.ToString();
-                if (fiddler.pxorysetting!=":")
-                {
-                    
-                    pxoryzhuangtai.Text = "启动代理：" + fiddler.pxorysetting;
-                }
-                else
-                {
-                    fiddler.pxorysetting = "";
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
-                    pxoryzhuangtai.Text = "未使用代理";
-                }
-            }
-            else
-            {
-                fiddler.pxorysetting = "";
-                pxoryzhuangtai.Text = "未使用代理";
-            }
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            //this.Hide();
-            f2.ShowDialog();
-            this.Show();
-            System.Configuration.ConfigurationManager.RefreshSection("appSettings");
-
-            config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            if (config.AppSettings.Settings["port"].Value!=port)
-            {
-                if (MessageBox.Show("监听端口已修改，是否重启程序？"," 提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
-                {
-                    //重启
-                    Application.Restart();
-                }
-                else
-                {
-                    //不重启
-                    MessageBox.Show("监听端口设置在下次生效");
-                }
-                
-            }
-        }
+        
+        
     }
 
 
