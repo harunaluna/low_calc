@@ -144,7 +144,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(21, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 400);
+            this.groupBox1.Size = new System.Drawing.Size(360, 410);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "自己";
@@ -452,7 +452,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(421, 51);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 400);
+            this.groupBox2.Size = new System.Drawing.Size(360, 410);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "对方";
@@ -515,6 +515,7 @@
             this.dr_card_3.Size = new System.Drawing.Size(35, 12);
             this.dr_card_3.TabIndex = 32;
             this.dr_card_3.Text = "卡3：";
+            this.dr_card_3.TextChanged += new System.EventHandler(this.dr_card_3_TextChanged);
             // 
             // dr_card_2
             // 
@@ -524,6 +525,7 @@
             this.dr_card_2.Size = new System.Drawing.Size(35, 12);
             this.dr_card_2.TabIndex = 31;
             this.dr_card_2.Text = "卡2：";
+            this.dr_card_2.TextChanged += new System.EventHandler(this.dr_card_2_TextChanged);
             // 
             // dr_card_1
             // 
@@ -533,6 +535,7 @@
             this.dr_card_1.Size = new System.Drawing.Size(35, 12);
             this.dr_card_1.TabIndex = 30;
             this.dr_card_1.Text = "卡1：";
+            this.dr_card_1.TextChanged += new System.EventHandler(this.dr_card_1_TextChanged);
             // 
             // wulimofa_2
             // 

@@ -917,8 +917,67 @@ namespace low
             }
         }
 
+        private void dr_card_1_TextChanged(object sender, EventArgs e)
+        {
+            if (diren_1 != null)
+            {
+                if (diren_1.sdk > 100000)
+                {
+                    //dr_card_1.Font = new Font(Font.FontFamily, Font.Size, System.Drawing.FontStyle.Bold);
+                    dr_card_1.ForeColor = Color.Blue;
+                }
+                else if (diren_1.sdk > 70000)
+                {
+                    dr_card_1.ForeColor = Color.Red;
+                }
+                else
+                {
+                    dr_card_1.ForeColor = Color.Black;
+                }
 
-        
+            }
+        }
+
+        private void dr_card_2_TextChanged(object sender, EventArgs e)
+        {
+            if (diren_2 != null)
+            {
+                if (diren_2.sdk > 100000)
+                {
+                    dr_card_2.ForeColor = Color.Blue;
+                }
+                else if (diren_2.sdk > 70000)
+                {
+                    dr_card_2.ForeColor = Color.Red;
+                }
+                else
+                {
+                    dr_card_2.ForeColor = Color.Black;
+                }
+
+            }
+        }
+
+        private void dr_card_3_TextChanged(object sender, EventArgs e)
+        {
+            if (diren_3 != null)
+            {
+                if (diren_3.sdk > 100000)
+                {
+                    dr_card_3.ForeColor = Color.Blue;
+                }
+                else if (diren_3.sdk > 70000)
+                {
+                    dr_card_3.ForeColor = Color.Red;
+                }
+                else
+                {
+                    dr_card_3.ForeColor = Color.Black;
+                }
+
+            }
+        }
+
         
     }
 
