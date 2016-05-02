@@ -177,7 +177,7 @@ namespace low
             card_dict.Add("祈祷師タスク", card_obj.祈祷師タスク);
             card_dict.Add("大魔術師ルーニア", card_obj.大魔術師ルーニア);
             card_dict.Add("暴風乙姫エリカ", card_obj.暴風乙姫エリカ);
-            card_dict.Add("異界の叡智HD7", card_obj.異界の叡智HD7);
+            card_dict.Add("異界の叡智ＨＤ７", card_obj.異界の叡智HD7);
             card_dict.Add("浄化の風アイリス", card_obj.浄化の風アイリス);
             card_dict.Add("聖獣びゃっこ", card_obj.聖獣びゃっこ);
             card_dict.Add("魔銃使いキャロル", card_obj.魔銃使いキャロル);
@@ -185,7 +185,7 @@ namespace low
             card_dict.Add("盲目の風使いサラ", card_obj.盲目の風使いサラ);
             card_dict.Add("砂浜三天使☆クゥ", card_obj.砂浜三天使Xクゥ);
             card_dict.Add("渚の魔女テレサ", card_obj.渚の魔女テレサ);
-            card_dict.Add("異界の響智HD7", card_obj.異界の響智HD7);
+            card_dict.Add("異界の響智ＨＤ７", card_obj.異界の響智HD7);
             card_dict.Add("響く雷声千鶴", card_obj.響く雷声千鶴);
             card_dict.Add("ぱんく☆びゃっこ", card_obj.ぱんくXびゃっこ);
             card_dict.Add("マジカル☆エリカ", card_obj.マジカルXエリカ);
@@ -2263,6 +2263,7 @@ namespace low
             card_tupo_dict.Add("89236889", "女盾神アイオーン");
 
             card_tupo_dict.Add("54244891", "闘魂注入ハナ");
+            card_tupo_dict.Add("16293892", "闘魂注入ハナ");
 
             card_tupo_dict.Add("78251894", "闇刻王姫カミーラ");
             card_tupo_dict.Add("53234895", "廃墟の主ポリン");
@@ -2418,7 +2419,12 @@ namespace low
             card_tupo_dict.Add("83211145", "幻影火蝶ファム");  //强化
 
             card_tupo_dict.Add("52221161", "禁忌ダークティオ");
+            card_tupo_dict.Add("68211147", "禁忌ダークティオ");
+
+
             card_tupo_dict.Add("49291162", "純白回帰ティオ");
+            card_tupo_dict.Add("29271148", "純白回帰ティオ");
+
             card_tupo_dict.Add("51221149", "菓子魔導師ファム");
             card_tupo_dict.Add("80291150", "角灯せいりゅう");
             card_tupo_dict.Add("92221151", "ハロウィンリーザ");

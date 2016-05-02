@@ -46,8 +46,8 @@ namespace low
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            this.Text = "lowb对战计算器" + Application.ProductVersion;
+
+            this.Text = "ロードオブワルキューレ对战计算器" + Application.ProductVersion;
 
 
             Chushihua.chushihua();
@@ -219,7 +219,7 @@ namespace low
                     }
                     else
                     {
-                        log_list.Items.Insert(0,DateTime.Now.ToLongTimeString().ToString() + "\t" + "似乎炸了。错误代码");
+                        log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "似乎炸了。错误代码" + oS.responseCode);
                         //Console.WriteLine("似乎炸了。错误代码{0}", oS.responseCode);
                     }
                 }
