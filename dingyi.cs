@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace low
 {
@@ -118,5 +119,85 @@ namespace low
         }
 
     }
+
+    /// <summary>
+    /// 卡xml配置
+    /// </summary>
+    public class Carddata
+    {
+        //数组定义： 0   1   2   3   4   5   6
+        //         无印 2m  4m  凸  凸+ 極  極+（放弃，预留）
+        public class Atk
+        {
+            public double[] Base = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+            public double[] coef = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+        }
+        public class Satk
+        {
+            public double[] Base = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+            public double[] coef = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+        }
+
+        public string name;
+
+        public string combinename;
+
+        public string combinesubname;
+
+        public string type;
+
+        public string eletype;
+
+        public double[] elevalue = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+        public double[] level = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+        public Atk atk = new Atk();
+
+        public Satk satk = new Satk();
+
+        public double[] sk = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+        public double[] ct = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+        public double[] ba = new double[7] { -1, -1, -1, -1, -1, -1, -1 };
+
+        public static void shuzuchuli(ref double[] array, XmlNodeList list)
+        {
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].InnerText.ToString() != "")
+                {
+                    array[i] = Convert.ToDouble(list[i].InnerText);
+                }
+                else
+                {
+                    array[i] = -1;
+                }
+
+            }
+        }
+
+        public static void limitchuli(ref double[] array, XmlNodeList list)
+        {
+            if (list.Count != 0)
+            {
+                array[4] = Convert.ToDouble(list[0].InnerText);
+            }
+        }
+
+        public static void combinechuli(ref double[] array, XmlNodeList list, int type)
+        {
+            if (list.Count != 0)
+            {
+                array[type] = Convert.ToDouble(list[0].InnerText);
+            }
+        }
+
+    }
+
 
 }

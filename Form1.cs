@@ -1,4 +1,5 @@
 ﻿using Fiddler;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,22 +18,27 @@ namespace low
 {
     public partial class Form1 : Form
     {
-         static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        public static string SqlConnectionString = @"server=aliyun.sakurazxw.win;Database=low_calc;user id=root@;Password=395431120aA;port=9306;";
+        MySqlConnection msqlConnection = new MySqlConnection(SqlConnectionString);
+        MySqlCommand cmd = new MySqlCommand();
 
-         static string port = config.AppSettings.Settings["port"].Value;
 
-         static int iPort = Convert.ToInt32(port);   //开启端口
+        static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-         static kssm ziji=null;
-         static card ziji_1 = null;
-         static card ziji_2 = null;
-         static card ziji_3 = null;
-         static kssm diren = null;
-         static card diren_1 = null;
-         static card diren_2 = null;
-         static card diren_3 = null;
+        static string port = config.AppSettings.Settings["port"].Value;
 
-        public static int jieguo_data=0;
+        static int iPort = Convert.ToInt32(port);   //开启端口
+
+        static kssm ziji = null;
+        static card ziji_1 = null;
+        static card ziji_2 = null;
+        static card ziji_3 = null;
+        static kssm diren = null;
+        static card diren_1 = null;
+        static card diren_2 = null;
+        static card diren_3 = null;
+
+        public static int jieguo_data = 0;
 
         public Form1()
         {
@@ -39,7 +46,7 @@ namespace low
             Control.CheckForIllegalCrossThreadCalls = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void jisuan_Click(object sender, EventArgs e)
         {
             jisuan_click();
         }
@@ -49,8 +56,11 @@ namespace low
 
             this.Text = "ロードオブワルキューレ对战计算器" + Application.ProductVersion;
 
+            msqlConnection.Open();
+            cmd.Connection = msqlConnection;
 
-            Chushihua.chushihua();
+            card_xml.cardzhuangzai();
+
             ka1_cb_1.SelectedIndex = 0;
             ka2_cb_1.SelectedIndex = 0;
             ka3_cb_1.SelectedIndex = 0;
@@ -63,9 +73,6 @@ namespace low
             List<Fiddler.Session> oAllSessions = new List<Fiddler.Session>();
             Fiddler.Session amfshuju;
 
-            //Fiddler.FiddlerApplication.SetAppDisplayName("FiddlerCoreDemoApp");   //命名，没啥卵用
-
-
             Fiddler.FiddlerApplication.AfterSessionComplete += delegate(Fiddler.Session oS)
             {
                 //确定返回值正确
@@ -76,140 +83,62 @@ namespace low
                         amfshuju = oS;
                         fiddler.decodeamf(amfshuju);
 
-                        if (fiddler.Exceptionflag==false)
+                        if (fiddler.Exceptionflag == false)
                         {
-                        #region 数据输入
+                            #region 数据输入
 
-                        if (fiddler.zt_flag==0)
-                        {
-                            youshou_1.Text = fiddler.r_hand_x_name;
-                            zuoshou_1.Text = fiddler.l_hand_x_name;
-                            ti_1.Text = fiddler.yifu_x_name;
-                            zhi_1.Text = fiddler.ring_x_name;
-                            shou_1.Text = fiddler.necklace_x_name;
+                            if (fiddler.zt_flag == 0)
+                            {
+                                youshou_1.Text = fiddler.r_hand_x_name;
+                                zuoshou_1.Text = fiddler.l_hand_x_name;
+                                yifu_1.Text = fiddler.yifu_x_name;
+                                zhilun_1.Text = fiddler.ring_x_name;
+                                shou_1.Text = fiddler.necklace_x_name;
 
-                            ka1_1.Text = fiddler.card1_name;
+                                int index;
 
-                            if (fiddler.card1_name!="")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card1_id))
-                                {
-                                    ka1_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card1_class);
-                                }
-                                else
-                                {
-                                    ka1_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card1_class) - 1;
-                                }
-                            }
-                            else
-                            {
-                                ka1_cb_1.SelectedIndex = 0;
-                            }
-                            
+                                ka1_1.Text = fiddler.card1_name;
+                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, out index);
+                                ka1_cb_1.SelectedIndex = index;
 
-                            ka2_1.Text = fiddler.card2_name;
-                            if (fiddler.card2_name != "")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card2_id))
-                                {
-                                    ka2_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card2_class);
-                                }
-                                else
-                                {
-                                    ka2_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card2_class) - 1;
-                                }
-                            }
-                            else
-                            {
-                                ka2_cb_1.SelectedIndex = 0;
-                            }
+                                ka2_1.Text = fiddler.card2_name;
+                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, out index);
+                                ka2_cb_1.SelectedIndex = index;
 
-                            ka3_1.Text = fiddler.card3_name;
-                            if (fiddler.card3_name != "")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card3_id))
-                                {
-                                    ka3_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card3_class);
-                                }
-                                else
-                                {
-                                    ka3_cb_1.SelectedIndex = Convert.ToInt32(fiddler.card3_class) - 1;
-                                }
+                                ka3_1.Text = fiddler.card3_name;
+                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, out index);
+                                ka3_cb_1.SelectedIndex = index;
+
+                                zj_chaxun_click();
                             }
-                            else
+                            else if (fiddler.zt_flag == 1)
                             {
-                                ka3_cb_1.SelectedIndex = 0;
+                                youshou_2.Text = fiddler.r_hand_x_name;
+                                zuoshou_2.Text = fiddler.l_hand_x_name;
+                                yifu_2.Text = fiddler.yifu_x_name;
+                                zhilun_2.Text = fiddler.ring_x_name;
+                                shou_2.Text = fiddler.necklace_x_name;
+
+                                int index;
+                                ka1_2.Text = fiddler.card1_name;
+                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, out index);
+                                ka1_cb_2.SelectedIndex = index;
+
+                                ka2_2.Text = fiddler.card2_name;
+                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, out index);
+                                ka2_cb_2.SelectedIndex = index;
+
+                                ka3_2.Text = fiddler.card3_name;
+                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, out index);
+                                ka3_cb_2.SelectedIndex = index;
+
+
+                                dr_chaxun_click();
+                                jisuan_click();
                             }
 
 
-                            zj_chaxun_click();
-                        }
-                        else if (fiddler.zt_flag==1)
-                        {
-                            youshou_2.Text = fiddler.r_hand_x_name;
-                            zuoshou_2.Text = fiddler.l_hand_x_name;
-                            ti_2.Text = fiddler.yifu_x_name;
-                            zhi_2.Text = fiddler.ring_x_name;
-                            shou_2.Text = fiddler.necklace_x_name;
-
-                            ka1_2.Text = fiddler.card1_name;
-                            if (fiddler.card1_name != "")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card1_id))
-                                {
-                                    ka1_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card1_class);
-                                }
-                                else
-                                {
-                                    ka1_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card1_class) - 1;
-                                }
-                            }
-                            else
-                            {
-                                ka1_cb_2.SelectedIndex = 0;
-                            }
-
-                            ka2_2.Text = fiddler.card2_name;
-                            if (fiddler.card2_name != "")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card2_id))
-                                {
-                                    ka2_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card2_class);
-                                }
-                                else
-                                {
-                                    ka2_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card2_class) - 1;
-                                }
-                            }
-                            else
-                            {
-                                ka2_cb_2.SelectedIndex = 0;
-                            }
-
-                            ka3_2.Text = fiddler.card3_name;
-                            if (fiddler.card3_name != "")
-                            {
-                                if (Dict.card_tupo_dict.ContainsKey(fiddler.card3_id))
-                                {
-                                    ka3_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card3_class);
-                                }
-                                else
-                                {
-                                    ka3_cb_2.SelectedIndex = Convert.ToInt32(fiddler.card3_class) - 1;
-                                }
-                            }
-                            else
-                            {
-                                ka3_cb_2.SelectedIndex = 0;
-                            }
-
-
-                            dr_chaxun_click();
-                            jisuan_click();
-                        }
-                        
-                        
-                        #endregion
+                            #endregion
                         }
                         else
                         {
@@ -228,8 +157,8 @@ namespace low
             //Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { Console.WriteLine("** LogString: " + oLEA.LogString); };
 
             Fiddler.FiddlerApplication.Log.OnLogString += delegate(object sender1, LogEventArgs oLEA) { log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "** LogString: " + oLEA.LogString); };
-            
-            
+
+
             Fiddler.FiddlerApplication.BeforeRequest += delegate(Fiddler.Session oS)
             {
                 if (fiddler.pxorysetting == "")
@@ -262,12 +191,12 @@ namespace low
             FiddlerCoreStartupFlags oFCSF = FiddlerCoreStartupFlags.None;
 
 
-            
+
             string port = config.AppSettings.Settings["port"].Value;
 
             int iPort = Convert.ToInt32(port);   //开启端口
 
-            jiantingduankou.Text = "监听端口："+iPort;
+            jiantingduankou.Text = "监听端口：" + iPort;
 
 
             Fiddler.FiddlerApplication.Startup(iPort, oFCSF);
@@ -282,311 +211,17 @@ namespace low
 
         }
 
-        private void zj_chaxun_Click(object sender, EventArgs e)
-        {
-            zj_chaxun_click();
-        }
-
-        private void dr_chaxun_Click(object sender, EventArgs e)
-        {
-            dr_chaxun_click();
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            fiddler.DoQuit();
-        }
-
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked==true)
-            {
-                fiddler.pxorysetting = pxorydizhi.Text.ToString() + ":" + pxoryduankou.Text.ToString();
-                if (fiddler.pxorysetting!=":")
-                {
-                    
-                    pxoryzhuangtai.Text = "启动代理：" + fiddler.pxorysetting;
-                }
-                else
-                {
-                    fiddler.pxorysetting = "";
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
-                    pxoryzhuangtai.Text = "未使用代理";
-                }
-            }
-            else
-            {
-                fiddler.pxorysetting = "";
-                pxoryzhuangtai.Text = "未使用代理";
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            //this.Hide();
-            f2.ShowDialog();
-            this.Show();
-            System.Configuration.ConfigurationManager.RefreshSection("appSettings");
-
-            config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            if (config.AppSettings.Settings["port"].Value!=port)
-            {
-                if (MessageBox.Show("监听端口已修改，是否重启程序？"," 提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
-                {
-                    //重启
-                    Application.Restart();
-                }
-                else
-                {
-                    //不重启
-                    MessageBox.Show("监听端口设置在下次生效");
-                }
-                
-            }
-        }
-
-
-
         public void zj_chaxun_click()
         {
-            #region 武器查询
-            if (youshou_1.Text.ToString().IndexOf('+') == -1)
-            {
+            zhuangbeichaxun("右手", youshou_1.Text, out Chushihua.wuqi_name, out  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
+            zhuangbeichaxun("左手", zuoshou_1.Text, out Chushihua.dun_name, out  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
+            zhuangbeichaxun("衣服", yifu_1.Text, out Chushihua.yifu_name, out  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
+            zhuangbeichaxun("指轮", zhilun_1.Text, out Chushihua.zhilun_name, out  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
+            zhuangbeichaxun("首", shou_1.Text, out Chushihua.shou_name, out  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
 
-                Chushihua.wuqi_name = youshou_1.Text.ToString();
-                Chushihua.wuqi_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.wuqi_name = youshou_1.Text.ToString().Substring(0, (youshou_1.Text.ToString().IndexOf('+') - 1));
-                Chushihua.wuqi_qianghua = int.Parse(youshou_1.Text.ToString().Substring((youshou_1.Text.ToString().IndexOf('+') + 1), ((youshou_1.Text.ToString().Length - (youshou_1.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.wuqi_name != "")
-            {
-                if (Dict.wuqi_dict.ContainsKey(Chushihua.wuqi_name))
-                {
-                    Dict.wuqi_dict.TryGetValue(Chushihua.wuqi_name, out Chushihua.wuqi_duiying);
-                }
-                else
-                {
-                    //炸了
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-
-                    Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
-                }
-            }
-            else
-            {
-                Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
-            }
-            #endregion
-
-            #region 盾查询
-
-            if (zuoshou_1.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.dun_name = zuoshou_1.Text.ToString();
-                Chushihua.dun_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.dun_name = zuoshou_1.Text.ToString().Substring(0, (zuoshou_1.Text.ToString().IndexOf('+') - 1));
-                Chushihua.dun_qianghua = int.Parse(zuoshou_1.Text.ToString().Substring((zuoshou_1.Text.ToString().IndexOf('+') + 1), ((zuoshou_1.Text.ToString().Length - (zuoshou_1.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-
-            if (Chushihua.dun_name != "")
-            {
-                if (Dict.dun_dict.ContainsKey(Chushihua.dun_name))
-                {
-                    Dict.dun_dict.TryGetValue(Chushihua.dun_name, out Chushihua.dun_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-
-                    Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
-            }
-            #endregion
-
-            #region 衣服查询
-
-            if (ti_1.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.yifu_name = ti_1.Text.ToString();
-                Chushihua.yifu_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.yifu_name = ti_1.Text.ToString().Substring(0, (ti_1.Text.ToString().IndexOf('+') - 1));
-                Chushihua.yifu_qianghua = int.Parse(ti_1.Text.ToString().Substring((ti_1.Text.ToString().IndexOf('+') + 1), ((ti_1.Text.ToString().Length - (ti_1.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.yifu_name != "")
-            {
-                if (Dict.yifu_dict.ContainsKey(Chushihua.yifu_name))
-                {
-                    Dict.yifu_dict.TryGetValue(Chushihua.yifu_name, out Chushihua.yifu_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
-            }
-            #endregion
-
-            #region 指查询
-
-            if (zhi_1.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.zhi_name = zhi_1.Text.ToString();
-                Chushihua.zhi_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.zhi_name = zhi_1.Text.ToString().Substring(0, (zhi_1.Text.ToString().IndexOf('+') - 1));
-                Chushihua.zhi_qianghua = int.Parse(zhi_1.Text.ToString().Substring((zhi_1.Text.ToString().IndexOf('+') + 1), ((zhi_1.Text.ToString().Length - (zhi_1.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.zhi_name != "")
-            {
-                if (Dict.zhi_dict.ContainsKey(Chushihua.zhi_name))
-                {
-                    Dict.zhi_dict.TryGetValue(Chushihua.zhi_name, out Chushihua.zhi_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
-            }
-            #endregion
-
-            #region 首查询
-
-            if (shou_1.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.shou_name = shou_1.Text.ToString();
-                Chushihua.shou_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.shou_name = shou_1.Text.ToString().Substring(0, (shou_1.Text.ToString().IndexOf('+') - 1));
-                Chushihua.shou_qianghua = int.Parse(shou_1.Text.ToString().Substring((shou_1.Text.ToString().IndexOf('+') + 1), ((shou_1.Text.ToString().Length - (shou_1.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.shou_name != "")
-            {
-                if (Dict.shou_dict.ContainsKey(Chushihua.shou_name))
-                {
-                    Dict.shou_dict.TryGetValue(Chushihua.shou_name, out Chushihua.shou_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
-            }
-            #endregion
-
-            #region 卡1查询
-            Chushihua.card1_name = ka1_1.Text.ToString();
-            Chushihua.card1_jieduan = ka1_cb_1.SelectedIndex;
-            if (Chushihua.card1_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card1_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card1_name, out Chushihua.card1_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-                    Chushihua.card1_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-                Chushihua.card1_jieduan = 0;
-            }
-            #endregion
-
-            #region 卡2查询
-            Chushihua.card2_name = ka2_1.Text.ToString();
-            Chushihua.card2_jieduan = ka2_cb_1.SelectedIndex;
-            if (Chushihua.card2_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card2_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card2_name, out Chushihua.card2_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-                    Chushihua.card2_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-                Chushihua.card2_jieduan = 0;
-            }
-            #endregion
-
-            #region 卡3查询
-            Chushihua.card3_name = ka3_1.Text.ToString();
-            Chushihua.card3_jieduan = ka3_cb_1.SelectedIndex;
-            if (Chushihua.card3_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card3_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card3_name, out Chushihua.card3_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-                    Chushihua.card3_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-                Chushihua.card3_jieduan = 0;
-            }
-            #endregion
+            cardchaxun("卡1", ka1_1.Text, ka1_cb_1.SelectedIndex, out Chushihua.card1_name, out Chushihua.card1_jieduan, ref Chushihua.card1_duiying);
+            cardchaxun("卡2", ka2_1.Text, ka2_cb_1.SelectedIndex, out Chushihua.card2_name, out Chushihua.card2_jieduan, ref Chushihua.card2_duiying);
+            cardchaxun("卡3", ka3_1.Text, ka3_cb_1.SelectedIndex, out Chushihua.card3_name, out Chushihua.card3_jieduan, ref Chushihua.card3_duiying);
 
 
             ziji = kssmzhuangzai.peizhi();
@@ -600,11 +235,9 @@ namespace low
             shuxing_1.Text = "属性:" + ziji.shuxingzhi + " " + ziji.shuxingtype;
             wulimofa_1.Text = "" + ziji.kssm_wmtype;
 
-
             ziji_1 = cardzhuangzai.peizhi(Chushihua.card1_duiying, Chushihua.card1_jieduan);
             ziji_2 = cardzhuangzai.peizhi(Chushihua.card2_duiying, Chushihua.card2_jieduan);
             ziji_3 = cardzhuangzai.peizhi(Chushihua.card3_duiying, Chushihua.card3_jieduan);
-
 
             zj_card_1.Text = "卡1：\nad" + ziji_1.atk
                 + "\nsd" + ziji_1.sdk
@@ -624,245 +257,20 @@ namespace low
                 + "\nB值" + ziji_3.balance
                 + "\nC值" + ziji_3.critical
                 + "\n属性" + ziji_3.shuxingtype + ziji_3.shuxingzhi;
-
         }
 
         public void dr_chaxun_click()
         {
-            #region 武器查询
-            if (youshou_2.Text.ToString().IndexOf('+') == -1)
-            {
+            zhuangbeichaxun("右手", youshou_2.Text, out Chushihua.wuqi_name, out  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
+            zhuangbeichaxun("左手", zuoshou_2.Text, out Chushihua.dun_name, out  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
+            zhuangbeichaxun("衣服", yifu_2.Text, out Chushihua.yifu_name, out  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
+            zhuangbeichaxun("指轮", zhilun_2.Text, out Chushihua.zhilun_name, out  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
+            zhuangbeichaxun("首", shou_2.Text, out Chushihua.shou_name, out  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
 
-                Chushihua.wuqi_name = youshou_2.Text.ToString();
-                Chushihua.wuqi_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.wuqi_name = youshou_2.Text.ToString().Substring(0, (youshou_2.Text.ToString().IndexOf('+') - 1));
-                Chushihua.wuqi_qianghua = int.Parse(youshou_2.Text.ToString().Substring((youshou_2.Text.ToString().IndexOf('+') + 1), ((youshou_2.Text.ToString().Length - (youshou_2.Text.ToString().IndexOf('+') + 1)))));
-            }
+            cardchaxun("卡1", ka1_2.Text, ka1_cb_2.SelectedIndex, out Chushihua.card1_name, out Chushihua.card1_jieduan, ref Chushihua.card1_duiying);
+            cardchaxun("卡2", ka2_2.Text, ka2_cb_2.SelectedIndex, out Chushihua.card2_name, out Chushihua.card2_jieduan, ref Chushihua.card2_duiying);
+            cardchaxun("卡3", ka3_2.Text, ka3_cb_2.SelectedIndex, out Chushihua.card3_name, out Chushihua.card3_jieduan, ref Chushihua.card3_duiying);
 
-            if (Chushihua.wuqi_name != "")
-            {
-                if (Dict.wuqi_dict.ContainsKey(Chushihua.wuqi_name))
-                {
-                    Dict.wuqi_dict.TryGetValue(Chushihua.wuqi_name, out Chushihua.wuqi_duiying);
-                }
-                else
-                {
-                    //炸了
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "武器未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-
-                    Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
-                }
-            }
-            else
-            {
-                Dict.wuqi_dict.TryGetValue("なし", out Chushihua.wuqi_duiying);
-            }
-            #endregion
-
-            #region 盾查询
-
-            if (zuoshou_2.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.dun_name = zuoshou_2.Text.ToString();
-                Chushihua.dun_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.dun_name = zuoshou_2.Text.ToString().Substring(0, (zuoshou_2.Text.ToString().IndexOf('+') - 1));
-                Chushihua.dun_qianghua = int.Parse(zuoshou_2.Text.ToString().Substring((zuoshou_2.Text.ToString().IndexOf('+') + 1), ((zuoshou_2.Text.ToString().Length - (zuoshou_2.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-
-            if (Chushihua.dun_name != "")
-            {
-                if (Dict.dun_dict.ContainsKey(Chushihua.dun_name))
-                {
-                    Dict.dun_dict.TryGetValue(Chushihua.dun_name, out Chushihua.dun_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "盾未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.dun_dict.TryGetValue("なし", out Chushihua.dun_duiying);
-            }
-            #endregion
-
-            #region 衣服查询
-
-            if (ti_2.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.yifu_name = ti_2.Text.ToString();
-                Chushihua.yifu_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.yifu_name = ti_2.Text.ToString().Substring(0, (ti_2.Text.ToString().IndexOf('+') - 1));
-                Chushihua.yifu_qianghua = int.Parse(ti_2.Text.ToString().Substring((ti_2.Text.ToString().IndexOf('+') + 1), ((ti_2.Text.ToString().Length - (ti_2.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.yifu_name != "")
-            {
-                if (Dict.yifu_dict.ContainsKey(Chushihua.yifu_name))
-                {
-                    Dict.yifu_dict.TryGetValue(Chushihua.yifu_name, out Chushihua.yifu_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "衣服未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.yifu_dict.TryGetValue("なし", out Chushihua.yifu_duiying);
-            }
-            #endregion
-
-            #region 指查询
-
-            if (zhi_2.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.zhi_name = zhi_2.Text.ToString();
-                Chushihua.zhi_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.zhi_name = zhi_2.Text.ToString().Substring(0, (zhi_2.Text.ToString().IndexOf('+') - 1));
-                Chushihua.zhi_qianghua = int.Parse(zhi_2.Text.ToString().Substring((zhi_2.Text.ToString().IndexOf('+') + 1), ((zhi_2.Text.ToString().Length - (zhi_2.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.zhi_name != "")
-            {
-                if (Dict.zhi_dict.ContainsKey(Chushihua.zhi_name))
-                {
-                    Dict.zhi_dict.TryGetValue(Chushihua.zhi_name, out Chushihua.zhi_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "戒指未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.zhi_dict.TryGetValue("なし", out Chushihua.zhi_duiying);
-            }
-            #endregion
-
-            #region 首查询
-
-            if (shou_2.Text.ToString().IndexOf('+') == -1)
-            {
-
-                Chushihua.shou_name = shou_2.Text.ToString();
-                Chushihua.shou_qianghua = 0;
-            }
-            else
-            {
-                Chushihua.shou_name = shou_2.Text.ToString().Substring(0, (shou_2.Text.ToString().IndexOf('+') - 1));
-                Chushihua.shou_qianghua = int.Parse(shou_2.Text.ToString().Substring((shou_2.Text.ToString().IndexOf('+') + 1), ((shou_2.Text.ToString().Length - (shou_2.Text.ToString().IndexOf('+') + 1)))));
-            }
-
-            if (Chushihua.shou_name != "")
-            {
-                if (Dict.shou_dict.ContainsKey(Chushihua.shou_name))
-                {
-                    Dict.shou_dict.TryGetValue(Chushihua.shou_name, out Chushihua.shou_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "项链未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
-
-                }
-            }
-            else
-            {
-                Dict.shou_dict.TryGetValue("なし", out Chushihua.shou_duiying);
-            }
-            #endregion
-
-            #region 卡1查询
-            Chushihua.card1_name = ka1_2.Text.ToString();
-            Chushihua.card1_jieduan = ka1_cb_2.SelectedIndex;
-            if (Chushihua.card1_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card1_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card1_name, out Chushihua.card1_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡1未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-                    Chushihua.card1_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card1_duiying);
-                Chushihua.card1_jieduan = 0;
-            }
-            #endregion
-
-            #region 卡2查询
-            Chushihua.card2_name = ka2_2.Text.ToString();
-            Chushihua.card2_jieduan = ka2_cb_2.SelectedIndex;
-            if (Chushihua.card2_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card2_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card2_name, out Chushihua.card2_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡2未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-                    Chushihua.card2_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card2_duiying);
-                Chushihua.card2_jieduan = 0;
-            }
-            #endregion
-
-            #region 卡3查询
-            Chushihua.card3_name = ka3_2.Text.ToString();
-            Chushihua.card3_jieduan = ka3_cb_2.SelectedIndex;
-            if (Chushihua.card3_name != "")
-            {
-                if (Dict.card_dict.ContainsKey(Chushihua.card3_name))
-                {
-                    Dict.card_dict.TryGetValue(Chushihua.card3_name, out Chushihua.card3_duiying);
-                }
-                else
-                {
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "卡3未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-                    Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-                    Chushihua.card3_jieduan = 0;
-                }
-            }
-            else
-            {
-                Dict.card_dict.TryGetValue("なし", out Chushihua.card3_duiying);
-                Chushihua.card3_jieduan = 0;
-            }
-            #endregion
 
 
             diren = kssmzhuangzai.peizhi();
@@ -916,6 +324,156 @@ namespace low
                 jieguo.Text = jieguo_data.ToString() + "/10000";
             }
         }
+
+
+
+        public void zhuangbeichaxun(string type, string name, out string dataname, out int dataqianghua, ref int[] dataduiying)
+        {
+            if (name.IndexOf('+') == -1)
+            {
+
+                dataname = name;
+                dataqianghua = 0;
+            }
+            else
+            {
+                dataname = name.Substring(0, (name.IndexOf('+') - 1));
+                dataqianghua = int.Parse(name.Substring((name.IndexOf('+') + 1), ((name.Length - (name.IndexOf('+') + 1)))));
+            }
+
+
+            if (dataname != "")
+            {
+                if (type == "指轮" || type == "首")
+                {
+                    cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum from " + type + " where name='" + dataname + "';";
+
+                }
+                else
+                {
+                    cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum,type from " + type + " where name='" + dataname + "';";
+                }
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                DataTable dt = new DataTable();
+                dt = ds.Tables[0];
+
+                if (dt.Rows.Count != 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    for (int i = 0; i < dr.ItemArray.Length; i++)
+                    {
+                        dataduiying[i] = Convert.ToInt32(dr[i]);
+                    }
+                }
+                else
+                {
+                    //炸了
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + type + "未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+
+                    dataduiying = new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0 };
+                }
+            }
+            else
+            {
+                dataduiying = new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0 };
+            }
+        }
+
+
+        public void cardchaxun(string type, string name, int index, out string dataname, out int datajieduan, ref Carddata dataduiying)
+        {
+            name=Regex.Replace(name,@"[☆★！=＝?·・Ｐ＄/]","X");
+            
+            int dataindex = 0;
+            dataname = name;
+            datajieduan = index;
+            if (dataname != "")
+            {
+                if (index == 5)
+                {
+
+                    if (card_xml.heti_dict.ContainsKey(dataname))
+                    {
+                        card_xml.heti_dict.TryGetValue(dataname, out dataindex);
+                        dataduiying = card_xml.card_list[dataindex];
+                    }
+                    else
+                    {
+                        //error
+                        dataduiying = card_xml.card_list[0];
+                        datajieduan = 0;
+                    }
+                }
+                else
+                {
+                    dataindex = card_xml.listchaxun(dataname, card_xml.card_list);
+                    if (dataindex != 0)
+                    {
+                        dataduiying = card_xml.card_list[dataindex];
+                    }
+                    else
+                    {
+                        log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + type + "未找到，检查是否输入错误\n如未在列表中找到，请回帖报告");
+                        dataduiying = card_xml.card_list[0];
+                        datajieduan = 0;
+                    }
+                }
+            }
+            else
+            {
+                dataduiying = card_xml.card_list[0];
+                datajieduan = 0;
+            }
+        }
+
+        public void cardindexchaxun(string name, string id, string cardclass, out int index)
+        {
+            if (name != "")
+            {
+                cmd.CommandText = "select * from 合体卡 where id='" + id + "';";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count != 0)
+                {
+                    index = 5;
+                }
+                else
+                {
+                    cmd.CommandText = "select * from 限突 where id='" + id + "';";
+                    adap = new MySqlDataAdapter(cmd);
+                    adap.Fill(ds);
+                    if (ds.Tables[0].Rows.Count != 0)
+                    {
+                        index = 4;
+                    }
+                    else
+                    {
+                        cmd.CommandText = "select * from 突破 where id='" + id + "';";
+                        adap = new MySqlDataAdapter(cmd);
+                        adap.Fill(ds);
+                        if (ds.Tables[0].Rows.Count != 0)
+                        {
+                            index = 3;
+                        }
+                        else
+                        {
+                            index = Convert.ToInt32(cardclass) - 1;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                index = 0;
+            }
+        }
+
+
 
         private void dr_card_1_TextChanged(object sender, EventArgs e)
         {
@@ -978,7 +536,71 @@ namespace low
             }
         }
 
-        
+        private void zj_chaxun_Click(object sender, EventArgs e)
+        {
+            zj_chaxun_click();
+        }
+
+        private void dr_chaxun_Click(object sender, EventArgs e)
+        {
+            dr_chaxun_click();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            fiddler.DoQuit();
+            msqlConnection.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                fiddler.pxorysetting = pxorydizhi.Text.ToString() + ":" + pxoryduankou.Text.ToString();
+                if (fiddler.pxorysetting != ":")
+                {
+
+                    pxoryzhuangtai.Text = "启动代理：" + fiddler.pxorysetting;
+                }
+                else
+                {
+                    fiddler.pxorysetting = "";
+                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "代理地址有误");
+                    pxoryzhuangtai.Text = "未使用代理";
+                }
+            }
+            else
+            {
+                fiddler.pxorysetting = "";
+                pxoryzhuangtai.Text = "未使用代理";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            //this.Hide();
+            f2.ShowDialog();
+            this.Show();
+            System.Configuration.ConfigurationManager.RefreshSection("appSettings");
+
+            config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            if (config.AppSettings.Settings["port"].Value != port)
+            {
+                if (MessageBox.Show("监听端口已修改，是否重启程序？", " 提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    //重启
+                    Application.Restart();
+                }
+                else
+                {
+                    //不重启
+                    MessageBox.Show("监听端口设置在下次生效");
+                }
+
+            }
+        }
     }
 
 
