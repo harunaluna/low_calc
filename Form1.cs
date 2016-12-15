@@ -329,6 +329,8 @@ namespace low
 
         public void zhuangbeichaxun(string type, string name, out string dataname, out int dataqianghua, ref int[] dataduiying)
         {
+            
+
             if (name.IndexOf('+') == -1)
             {
 
@@ -385,6 +387,7 @@ namespace low
         public void cardchaxun(string type, string name, int index, out string dataname, out int datajieduan, ref Carddata dataduiying)
         {
             name=Regex.Replace(name,@"[☆★！=＝?·・Ｐ＄/]","X");
+            name = Regex.Replace(name, @"ＨＤ７", "HD7");
             
             int dataindex = 0;
             dataname = name;

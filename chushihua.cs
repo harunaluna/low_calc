@@ -372,17 +372,17 @@ namespace low
             {
                 if (jieduan == 0 || jieduan == 3 || jieduan == 4)
                 {
-
+ 
                     if (type == "ad")
                     {
-                        benjimax = (int)(max * 0.1 * 2 + duiying.atk.Base[jieduan]);
-                        benjimax = (int)(benjimax * (1 + duiying.atk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+                        benjimax = (int)(max * 0.1 * 2 + tiaojie(duiying.atk.Base,jieduan));
+                        benjimax = (int)(benjimax * (1 + tiaojie(duiying.atk.coef, jieduan) * (tiaojie(duiying.level, jieduan) - 1)));
                         return benjimax;
                     }
                     else
                     {
-                        benjimax = (int)(max * 0.1 * 2 + duiying.satk.Base[jieduan]);
-                        benjimax = (int)(benjimax * (1 + duiying.satk.coef[jieduan] * (duiying.level[jieduan] - 1)));
+                        benjimax = (int)(max * 0.1 * 2 + tiaojie(duiying.satk.Base, jieduan));
+                        benjimax = (int)(benjimax * (1 + tiaojie(duiying.satk.coef, jieduan) * (tiaojie(duiying.level, jieduan) - 1)));
                         return benjimax;
                     }
 
@@ -405,7 +405,7 @@ namespace low
             return benjimax;
         }
 
-        public static int heti_adsdjisuan(string type, int jieduan, Carddata duiying)
+        public  static int heti_adsdjisuan(string type, int jieduan, Carddata duiying)
         {
             int temp;
             int benjimax = 0;
@@ -428,6 +428,16 @@ namespace low
 
             }
             return benjimax;
+        }
+
+        public static double tiaojie(double[] duiying, int jieduan)
+        {
+            int t = jieduan;
+            while (duiying[t] == -1)
+            {
+                t = t - 1;
+            }
+            return duiying[t];
         }
 
     }
