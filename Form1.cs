@@ -55,9 +55,17 @@ namespace low
         {
 
             this.Text = "ロードオブワルキューレ对战计算器" + Application.ProductVersion;
+            try
+            {
+                msqlConnection.Open();
+                cmd.Connection = msqlConnection;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("数据库连接失败,请重新打开软件（仍无效说明服务器已挂，暂时无法使用）");
+                this.Close();
+            }
 
-            msqlConnection.Open();
-            cmd.Connection = msqlConnection;
 
             card_xml.cardzhuangzai();
 
@@ -95,18 +103,18 @@ namespace low
                                 zhilun_1.Text = fiddler.ring_x_name;
                                 shou_1.Text = fiddler.necklace_x_name;
 
-                                int index;
+                                int index=0;
 
                                 ka1_1.Text = fiddler.card1_name;
-                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, out index);
+                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, ref index);
                                 ka1_cb_1.SelectedIndex = index;
 
                                 ka2_1.Text = fiddler.card2_name;
-                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, out index);
+                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, ref index);
                                 ka2_cb_1.SelectedIndex = index;
 
                                 ka3_1.Text = fiddler.card3_name;
-                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, out index);
+                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, ref index);
                                 ka3_cb_1.SelectedIndex = index;
 
                                 zj_chaxun_click();
@@ -119,17 +127,17 @@ namespace low
                                 zhilun_2.Text = fiddler.ring_x_name;
                                 shou_2.Text = fiddler.necklace_x_name;
 
-                                int index;
+                                int index = 0 ;
                                 ka1_2.Text = fiddler.card1_name;
-                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, out index);
+                                cardindexchaxun(fiddler.card1_name, fiddler.card1_id, fiddler.card1_class, ref index);
                                 ka1_cb_2.SelectedIndex = index;
 
                                 ka2_2.Text = fiddler.card2_name;
-                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, out index);
+                                cardindexchaxun(fiddler.card2_name, fiddler.card2_id, fiddler.card2_class, ref index);
                                 ka2_cb_2.SelectedIndex = index;
 
                                 ka3_2.Text = fiddler.card3_name;
-                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, out index);
+                                cardindexchaxun(fiddler.card3_name, fiddler.card3_id, fiddler.card3_class, ref index);
                                 ka3_cb_2.SelectedIndex = index;
 
 
@@ -213,11 +221,11 @@ namespace low
 
         public void zj_chaxun_click()
         {
-            zhuangbeichaxun("右手", youshou_1.Text, out Chushihua.wuqi_name, out  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
-            zhuangbeichaxun("左手", zuoshou_1.Text, out Chushihua.dun_name, out  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
-            zhuangbeichaxun("衣服", yifu_1.Text, out Chushihua.yifu_name, out  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
-            zhuangbeichaxun("指轮", zhilun_1.Text, out Chushihua.zhilun_name, out  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
-            zhuangbeichaxun("首", shou_1.Text, out Chushihua.shou_name, out  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
+            zhuangbeichaxun("右手", youshou_1.Text, ref Chushihua.wuqi_name, ref  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
+            zhuangbeichaxun("左手", zuoshou_1.Text, ref Chushihua.dun_name, ref  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
+            zhuangbeichaxun("衣服", yifu_1.Text, ref Chushihua.yifu_name, ref  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
+            zhuangbeichaxun("指轮", zhilun_1.Text, ref Chushihua.zhilun_name, ref  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
+            zhuangbeichaxun("首", shou_1.Text, ref Chushihua.shou_name, ref  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
 
             cardchaxun("卡1", ka1_1.Text, ka1_cb_1.SelectedIndex, out Chushihua.card1_name, out Chushihua.card1_jieduan, ref Chushihua.card1_duiying);
             cardchaxun("卡2", ka2_1.Text, ka2_cb_1.SelectedIndex, out Chushihua.card2_name, out Chushihua.card2_jieduan, ref Chushihua.card2_duiying);
@@ -261,11 +269,11 @@ namespace low
 
         public void dr_chaxun_click()
         {
-            zhuangbeichaxun("右手", youshou_2.Text, out Chushihua.wuqi_name, out  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
-            zhuangbeichaxun("左手", zuoshou_2.Text, out Chushihua.dun_name, out  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
-            zhuangbeichaxun("衣服", yifu_2.Text, out Chushihua.yifu_name, out  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
-            zhuangbeichaxun("指轮", zhilun_2.Text, out Chushihua.zhilun_name, out  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
-            zhuangbeichaxun("首", shou_2.Text, out Chushihua.shou_name, out  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
+            zhuangbeichaxun("右手", youshou_2.Text, ref Chushihua.wuqi_name, ref  Chushihua.wuqi_qianghua, ref Chushihua.wuqi_duiying);
+            zhuangbeichaxun("左手", zuoshou_2.Text, ref Chushihua.dun_name, ref  Chushihua.dun_qianghua, ref Chushihua.dun_duiying);
+            zhuangbeichaxun("衣服", yifu_2.Text, ref Chushihua.yifu_name, ref  Chushihua.yifu_qianghua, ref Chushihua.yifu_duiying);
+            zhuangbeichaxun("指轮", zhilun_2.Text, ref Chushihua.zhilun_name, ref  Chushihua.zhilun_qianghua, ref Chushihua.zhilun_duiying);
+            zhuangbeichaxun("首", shou_2.Text, ref Chushihua.shou_name, ref  Chushihua.shou_qianghua, ref Chushihua.shou_duiying);
 
             cardchaxun("卡1", ka1_2.Text, ka1_cb_2.SelectedIndex, out Chushihua.card1_name, out Chushihua.card1_jieduan, ref Chushihua.card1_duiying);
             cardchaxun("卡2", ka2_2.Text, ka2_cb_2.SelectedIndex, out Chushihua.card2_name, out Chushihua.card2_jieduan, ref Chushihua.card2_duiying);
@@ -327,68 +335,73 @@ namespace low
 
 
 
-        public void zhuangbeichaxun(string type, string name, out string dataname, out int dataqianghua, ref int[] dataduiying)
+        public void zhuangbeichaxun(string type, string name, ref string dataname, ref int dataqianghua, ref int[] dataduiying)
         {
-            
-
-            if (name.IndexOf('+') == -1)
+            try
             {
-
-                dataname = name;
-                dataqianghua = 0;
-            }
-            else
-            {
-                dataname = name.Substring(0, (name.IndexOf('+') - 1));
-                dataqianghua = int.Parse(name.Substring((name.IndexOf('+') + 1), ((name.Length - (name.IndexOf('+') + 1)))));
-            }
-
-
-            if (dataname != "")
-            {
-                if (type == "指轮" || type == "首")
+                if (name.IndexOf('+') == -1)
                 {
-                    cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum from " + type + " where name='" + dataname + "';";
 
+                    dataname = name;
+                    dataqianghua = 0;
                 }
                 else
                 {
-                    cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum,type from " + type + " where name='" + dataname + "';";
+                    dataname = name.Substring(0, (name.IndexOf('+') - 1));
+                    dataqianghua = int.Parse(name.Substring((name.IndexOf('+') + 1), ((name.Length - (name.IndexOf('+') + 1)))));
                 }
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adap.Fill(ds);
-                DataTable dt = new DataTable();
-                dt = ds.Tables[0];
 
-                if (dt.Rows.Count != 0)
+
+                if (dataname != "")
                 {
-                    DataRow dr = dt.Rows[0];
-                    for (int i = 0; i < dr.ItemArray.Length; i++)
+                    if (type == "指轮" || type == "首")
                     {
-                        dataduiying[i] = Convert.ToInt32(dr[i]);
+                        cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum from " + type + " where name='" + dataname + "';";
+
+                    }
+                    else
+                    {
+                        cmd.CommandText = "select atk,matk,def,mdef,C,B,eletype,elenum,type from " + type + " where name='" + dataname + "';";
+                    }
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adap.Fill(ds);
+                    DataTable dt = new DataTable();
+                    dt = ds.Tables[0];
+
+                    if (dt.Rows.Count != 0)
+                    {
+                        DataRow dr = dt.Rows[0];
+                        for (int i = 0; i < dr.ItemArray.Length; i++)
+                        {
+                            dataduiying[i] = Convert.ToInt32(dr[i]);
+                        }
+                    }
+                    else
+                    {
+                        //炸了
+                        log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + type + "未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
+
+                        dataduiying = new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0 };
                     }
                 }
                 else
                 {
-                    //炸了
-                    log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + type + "未找到，检查是否输入错误\n如未在列表中找到，请回帖报告\n(默认按无装备替代)");
-
                     dataduiying = new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0 };
                 }
             }
-            else
+            catch (Exception)
             {
-                dataduiying = new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0 };
+                log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "数据库连接出现错误");
             }
         }
 
 
         public void cardchaxun(string type, string name, int index, out string dataname, out int datajieduan, ref Carddata dataduiying)
         {
-            name=Regex.Replace(name,@"[☆★！=＝?·・Ｐ＄/]","X");
+            name = Regex.Replace(name, @"[☆★！=＝?·・Ｐ＄/]", "X");
             name = Regex.Replace(name, @"ＨＤ７", "HD7");
-            
+
             int dataindex = 0;
             dataname = name;
             datajieduan = index;
@@ -431,49 +444,58 @@ namespace low
             }
         }
 
-        public void cardindexchaxun(string name, string id, string cardclass, out int index)
+        public void cardindexchaxun(string name, string id, string cardclass, ref int index)
         {
-            if (name != "")
+            try
             {
-                cmd.CommandText = "select * from 合体卡 where id='" + id + "';";
-
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adap.Fill(ds);
-
-                if (ds.Tables[0].Rows.Count != 0)
+                if (name != "")
                 {
-                    index = 5;
-                }
-                else
-                {
-                    cmd.CommandText = "select * from 限突 where id='" + id + "';";
-                    adap = new MySqlDataAdapter(cmd);
+                    cmd.CommandText = "select * from 合体卡 where id='" + id + "';";
+
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
                     adap.Fill(ds);
+
                     if (ds.Tables[0].Rows.Count != 0)
                     {
-                        index = 4;
+                        index = 5;
                     }
                     else
                     {
-                        cmd.CommandText = "select * from 突破 where id='" + id + "';";
+                        cmd.CommandText = "select * from 限突 where id='" + id + "';";
                         adap = new MySqlDataAdapter(cmd);
                         adap.Fill(ds);
                         if (ds.Tables[0].Rows.Count != 0)
                         {
-                            index = 3;
+                            index = 4;
                         }
                         else
                         {
-                            index = Convert.ToInt32(cardclass) - 1;
+                            cmd.CommandText = "select * from 突破 where id='" + id + "';";
+                            adap = new MySqlDataAdapter(cmd);
+                            adap.Fill(ds);
+                            if (ds.Tables[0].Rows.Count != 0)
+                            {
+                                index = 3;
+                            }
+                            else
+                            {
+                                index = Convert.ToInt32(cardclass) - 1;
+                            }
                         }
                     }
                 }
+                else
+                {
+                    index = 0;
+                }
             }
-            else
+            catch (Exception)
             {
-                index = 0;
+
+                log_list.Items.Insert(0, DateTime.Now.ToLongTimeString().ToString() + "\t" + "数据库连接出现错误");
             }
+            
         }
 
 
