@@ -16,7 +16,8 @@ namespace low
         public static void cardzhuangzai()
         {
             XmlDocument card_data = new XmlDocument();
-            card_data.Load(@"D:\sakura\Downloads\dmm\data_walkure\xml\12.13.xml");
+            string xml_address = Form1.config.AppSettings.Settings["xml"].Value;
+            card_data.Load(xml_address);
             XmlNode root = card_data.SelectSingleNode("root");
             XmlNodeList card_data_list = root.ChildNodes;
 
@@ -157,9 +158,6 @@ namespace low
                 //card_dict.Add(carddata.name, card_list.Count);
                 card_list.Add(carddata);
             }
-
-
-
         }
 
 

@@ -149,13 +149,13 @@ namespace low
                 Hashtable equip = null;
                 ArrayList setcard = null;
 
-                Hashtable battle = null;
-                ArrayList attack = null;
-                ArrayList e_attack = null;
-
-                Hashtable b_setcards = null;
-                ArrayList b_setcard = null;
-                ArrayList b_e_setcard = null;
+//                 Hashtable battle = null;
+//                 ArrayList attack = null;
+//                 ArrayList e_attack = null;
+// 
+//                 Hashtable b_setcards = null;
+//                 ArrayList b_setcard = null;
+//                 ArrayList b_e_setcard = null;
 
 
 

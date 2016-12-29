@@ -23,7 +23,7 @@ namespace low
         MySqlCommand cmd = new MySqlCommand();
 
 
-        static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        public static Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
         static string port = config.AppSettings.Settings["port"].Value;
 
