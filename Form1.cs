@@ -401,6 +401,7 @@ namespace low
         {
             name = Regex.Replace(name, @"[☆★！=＝?·・Ｐ＄/]", "X");
             name = Regex.Replace(name, @"ＨＤ７", "HD7");
+            name = Regex.Replace(name, @"HD７", "HD7");
 
             int dataindex = 0;
             dataname = name;
